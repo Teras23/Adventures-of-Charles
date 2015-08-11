@@ -7,12 +7,13 @@ public class TileEditor : EditorWindow {
 
     private Object tilemap;
     private Vector2 selectedTile = new Vector2(0, 0);
-    private Object selectTileTexture;
+    private static Object selectTileTexture;
     private static Sprite testSprite;
     private static Object parent;
     private static bool enableGrid = true;
     private static Vector2 gridStart = new Vector2(0, 0);
     private static Vector2 gridLenght = new Vector2(10, 10);
+    private static bool editmode = false;
 
     [MenuItem("Window/Tile Editor")]
     public static void ShowWindow() {
@@ -24,6 +25,7 @@ public class TileEditor : EditorWindow {
 
         parent = EditorGUILayout.ObjectField("Select parent of tiles:", parent, typeof(GameObject), true);
         enableGrid = EditorGUILayout.Toggle("Enable grid", enableGrid);
+        editmode = EditorGUILayout.Toggle("Enable editing", editmode);
         gridStart = EditorGUILayout.Vector2Field("Grid start", gridStart);
         gridLenght = EditorGUILayout.Vector2Field("Grid lenght", gridLenght);
         tilemap = EditorGUILayout.ObjectField("Select Tilemap:", tilemap, typeof(Texture), false);
@@ -70,17 +72,17 @@ public class TileEditor : EditorWindow {
 
     static void OnSceneGUI(SceneView aView) {
         Event evt = Event.current;
-        if(evt.type == EventType.mouseDown && evt.button == 0) {
+        if(evt.type == EventType.mouseDown && evt.button == 0 && editmode) {
             Vector2 mousePos = Event.current.mousePosition;
             GameObject newTile = new GameObject();
             newTile.AddComponent<SpriteRenderer>();
-            newTile.GetComponent<SpriteRenderer>().sprite = testSprite;
+            newTile.GetComponent<SpriteRenderer>().sprite = selectTileTexture as Sprite;
             mousePos.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePos.y;
             Vector2 realPos = SceneView.currentDrawingSceneView.camera.ScreenPointToRay(mousePos).origin;
             newTile.transform.position = new Vector3(Mathf.Floor(realPos.x / 0.32f) * 0.32f, Mathf.Floor(realPos.y / 0.32f) * 0.32f, 0);
             if(parent != null)
                 newTile.transform.parent = (parent as GameObject).transform;
-            newTile.name = testSprite.name;
+            newTile.name = selectTileTexture.name;
         }
     }
 }
