@@ -1,72 +1,73 @@
 fileFormatVersion: 2
-guid: c9139a86acab37144b67f784c9b5e797
-timeCreated: 1439232229
+guid: 963825b6b1a65794bbc6f60b2e4415f6
+timeCreated: 1439288702
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tilemap_0
-    21300002: tilemap_1
-    21300004: tilemap_2
-    21300006: tilemap_3
-    21300008: tilemap_4
-    21300010: tilemap_5
-    21300012: tilemap_6
-    21300014: tilemap_7
-    21300016: tilemap_8
-    21300018: tilemap_9
-    21300020: tilemap_10
-    21300022: tilemap_11
-    21300024: tilemap_12
-    21300026: tilemap_13
-    21300028: tilemap_14
-    21300030: tilemap_15
-    21300032: tilemap_16
-    21300034: tilemap_17
-    21300036: tilemap_18
-    21300038: tilemap_19
-    21300040: tilemap_20
-    21300042: tilemap_21
-    21300044: tilemap_22
-    21300046: tilemap_23
-    21300048: tilemap_24
-    21300050: tilemap_25
-    21300052: tilemap_26
-    21300054: tilemap_27
-    21300056: tilemap_28
-    21300058: tilemap_29
-    21300060: tilemap_30
-    21300062: tilemap_31
-    21300064: tilemap_32
-    21300066: tilemap_33
-    21300068: tilemap_34
-    21300070: tilemap_35
-    21300072: tilemap_36
-    21300074: tilemap_37
-    21300076: tilemap_38
-    21300078: tilemap_39
-    21300080: tilemap_40
-    21300082: tilemap_41
-    21300084: tilemap_42
-    21300086: tilemap_43
-    21300088: tilemap_44
-    21300090: tilemap_45
-    21300092: tilemap_46
-    21300094: tilemap_47
-    21300096: tilemap_48
-    21300098: tilemap_49
-    21300100: tilemap_50
-    21300102: tilemap_51
-    21300104: tilemap_52
-    21300106: tilemap_53
-    21300108: tilemap_54
-    21300110: tilemap_55
-    21300112: tilemap_56
-    21300114: tilemap_57
-    21300116: tilemap_58
-    21300118: tilemap_59
-    21300120: tilemap_60
-    21300122: tilemap_61
-    21300124: tilemap_62
+    21300000: tilemap_start_0
+    21300002: tilemap_start_1
+    21300004: tilemap_start_2
+    21300006: tilemap_start_3
+    21300008: tilemap_start_4
+    21300010: tilemap_start_5
+    21300012: tilemap_start_6
+    21300014: tilemap_start_7
+    21300016: tilemap_start_8
+    21300018: tilemap_start_9
+    21300020: tilemap_start_10
+    21300022: tilemap_start_11
+    21300024: tilemap_start_12
+    21300026: tilemap_start_13
+    21300028: tilemap_start_14
+    21300030: tilemap_start_15
+    21300032: tilemap_start_16
+    21300034: tilemap_start_17
+    21300036: tilemap_start_18
+    21300038: tilemap_start_19
+    21300040: tilemap_start_20
+    21300042: tilemap_start_21
+    21300044: tilemap_start_22
+    21300046: tilemap_start_23
+    21300048: tilemap_start_24
+    21300050: tilemap_start_25
+    21300052: tilemap_start_26
+    21300054: tilemap_start_27
+    21300056: tilemap_start_28
+    21300058: tilemap_start_29
+    21300060: tilemap_start_30
+    21300062: tilemap_start_31
+    21300064: tilemap_start_32
+    21300066: tilemap_start_33
+    21300068: tilemap_start_34
+    21300070: tilemap_start_35
+    21300072: tilemap_start_36
+    21300074: tilemap_start_37
+    21300076: tilemap_start_38
+    21300078: tilemap_start_39
+    21300080: tilemap_start_40
+    21300082: tilemap_start_41
+    21300084: tilemap_start_42
+    21300086: tilemap_start_43
+    21300088: tilemap_start_44
+    21300090: tilemap_start_45
+    21300092: tilemap_start_46
+    21300094: tilemap_start_47
+    21300096: tilemap_start_48
+    21300098: tilemap_start_49
+    21300100: tilemap_start_50
+    21300102: tilemap_start_51
+    21300104: tilemap_start_52
+    21300106: tilemap_start_53
+    21300108: tilemap_start_54
+    21300110: tilemap_start_55
+    21300112: tilemap_start_56
+    21300114: tilemap_start_57
+    21300116: tilemap_start_58
+    21300118: tilemap_start_59
+    21300120: tilemap_start_60
+    21300122: tilemap_start_61
+    21300124: tilemap_start_62
+    21300126: tilemap_start_63
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -89,10 +90,10 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -3
-  maxTextureSize: 256
+  textureFormat: -1
+  maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -112,7 +113,17 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: tilemap_0
+    - name: tilemap_start_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tilemap_start_1
       rect:
         serializedVersion: 2
         x: 32
@@ -122,7 +133,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_1
+    - name: tilemap_start_2
       rect:
         serializedVersion: 2
         x: 64
@@ -132,7 +143,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_2
+    - name: tilemap_start_3
       rect:
         serializedVersion: 2
         x: 96
@@ -142,7 +153,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_3
+    - name: tilemap_start_4
       rect:
         serializedVersion: 2
         x: 128
@@ -152,7 +163,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_4
+    - name: tilemap_start_5
       rect:
         serializedVersion: 2
         x: 160
@@ -162,7 +173,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_5
+    - name: tilemap_start_6
       rect:
         serializedVersion: 2
         x: 192
@@ -172,7 +183,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_6
+    - name: tilemap_start_7
       rect:
         serializedVersion: 2
         x: 224
@@ -182,7 +193,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_7
+    - name: tilemap_start_8
       rect:
         serializedVersion: 2
         x: 0
@@ -192,7 +203,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_8
+    - name: tilemap_start_9
       rect:
         serializedVersion: 2
         x: 32
@@ -202,7 +213,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_9
+    - name: tilemap_start_10
       rect:
         serializedVersion: 2
         x: 64
@@ -212,7 +223,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_10
+    - name: tilemap_start_11
       rect:
         serializedVersion: 2
         x: 96
@@ -222,7 +233,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_11
+    - name: tilemap_start_12
       rect:
         serializedVersion: 2
         x: 128
@@ -232,7 +243,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_12
+    - name: tilemap_start_13
       rect:
         serializedVersion: 2
         x: 160
@@ -242,7 +253,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_13
+    - name: tilemap_start_14
       rect:
         serializedVersion: 2
         x: 192
@@ -252,7 +263,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_14
+    - name: tilemap_start_15
       rect:
         serializedVersion: 2
         x: 224
@@ -262,7 +273,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_15
+    - name: tilemap_start_16
       rect:
         serializedVersion: 2
         x: 0
@@ -272,7 +283,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_16
+    - name: tilemap_start_17
       rect:
         serializedVersion: 2
         x: 32
@@ -282,7 +293,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_17
+    - name: tilemap_start_18
       rect:
         serializedVersion: 2
         x: 64
@@ -292,7 +303,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_18
+    - name: tilemap_start_19
       rect:
         serializedVersion: 2
         x: 96
@@ -302,7 +313,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_19
+    - name: tilemap_start_20
       rect:
         serializedVersion: 2
         x: 128
@@ -312,7 +323,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_20
+    - name: tilemap_start_21
       rect:
         serializedVersion: 2
         x: 160
@@ -322,7 +333,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_21
+    - name: tilemap_start_22
       rect:
         serializedVersion: 2
         x: 192
@@ -332,7 +343,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_22
+    - name: tilemap_start_23
       rect:
         serializedVersion: 2
         x: 224
@@ -342,7 +353,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_23
+    - name: tilemap_start_24
       rect:
         serializedVersion: 2
         x: 0
@@ -352,7 +363,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_24
+    - name: tilemap_start_25
       rect:
         serializedVersion: 2
         x: 32
@@ -362,7 +373,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_25
+    - name: tilemap_start_26
       rect:
         serializedVersion: 2
         x: 64
@@ -372,7 +383,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_26
+    - name: tilemap_start_27
       rect:
         serializedVersion: 2
         x: 96
@@ -382,7 +393,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_27
+    - name: tilemap_start_28
       rect:
         serializedVersion: 2
         x: 128
@@ -392,7 +403,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_28
+    - name: tilemap_start_29
       rect:
         serializedVersion: 2
         x: 160
@@ -402,7 +413,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_29
+    - name: tilemap_start_30
       rect:
         serializedVersion: 2
         x: 192
@@ -412,7 +423,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_30
+    - name: tilemap_start_31
       rect:
         serializedVersion: 2
         x: 224
@@ -422,7 +433,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_31
+    - name: tilemap_start_32
       rect:
         serializedVersion: 2
         x: 0
@@ -432,7 +443,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_32
+    - name: tilemap_start_33
       rect:
         serializedVersion: 2
         x: 32
@@ -442,7 +453,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_33
+    - name: tilemap_start_34
       rect:
         serializedVersion: 2
         x: 64
@@ -452,7 +463,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_34
+    - name: tilemap_start_35
       rect:
         serializedVersion: 2
         x: 96
@@ -462,7 +473,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_35
+    - name: tilemap_start_36
       rect:
         serializedVersion: 2
         x: 128
@@ -472,7 +483,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_36
+    - name: tilemap_start_37
       rect:
         serializedVersion: 2
         x: 160
@@ -482,7 +493,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_37
+    - name: tilemap_start_38
       rect:
         serializedVersion: 2
         x: 192
@@ -492,7 +503,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_38
+    - name: tilemap_start_39
       rect:
         serializedVersion: 2
         x: 224
@@ -502,7 +513,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_39
+    - name: tilemap_start_40
       rect:
         serializedVersion: 2
         x: 0
@@ -512,7 +523,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_40
+    - name: tilemap_start_41
       rect:
         serializedVersion: 2
         x: 32
@@ -522,7 +533,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_41
+    - name: tilemap_start_42
       rect:
         serializedVersion: 2
         x: 64
@@ -532,7 +543,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_42
+    - name: tilemap_start_43
       rect:
         serializedVersion: 2
         x: 96
@@ -542,7 +553,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_43
+    - name: tilemap_start_44
       rect:
         serializedVersion: 2
         x: 128
@@ -552,7 +563,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_44
+    - name: tilemap_start_45
       rect:
         serializedVersion: 2
         x: 160
@@ -562,7 +573,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_45
+    - name: tilemap_start_46
       rect:
         serializedVersion: 2
         x: 192
@@ -572,7 +583,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_46
+    - name: tilemap_start_47
       rect:
         serializedVersion: 2
         x: 224
@@ -582,7 +593,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_47
+    - name: tilemap_start_48
       rect:
         serializedVersion: 2
         x: 0
@@ -592,7 +603,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_48
+    - name: tilemap_start_49
       rect:
         serializedVersion: 2
         x: 32
@@ -602,7 +613,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_49
+    - name: tilemap_start_50
       rect:
         serializedVersion: 2
         x: 64
@@ -612,7 +623,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_50
+    - name: tilemap_start_51
       rect:
         serializedVersion: 2
         x: 96
@@ -622,7 +633,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_51
+    - name: tilemap_start_52
       rect:
         serializedVersion: 2
         x: 128
@@ -632,7 +643,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_52
+    - name: tilemap_start_53
       rect:
         serializedVersion: 2
         x: 160
@@ -642,7 +653,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_53
+    - name: tilemap_start_54
       rect:
         serializedVersion: 2
         x: 192
@@ -652,7 +663,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_54
+    - name: tilemap_start_55
       rect:
         serializedVersion: 2
         x: 224
@@ -662,7 +673,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_55
+    - name: tilemap_start_56
       rect:
         serializedVersion: 2
         x: 0
@@ -672,7 +683,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_56
+    - name: tilemap_start_57
       rect:
         serializedVersion: 2
         x: 32
@@ -682,7 +693,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_57
+    - name: tilemap_start_58
       rect:
         serializedVersion: 2
         x: 64
@@ -692,7 +703,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_58
+    - name: tilemap_start_59
       rect:
         serializedVersion: 2
         x: 96
@@ -702,7 +713,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_59
+    - name: tilemap_start_60
       rect:
         serializedVersion: 2
         x: 128
@@ -712,7 +723,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_60
+    - name: tilemap_start_61
       rect:
         serializedVersion: 2
         x: 160
@@ -722,7 +733,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_61
+    - name: tilemap_start_62
       rect:
         serializedVersion: 2
         x: 192
@@ -732,7 +743,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tilemap_62
+    - name: tilemap_start_63
       rect:
         serializedVersion: 2
         x: 224

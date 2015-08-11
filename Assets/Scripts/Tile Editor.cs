@@ -10,6 +10,9 @@ public class TileEditor : EditorWindow {
     private Object selectTileTexture;
     private static Sprite testSprite;
     private static Object parent;
+    private static bool enableGrid = true;
+    private static Vector2 gridStart = new Vector2(0, 0);
+    private static Vector2 gridLenght = new Vector2(10, 10);
 
     [MenuItem("Window/Tile Editor")]
     public static void ShowWindow() {
@@ -20,34 +23,41 @@ public class TileEditor : EditorWindow {
         Event evt = Event.current;
 
         parent = EditorGUILayout.ObjectField("Select parent of tiles:", parent, typeof(GameObject), true);
+        enableGrid = EditorGUILayout.Toggle("Enable grid", enableGrid);
+        gridStart = EditorGUILayout.Vector2Field("Grid start", gridStart);
+        gridLenght = EditorGUILayout.Vector2Field("Grid lenght", gridLenght);
         tilemap = EditorGUILayout.ObjectField("Select Tilemap:", tilemap, typeof(Texture), false);
         selectTileTexture = EditorGUILayout.ObjectField("Select sprite to draw:", selectTileTexture, typeof(Sprite), false);
 
         if(tilemap != null) {
-            Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(tilemap)).OfType<Sprite>().ToArray();
+            Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(tilemap)).Select(x => x as Sprite).Where(x => x != null).ToArray();	
+
             GUILayout.Label(tilemap as Texture);
             Rect tilemapRect = GUILayoutUtility.GetLastRect();
             testSprite = sprites[0];
 
             if(evt.isMouse) {
                 Vector2 mousePos = evt.mousePosition;
-                selectTileTexture = sprites[(int)selectedTile.x] as Object;
                 selectedTile = new Vector2(Mathf.Floor((mousePos.x - tilemapRect.x) / 32), Mathf.Floor((mousePos.y - tilemapRect.y) / 32));
+                if(selectedTile.x < 8 && selectedTile.x > -1 && selectedTile.y < 8 && selectedTile.y > -1) {
+                    selectTileTexture = sprites[(int)selectedTile.x + (int)selectedTile.y * 8] as Object;
+                    Repaint();
+                }
             }
         }
     }
 
     [DrawGizmo(GizmoType.NotInSelectionHierarchy)]
     static void RenderCustomGizmo(Transform objectTransform, GizmoType gizmoType) {
-        int lineamount = 50;
-        int linelenght = 100;
 
-        for(int i = 0; i < 10; ++i) {
-            Gizmos.DrawLine(new Vector3(-linelenght, 0.32f * i, 0), new Vector3(linelenght, 0.32f * i, 0));
-        }
+        if(enableGrid) { 
+            for(int i = 0; i < gridLenght.y / 0.32f; ++i) {
+                Gizmos.DrawLine(new Vector3(gridStart.x, 0.32f * i, 0), new Vector3(gridLenght.x, 0.32f * i, 0));
+            }
 
-        for(int i = 0; i < 10; ++i) {
-            Gizmos.DrawLine(new Vector3(0.32f * i, -linelenght, 0), new Vector3(0.32f * i, linelenght, 0));
+            for(int i = 0; i < gridLenght.x / 0.32f; ++i) {
+                Gizmos.DrawLine(new Vector3(0.32f * i, gridStart.y, 0), new Vector3(0.32f * i, gridLenght.y, 0));
+            }
         }
     }
 
