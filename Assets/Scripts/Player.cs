@@ -24,6 +24,10 @@ public class Player : MonoBehaviour {
 		//Move();
 	}
 
+    void LateUpdate() {
+        //transform.position = new Vector3((int)(transform.position.x / 0.01f) * 0.01f, (int)(transform.position.y / 0.01f) * 0.01f, transform.position.z);
+    }
+
     void Move() {
         if(moveDirection == 2) {
             

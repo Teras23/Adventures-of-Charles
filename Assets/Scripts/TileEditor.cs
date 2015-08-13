@@ -42,7 +42,6 @@ public class TileEditor : EditorWindow {
         currentLayer = EditorGUILayout.IntSlider("Current layer", currentLayer, 0, layers - 1);
 
         tilemap = EditorGUILayout.ObjectField("Select Tilemap:", tilemap, typeof(Texture), false);
-        //selectTileTexture = EditorGUILayout.ObjectField("Select sprite to draw:", selectTileTexture, typeof(Sprite), false);
 
         if(selectTileTexture != null)
             GUILayout.Label(selectTileTexture.name);
@@ -84,7 +83,6 @@ public class TileEditor : EditorWindow {
                 Vector2 mousePos = evt.mousePosition;
                 selectedTile = new Vector2(Mathf.Floor((mousePos.x - tilemapRect.x) / 32), Mathf.Floor((mousePos.y - tilemapRect.y) / 32));
                 if(selectedTile.x < 8 && selectedTile.x > -1 && selectedTile.y < 8 && selectedTile.y > -1) {
-                    //selectTileTexture = sprites[(int)selectedTile.x + (int)selectedTile.y * 8] as Object;
                     int tilenum = (int)selectedTile.x + (int)selectedTile.y * 8;
                     selectTileTexture = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/" + prefabFolder + "/" + tilemap.name + "/" + tilemap.name + "_" + tilenum + ".prefab");
                     Repaint();
@@ -122,7 +120,7 @@ public class TileEditor : EditorWindow {
             GameObject newTile = PrefabUtility.InstantiatePrefab(selectTileTexture) as GameObject;
             mousePos.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePos.y;
             Vector2 realPos = SceneView.currentDrawingSceneView.camera.ScreenPointToRay(mousePos).origin;
-            newTile.transform.position = new Vector3(Mathf.Floor(realPos.x / 0.32f) * 0.32f, Mathf.Floor(realPos.y / 0.32f) * 0.32f, 0);
+            newTile.transform.position = new Vector3((int)Mathf.Floor(realPos.x / 0.32f) * 0.32f, Mathf.Floor(realPos.y / 0.32f) * 0.32f, -currentLayer);
             if(parent != null)
                 newTile.transform.parent = GameObject.Find("Layer " + currentLayer).transform;
             newTile.name = selectTileTexture.name;

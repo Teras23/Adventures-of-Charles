@@ -5,6 +5,9 @@ public class GameController : MonoBehaviour {
 
     private int width, height;
 
+    public bool fixView = true;
+    public bool zoomedView = true;
+
 	void Start () {
         ChangeCameraSize();
         width = Screen.width;
@@ -20,6 +23,13 @@ public class GameController : MonoBehaviour {
 	}
 
     void ChangeCameraSize() {
-        Camera.main.orthographicSize = (Screen.height / 100f / 2.0f) / 2;
+        if(fixView) {
+            if(zoomedView) {
+                Camera.main.orthographicSize = (Screen.height / 100f / 2.0f) / 2;
+            }
+            else {
+                Camera.main.orthographicSize = (Screen.height / 100f / 2.0f);
+            }
+        }
     }
 }
