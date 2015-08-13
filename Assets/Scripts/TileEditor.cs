@@ -9,7 +9,7 @@ public class TileEditor : EditorWindow {
 
     public Object tilemap;
     public Vector2 selectedTile = new Vector2(0, 0);
-    public static Object selectTileTexture;
+    public static GameObject selectTileTexture;
     public static Object parent;
     public string parentName;
     public static bool enableGrid = true;
@@ -18,7 +18,10 @@ public class TileEditor : EditorWindow {
     public static bool editmode = false;
     [SerializeField]
     public static int layers;
+    [SerializeField]
     public static int currentLayer;
+    public string prefabFolder;
+    public Sprite[] sprites;
 
     [MenuItem("Window/Tile Editor")]
     public static void ShowWindow() {
@@ -29,6 +32,7 @@ public class TileEditor : EditorWindow {
         Event evt = Event.current;
 
         parentName = EditorGUILayout.TextField("Parent name", parentName);
+        prefabFolder = EditorGUILayout.TextField("Prefabs' location", prefabFolder);
         parent = EditorGUILayout.ObjectField("Select parent of tiles:", parent, typeof(GameObject), true);
         enableGrid = EditorGUILayout.Toggle("Enable grid", enableGrid);
         editmode = EditorGUILayout.Toggle("Enable editing", editmode);
@@ -38,7 +42,20 @@ public class TileEditor : EditorWindow {
         currentLayer = EditorGUILayout.IntSlider("Current layer", currentLayer, 0, layers - 1);
 
         tilemap = EditorGUILayout.ObjectField("Select Tilemap:", tilemap, typeof(Texture), false);
-        selectTileTexture = EditorGUILayout.ObjectField("Select sprite to draw:", selectTileTexture, typeof(Sprite), false);
+        //selectTileTexture = EditorGUILayout.ObjectField("Select sprite to draw:", selectTileTexture, typeof(Sprite), false);
+
+        if(selectTileTexture != null)
+            GUILayout.Label(selectTileTexture.name);
+
+        if(GUILayout.Button("Create prefabs")) {
+            //check if folder is there if not create required folders
+            foreach(Sprite tile in sprites) {
+                GameObject tilePrefab = new GameObject();
+                tilePrefab.AddComponent<SpriteRenderer>().sprite = tile;
+                PrefabUtility.CreatePrefab("Assets/" + prefabFolder + "/" + tilemap.name + "/" + tile.name + ".prefab", tilePrefab);
+                Object.DestroyImmediate(tilePrefab);
+            }
+        }
 
         if(parent == null && parentName != null) {
             parent = GameObject.Find(parentName);
@@ -58,7 +75,7 @@ public class TileEditor : EditorWindow {
         }
 
         if(tilemap != null) {
-            Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(tilemap)).Select(x => x as Sprite).Where(x => x != null).ToArray();	
+            sprites = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(tilemap)).Select(x => x as Sprite).Where(x => x != null).ToArray();	
 
             GUILayout.Label(tilemap as Texture);
             Rect tilemapRect = GUILayoutUtility.GetLastRect();
@@ -67,7 +84,9 @@ public class TileEditor : EditorWindow {
                 Vector2 mousePos = evt.mousePosition;
                 selectedTile = new Vector2(Mathf.Floor((mousePos.x - tilemapRect.x) / 32), Mathf.Floor((mousePos.y - tilemapRect.y) / 32));
                 if(selectedTile.x < 8 && selectedTile.x > -1 && selectedTile.y < 8 && selectedTile.y > -1) {
-                    selectTileTexture = sprites[(int)selectedTile.x + (int)selectedTile.y * 8] as Object;
+                    //selectTileTexture = sprites[(int)selectedTile.x + (int)selectedTile.y * 8] as Object;
+                    int tilenum = (int)selectedTile.x + (int)selectedTile.y * 8;
+                    selectTileTexture = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/" + prefabFolder + "/" + tilemap.name + "/" + tilemap.name + "_" + tilenum + ".prefab");
                     Repaint();
                 }
             }
@@ -98,10 +117,9 @@ public class TileEditor : EditorWindow {
     static void OnSceneGUI(SceneView aView) {
         Event evt = Event.current;
         if(evt.type == EventType.mouseDown && evt.button == 0 && editmode && selectTileTexture != null) {
+            //HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
             Vector2 mousePos = Event.current.mousePosition;
-            GameObject newTile = new GameObject();
-            newTile.AddComponent<SpriteRenderer>();
-            newTile.GetComponent<SpriteRenderer>().sprite = selectTileTexture as Sprite;
+            GameObject newTile = PrefabUtility.InstantiatePrefab(selectTileTexture) as GameObject;
             mousePos.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePos.y;
             Vector2 realPos = SceneView.currentDrawingSceneView.camera.ScreenPointToRay(mousePos).origin;
             newTile.transform.position = new Vector3(Mathf.Floor(realPos.x / 0.32f) * 0.32f, Mathf.Floor(realPos.y / 0.32f) * 0.32f, 0);
