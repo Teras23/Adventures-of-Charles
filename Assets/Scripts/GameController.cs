@@ -20,6 +20,6 @@ public class GameController : MonoBehaviour {
 	}
 
     void ChangeCameraSize() {
-        Camera.main.orthographicSize = (Screen.height / 100f / 2.0f);
+        Camera.main.orthographicSize = (Screen.height / 100f / 2.0f) / 2;
     }
 }

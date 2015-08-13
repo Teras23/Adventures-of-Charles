@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     int moveDirection;
-    private Rigidbody2D rigidbody;
+    private new Rigidbody2D rigidbody;
 
 
 	// Use this for initialization
