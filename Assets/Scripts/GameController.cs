@@ -25,10 +25,10 @@ public class GameController : MonoBehaviour {
     void ChangeCameraSize() {
         if(fixView) {
             if(zoomedView) {
-                Camera.main.orthographicSize = (Screen.height / 100f / 2.0f) / 2;
+                Camera.main.orthographicSize = (Screen.height / 64f / 2.0f) / 2;
             }
             else {
-                Camera.main.orthographicSize = (Screen.height / 100f / 2.0f);
+                Camera.main.orthographicSize = (Screen.height / 64f / 2.0f);
             }
         }
     }
