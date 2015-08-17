@@ -8,21 +8,24 @@ using System.Linq;
 [System.Serializable]
 public class TileEditor : EditorWindow {
 
+    public bool showProjectSettings;
+
+    public bool showEditorSettings;
+    public static bool enableGrid;
+    public static bool editmode;
+
     public Object tilemap;
     public Vector2 selectedTile = new Vector2(0, 0);
     public static GameObject selectTileTexture;
     public static Object parent;
     public string parentName;
-    public static bool enableGrid = true;
     public static Vector2 gridStart = new Vector2(0, 0);
     public static Vector2 gridLenght = new Vector2(10, 10);
-    public static bool editmode = false;
-    [SerializeField]
     public static int layers;
-    [SerializeField]
     public static int currentLayer;
     public string prefabFolder;
     public Sprite[] sprites;
+    public int tileSize;
 
     [MenuItem("Window/Tile Editor")]
     public static void ShowWindow() {
@@ -32,15 +35,32 @@ public class TileEditor : EditorWindow {
     void OnGUI() {
         Event evt = Event.current;
 
-        parentName = EditorGUILayout.TextField("Parent name", parentName);
-        prefabFolder = EditorGUILayout.TextField("Prefabs' location", prefabFolder);
-        parent = EditorGUILayout.ObjectField("Select parent of tiles:", parent, typeof(GameObject), true);
-        enableGrid = EditorGUILayout.Toggle("Enable grid", enableGrid);
-        editmode = EditorGUILayout.Toggle("Enable editing", editmode);
-        gridStart = EditorGUILayout.Vector2Field("Grid start", gridStart);
-        gridLenght = EditorGUILayout.Vector2Field("Grid lenght", gridLenght);
-        layers = EditorGUILayout.IntField("Amount of layers", layers);
+        showProjectSettings = EditorGUILayout.Foldout(showProjectSettings, "Project settings");
+
+        if(showProjectSettings) {
+            EditorGUI.indentLevel++;
+            layers = EditorGUILayout.IntField("Amount of layers", layers);
+            tileSize = EditorGUILayout.IntField("Size of tiles on screen", tileSize);
+            parentName = EditorGUILayout.TextField("Parent name", parentName);
+            prefabFolder = EditorGUILayout.TextField("Prefabs' location", prefabFolder);
+            parent = EditorGUILayout.ObjectField("Select parent of tiles:", parent, typeof(GameObject), true);
+            EditorGUI.indentLevel--;
+        }
+        EditorGUILayout.Space();
+
+        showEditorSettings = EditorGUILayout.Foldout(showEditorSettings, "Editor settings");
+
+        if(showEditorSettings) {
+            EditorGUI.indentLevel++;
+            enableGrid = EditorGUILayout.Toggle("Enable grid", enableGrid);
+            editmode = EditorGUILayout.Toggle("Enable editing", editmode);
+            EditorGUI.indentLevel--;
+        }
+
+        EditorGUILayout.Space();
+
         currentLayer = EditorGUILayout.IntSlider("Current layer", currentLayer, 0, layers - 1);
+        
 
         tilemap = EditorGUILayout.ObjectField("Select Tilemap:", tilemap, typeof(Texture), false);
 
@@ -95,13 +115,16 @@ public class TileEditor : EditorWindow {
     [DrawGizmo(GizmoType.NotInSelectionHierarchy)]
     static void RenderCustomGizmo(Transform objectTransform, GizmoType gizmoType) {
 
-        if(enableGrid) { 
-            for(int i = 0; i < gridLenght.y / 0.32f; ++i) {
-                Gizmos.DrawLine(new Vector3(gridStart.x, 0.32f * i, 0), new Vector3(gridLenght.x, 0.32f * i, 0));
+        Vector2 start = SceneView.currentDrawingSceneView.camera.ScreenToWorldPoint(Vector3.zero);
+        Vector2 end = SceneView.currentDrawingSceneView.camera.ScreenToWorldPoint(new Vector3(SceneView.currentDrawingSceneView.camera.pixelWidth, SceneView.currentDrawingSceneView.camera.pixelHeight, 0));
+
+        if(enableGrid && SceneView.currentDrawingSceneView.in2DMode) {
+            for(int i = 0; i < end.x - start.x; ++i) {
+                Gizmos.DrawLine(new Vector3((int)start.x + i, start.y, 0), new Vector3((int)start.x + i, end.y, 0));
             }
 
-            for(int i = 0; i < gridLenght.x / 0.32f; ++i) {
-                Gizmos.DrawLine(new Vector3(0.32f * i, gridStart.y, 0), new Vector3(0.32f * i, gridLenght.y, 0));
+            for(int i = 0; i < end.y - start.y; ++i) {
+                Gizmos.DrawLine(new Vector3(start.x, (int)start.y + i, 0), new Vector3(end.x, (int)start.y + i, 0));
             }
         }
     }
