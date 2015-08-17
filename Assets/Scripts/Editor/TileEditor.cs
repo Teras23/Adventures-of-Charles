@@ -12,7 +12,7 @@ public class TileEditor : EditorWindow {
     public string prefabFolder;
     public string parentName;
     public int tileSize;
-    public static int layers;
+    public int layers;
 
     public bool showEditorSettings;
     public static bool enableGrid;
@@ -23,7 +23,6 @@ public class TileEditor : EditorWindow {
     public static Object parent;
     public static int currentLayer;
     public Sprite[] sprites;
-    public static Ray theray;
     
 
     [MenuItem("Window/Tile Editor")]
@@ -57,6 +56,8 @@ public class TileEditor : EditorWindow {
         EditorGUILayout.Space();
 
         currentLayer = EditorGUILayout.IntSlider("Current layer", currentLayer, 0, layers - 1);
+
+        Debug.Log(layers);
 
         tilemap = EditorGUILayout.ObjectField("Select Tilemap:", tilemap, typeof(Texture), false);
 
@@ -114,7 +115,6 @@ public class TileEditor : EditorWindow {
                 Gizmos.DrawLine(new Vector3(start.x, (int)start.y + i, 0), new Vector3(end.x, (int)start.y + i, 0));
             }
         }
-        Gizmos.DrawRay(theray);
     }
 
     void OnEnable() {
@@ -140,15 +140,13 @@ public class TileEditor : EditorWindow {
             
             bool isDoubleTile = false;
 
-            RaycastHit2D[] hits = Physics2D.BoxCastAll(new Vector2(realPos.x, realPos.y), new Vector2(1, 1), 0, Vector2.zero);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(new Vector2(realPos.x, realPos.y), Vector2.zero);
 
             Debug.Log(realPos.x + " " + realPos.y + "" + hits.Length);
 
-            //theray = newRay;
-
             foreach(RaycastHit2D hit in hits) {
                 if(hit.transform.gameObject.GetComponent<SpriteRenderer>().sortingOrder == currentLayer) {
-                    //isDoubleTile = true;
+                    isDoubleTile = true;
                 }
             }
             
