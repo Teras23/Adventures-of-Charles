@@ -32,8 +32,6 @@ public class TileEditor : EditorWindow {
     }
 
     void OnGUI() {
-        Event evt = Event.current;
-
         showProjectSettings = EditorGUILayout.Foldout(showProjectSettings, "Project settings");
 
         if(showProjectSettings) {

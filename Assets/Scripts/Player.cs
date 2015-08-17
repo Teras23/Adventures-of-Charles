@@ -12,7 +12,16 @@ public class Player : MonoBehaviour {
 	    rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 	}
-	
+
+    void Update() {
+        if(Input.GetButtonDown("Use")) {
+            RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new Vector2(64, 64), 0, Vector2.zero);
+            if(hits.Length > 0) {
+                Debug.Log(hits.Length + " hits");
+            }
+        }
+    }
+
 	void FixedUpdate() {
 
         if(Input.GetAxis("Horizontal") < 0) {
@@ -29,16 +38,14 @@ public class Player : MonoBehaviour {
             animator.SetInteger("MoveDirection", 3);
         }
 
-        rigidbody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-        //0.002485712
-
         if(rigidbody.velocity.magnitude > 0) {
             animator.SetBool("Moving", true);
         }
         else {
             animator.SetBool("Moving", false);
         }
+
+        rigidbody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * 2;
 	}
 
     void LateUpdate() {
