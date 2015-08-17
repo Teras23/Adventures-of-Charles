@@ -14,4 +14,8 @@ public class WorldTree : BaseWorldObject {
 	void Update () {
 	
 	}
+
+    override public void Use() {
+        Debug.Log("Tree was used");
+    }
 }
