@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
 
         rigidbody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
+        //0.002485712
+
         if(rigidbody.velocity.magnitude > 0) {
             animator.SetBool("Moving", true);
         }
@@ -40,6 +42,6 @@ public class Player : MonoBehaviour {
 	}
 
     void LateUpdate() {
-        //transform.position = new Vector3((int)(transform.position.x / 0.01f) * 0.01f, (int)(transform.position.y / 0.01f) * 0.01f, transform.position.z);
+        transform.position = new Vector3((int)(transform.position.x / 0.001f) * 0.001f, (int)(transform.position.y / 0.001f) * 0.001f, transform.position.z);
     }
 }
