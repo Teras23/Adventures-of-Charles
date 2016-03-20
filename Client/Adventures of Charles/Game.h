@@ -7,9 +7,10 @@ class Game {
     int gameid;
     static bool running;
     static SDL_Window* window;
-    static SDL_Surface* screen;
     static SDL_Event sdlEvent;
 public:
+    static SDL_Surface* screen;
+
     static int Init();
     static int Quit();
     static void Loop();

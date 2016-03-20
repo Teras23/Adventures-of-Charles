@@ -4,10 +4,12 @@
 #include "Entity.h"
 
 class World {
-    //private
-    static std::vector<Entity> entities;
+    static std::vector<Entity*> entities;
 public:
-    static Draw();
+    static void Init();
+    static void Draw();
+    static void Update();
+    static Entity* GetPlayer();
 };
 
 #endif

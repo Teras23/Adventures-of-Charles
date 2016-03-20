@@ -1,13 +1,15 @@
 #ifndef ENTITY_H
 #define ENTITY_H
+#include <SDL.h>
+#include "Util.h"
 
 class Entity {
-    int posx;
-
+    Vector2 position;
+    Vector2 velocity;
 public:
     Entity();
-    virtual Draw();
-    virtual Update();
+    virtual void Draw();
+    virtual void Update();
 };
 
 #endif

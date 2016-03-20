@@ -30,6 +30,12 @@
     <ClCompile Include="Adventures of Charles\World.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\Util.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Input.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Game.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

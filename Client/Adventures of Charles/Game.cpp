@@ -1,5 +1,7 @@
-#include "Game.h"
 #include <iostream>
+#include "Game.h"
+#include "World.h"
+#include "Input.h"
 
 bool Game::running;
 SDL_Window* Game::window;
@@ -22,6 +24,7 @@ int Game::Init() {
     }
 
     running = true;
+    World::Init();
     std::cout << "Game initialized" << std::endl;
     return 0;
 }
@@ -36,6 +39,7 @@ void Game::Loop() {
         Input();
 
         //Logic
+        World::Update();
 
         Render();
         SDL_UpdateWindowSurface(window);
@@ -48,6 +52,40 @@ void Game::Input() {
         if(sdlEvent.type == SDL_QUIT) {
             running = false;
         }
+        if(sdlEvent.type == SDL_KEYDOWN) {
+            switch(sdlEvent.key.keysym.sym)
+            {
+            case SDLK_w:
+                Input::WPressed = true;
+                break;
+            case SDLK_s:
+                Input::SPressed = true;
+                break;
+            case SDLK_d:
+                Input::DPressed = true;
+                break;
+            case SDLK_a:
+                Input::APressed = true;
+                break;
+            }
+        }
+        if(sdlEvent.type == SDL_KEYUP) {
+            switch(sdlEvent.key.keysym.sym)
+            {
+            case SDLK_w:
+                Input::WPressed = false;
+                break;
+            case SDLK_s:
+                Input::SPressed = false;
+                break;
+            case SDLK_d:
+                Input::DPressed = false;
+                break;
+            case SDLK_a:
+                Input::APressed = false;
+                break;
+            }
+        }
     }
 }
 
@@ -55,7 +93,8 @@ void Game::Render() {
     SDL_Rect* rect = new SDL_Rect();
     rect->x = 0;
     rect->y = 0;
-    rect->w = 100;
-    rect->h = 100;
+    rect->w = 800;
+    rect->h = 600;
     SDL_FillRect(screen, rect, SDL_MapRGB(screen->format, 0xA3, 0x20, 0x40));
+    World::Draw();
 }

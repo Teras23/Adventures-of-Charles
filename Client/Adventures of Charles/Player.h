@@ -6,8 +6,8 @@ class Player : Entity {
     string name;
 public:
     Player();
-    Draw();
-    Update();
+    void Draw();
+    void Update();
 };
 
 #endif
