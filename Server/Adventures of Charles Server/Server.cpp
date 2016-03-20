@@ -2,6 +2,7 @@
 #include <iostream>
 
 int Server::clientid;
+bool Server::running;
 
 int Server::Init() {
     if(SDLNet_Init() < 0) {
@@ -12,6 +13,8 @@ int Server::Init() {
     return 0;
 }
 
-void Server::Start() {
-    
+void Server::Loop() {
+    while(running) {
+
+    }
 }

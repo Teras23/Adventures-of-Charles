@@ -13,36 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Client">
-      <UniqueIdentifier>{2c36d589-6015-4139-8563-a9a7a58b1198}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Server">
-      <UniqueIdentifier>{1bc21c79-5847-445d-97fb-034c122330e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Client">
-      <UniqueIdentifier>{921227c9-e14d-4cc8-be17-017d909b3966}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Server">
-      <UniqueIdentifier>{8d51069b-895b-44b9-ac36-24e78f969521}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Adventures of Charles\Main.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Client\Client.cpp">
-      <Filter>Resource Files\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Server\Server.cpp">
-      <Filter>Resource Files\Server</Filter>
+    <ClCompile Include="Adventures of Charles\Client.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adventures of Charles\Client\Client.h">
-      <Filter>Header Files\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Server\Server.h">
-      <Filter>Header Files\Server</Filter>
+    <ClInclude Include="Adventures of Charles\Client.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,10 +4,11 @@
 
 class Server {
     static int clientid;
+    static bool running;
 
 public:
     static int Init();
-    static void Start();
+    static void Loop();
 };
 
 #endif

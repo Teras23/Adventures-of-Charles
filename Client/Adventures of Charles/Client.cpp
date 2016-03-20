@@ -35,8 +35,9 @@ void Client::GameLoop() {
     while(running) {
         Input();
 
-        Render();
+        //Logic
 
+        Render();
         SDL_UpdateWindowSurface(window);
     }
     Quit();
@@ -51,5 +52,10 @@ void Client::Input() {
 }
 
 void Client::Render() {
-
+    SDL_Rect* rect = new SDL_Rect();
+    rect->x = 0;
+    rect->y = 0;
+    rect->w = 100;
+    rect->h = 100;
+    SDL_FillRect(screen, rect, SDL_MapRGB(screen->format, 0xA3, 0x20, 0x40));
 }

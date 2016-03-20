@@ -1,0 +1,2 @@
+start aoc.exe
+exit
