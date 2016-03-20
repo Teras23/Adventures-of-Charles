@@ -1,12 +1,12 @@
-#include "Client.h"
+#include "Game.h"
 #include <iostream>
 
-bool Client::running;
-SDL_Window* Client::window;
-SDL_Surface* Client::screen;
-SDL_Event Client::sdlEvent;
+bool Game::running;
+SDL_Window* Game::window;
+SDL_Surface* Game::screen;
+SDL_Event Game::sdlEvent;
 
-int Client::Init() {
+int Game::Init() {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         std::cout << "Could not init SDL" << std::endl;
         return -1;
@@ -22,16 +22,16 @@ int Client::Init() {
     }
 
     running = true;
-    std::cout << "Client initialized" << std::endl;
+    std::cout << "Game initialized" << std::endl;
     return 0;
 }
 
-int Client::Quit() {
+int Game::Quit() {
     SDL_Quit();
     return 0;
 }
 
-void Client::GameLoop() {
+void Game::Loop() {
     while(running) {
         Input();
 
@@ -43,7 +43,7 @@ void Client::GameLoop() {
     Quit();
 }
 
-void Client::Input() {
+void Game::Input() {
     while(SDL_PollEvent(&sdlEvent) != 0) {
         if(sdlEvent.type == SDL_QUIT) {
             running = false;
@@ -51,7 +51,7 @@ void Client::Input() {
     }
 }
 
-void Client::Render() {
+void Game::Render() {
     SDL_Rect* rect = new SDL_Rect();
     rect->x = 0;
     rect->y = 0;

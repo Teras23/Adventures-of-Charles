@@ -149,10 +149,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adventures of Charles Server\Client.cpp" />
     <ClCompile Include="Adventures of Charles Server\Main.cpp" />
     <ClCompile Include="Adventures of Charles Server\Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adventures of Charles Server\Client.h" />
     <ClInclude Include="Adventures of Charles Server\Server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

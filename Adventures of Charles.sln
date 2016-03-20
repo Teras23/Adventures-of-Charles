@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adventures of Charles", "Client\Adventures of Charles.vcxproj", "{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adventures of Charles Server", "Server\Adventures of Charles Server.vcxproj", "{FC0F4043-3625-4144-98B8-C1D16E2560BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A} = {0FF02622-640F-428F-ACB4-EFDF0AC5A68A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

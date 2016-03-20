@@ -152,11 +152,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Adventures of Charles\Client.cpp" />
+    <ClCompile Include="Adventures of Charles\Entity.cpp" />
+    <ClCompile Include="Adventures of Charles\Game.cpp" />
     <ClCompile Include="Adventures of Charles\Main.cpp" />
+    <ClCompile Include="Adventures of Charles\Player.cpp" />
+    <ClCompile Include="Adventures of Charles\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adventures of Charles\Client.h" />
+    <ClInclude Include="Adventures of Charles\Entity.h" />
+    <ClInclude Include="Adventures of Charles\Game.h" />
+    <ClInclude Include="Adventures of Charles\Player.h" />
+    <ClInclude Include="Adventures of Charles\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

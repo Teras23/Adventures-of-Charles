@@ -18,12 +18,30 @@
     <ClCompile Include="Adventures of Charles\Main.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Client.cpp">
+    <ClCompile Include="Adventures of Charles\Game.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Entity.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Player.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\World.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adventures of Charles\Client.h">
+    <ClInclude Include="Adventures of Charles\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

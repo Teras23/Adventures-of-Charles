@@ -1,6 +1,6 @@
 #include <SDL_net.h>
 #include <iostream>
-#include "Client.h"
+#include "Game.h"
 
 int main(int argc, char* argv[]) {
 
@@ -8,8 +8,8 @@ int main(int argc, char* argv[]) {
         std::cout << argv[i] << std::endl;
     }
 
-    if(Client::Init() == 0) {
-        Client::GameLoop();
+    if(Game::Init() == 0) {
+        Game::Loop();
     }
     
     return 0;
