@@ -1,9 +1,10 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+#include <string>
 #include "Entity.h"
 
 class Player : Entity {
-    string name;
+    std::string name;
 public:
     Player();
     void Draw();

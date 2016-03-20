@@ -3,10 +3,13 @@
 #include "World.h"
 #include "Input.h"
 
+const int FRAMERATE = 300;
+
 bool Game::running;
 SDL_Window* Game::window;
 SDL_Surface* Game::screen;
 SDL_Event Game::sdlEvent;
+float Game::deltaTime;
 
 int Game::Init() {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -35,7 +38,14 @@ int Game::Quit() {
 }
 
 void Game::Loop() {
+    int lastTime = SDL_GetTicks();
     while(running) {
+        int startTime = SDL_GetTicks();
+        int frameTime = startTime - lastTime;
+        if(frameTime > 10) {
+            std::cout << frameTime << std::endl;
+        
+
         Input();
 
         //Logic
@@ -43,6 +53,9 @@ void Game::Loop() {
 
         Render();
         SDL_UpdateWindowSurface(window);
+        deltaTime = (SDL_GetTicks() - startTime);
+        lastTime = startTime;
+        }
     }
     Quit();
 }
@@ -56,9 +69,11 @@ void Game::Input() {
             switch(sdlEvent.key.keysym.sym)
             {
             case SDLK_w:
+
                 Input::WPressed = true;
                 break;
             case SDLK_s:
+                std::cout << SDL_GetTicks() << std::endl;
                 Input::SPressed = true;
                 break;
             case SDLK_d:

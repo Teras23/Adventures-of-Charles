@@ -4,12 +4,12 @@
 #include <SDL_net.h>
 
 class Game {
-    int gameid;
     static bool running;
     static SDL_Window* window;
     static SDL_Event sdlEvent;
 public:
     static SDL_Surface* screen;
+    static float deltaTime;
 
     static int Init();
     static int Quit();

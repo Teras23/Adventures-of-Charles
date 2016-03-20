@@ -4,8 +4,9 @@
 #include "Util.h"
 
 class Entity {
-    Vector2 position;
-    Vector2 velocity;
+    Vector2f position;
+    Vector2f velocity;
+    float speed;
 public:
     Entity();
     virtual void Draw();
