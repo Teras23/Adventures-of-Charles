@@ -39,23 +39,21 @@ int Game::Quit() {
 
 void Game::Loop() {
     int lastTime = SDL_GetTicks();
+    deltaTime = 0.02f;
     while(running) {
         int startTime = SDL_GetTicks();
         int frameTime = startTime - lastTime;
-        if(frameTime > 10) {
-            std::cout << frameTime << std::endl;
-        
+        if(frameTime >= 16) {
+            Input();
 
-        Input();
+            //Logic
+            World::Update();
 
-        //Logic
-        World::Update();
-
-        Render();
-        SDL_UpdateWindowSurface(window);
-        deltaTime = (SDL_GetTicks() - startTime);
-        lastTime = startTime;
+            deltaTime = frameTime / 60.0f;
+            lastTime = startTime;
         }
+        Render();
+        SDL_Delay(1);
     }
     Quit();
 }
@@ -112,4 +110,5 @@ void Game::Render() {
     rect->h = 600;
     SDL_FillRect(screen, rect, SDL_MapRGB(screen->format, 0xA3, 0x20, 0x40));
     World::Draw();
+    SDL_UpdateWindowSurface(window);
 }

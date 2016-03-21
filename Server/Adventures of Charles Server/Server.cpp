@@ -63,13 +63,14 @@ void Server::Loop() {
         TCPsocket tcpSocket = SDLNet_TCP_Accept(server);
         if(playerAmount < maxPlayers) {
             SDLNet_TCP_AddSocket(sockets, tcpSocket);
-            playerAmount++;
             sprintf(buffer, "0 %d \n", currentID);
+            playerAmount++;
             currentID++;
         }
         else {
             sprintf(buffer, "3 \n");
         }
+
         SDLNet_TCP_Send(tcpSocket, buffer, strlen(buffer) + 1);
         
         //Disconnect player if timed out
@@ -79,13 +80,11 @@ void Server::Loop() {
                 for(int j = 0; j < clients.size(); j++) {
                     //If not trying to send to client who sent the message
                     sprintf(buffer, "4 %d \n", clients[i].id);
-                    SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
+                    clients[j].SendTCPMessage(buffer);
+                    //SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
                 }
                 //Remove from vectors and close connection
-                SDLNet_TCP_DelSocket(sockets, clients[i].socket);
-                SDLNet_TCP_Close(clients[i].socket);
-                clients.erase(clients.begin() + 1);
-                playerAmount--;
+                DisconnectTCPClient(clients[i]);
             }
         }
 
@@ -104,7 +103,8 @@ void Server::Loop() {
                         for(int j = 0; j < clients.size(); j++) {
                             //If not trying to send to client who sent the message
                             if(j != i) {
-                                SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
+                                clients[j].SendTCPMessage(buffer);
+                                //SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
                             }
                         }
                     }
@@ -114,14 +114,12 @@ void Server::Loop() {
                         for(int j = 0; j < clients.size(); j++) {
                             //If not trying to send to client who sent the message
                             if(j != i) {
-                                SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
+                                clients[j].SendTCPMessage(buffer);
+                                //SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
                             }
                         }
                         //Remove from vectors and close connection
-                        SDLNet_TCP_DelSocket(sockets, clients[i].socket);
-                        SDLNet_TCP_Close(clients[i].socket);
-                        clients.erase(clients.begin() + 1);
-                        playerAmount--;
+                        DisconnectTCPClient(clients[i]);
                     }
                     //Something to tell the server
                     else if(msgNum == 2) {
@@ -132,4 +130,11 @@ void Server::Loop() {
         }
     }
     Quit();
+}
+
+void Server::DisconnectTCPClient(Client client) {
+    SDLNet_TCP_DelSocket(sockets, client.socket);
+    SDLNet_TCP_Close(client.socket);
+    clients.erase(find(clients.begin(), clients.end(), client));
+    playerAmount--;
 }

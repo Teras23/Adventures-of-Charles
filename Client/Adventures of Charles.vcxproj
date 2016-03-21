@@ -156,6 +156,7 @@
     <ClCompile Include="Adventures of Charles\Game.cpp" />
     <ClCompile Include="Adventures of Charles\Input.cpp" />
     <ClCompile Include="Adventures of Charles\Main.cpp" />
+    <ClCompile Include="Adventures of Charles\Network.cpp" />
     <ClCompile Include="Adventures of Charles\Player.cpp" />
     <ClCompile Include="Adventures of Charles\Util.cpp" />
     <ClCompile Include="Adventures of Charles\World.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Adventures of Charles\Entity.h" />
     <ClInclude Include="Adventures of Charles\Game.h" />
     <ClInclude Include="Adventures of Charles\Input.h" />
+    <ClInclude Include="Adventures of Charles\Network.h" />
     <ClInclude Include="Adventures of Charles\Player.h" />
     <ClInclude Include="Adventures of Charles\Util.h" />
     <ClInclude Include="Adventures of Charles\World.h" />

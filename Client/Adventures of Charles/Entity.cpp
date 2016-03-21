@@ -4,7 +4,7 @@
 #include <iostream>
 
 Entity::Entity() {
-    speed = 10000.0f;
+    speed = 10.0f;
 }
 
 void Entity::Draw() {

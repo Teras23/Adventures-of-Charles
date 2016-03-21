@@ -24,6 +24,7 @@ public:
     static int Init();
     static void Loop();
     static void Quit();
+    static void DisconnectTCPClient(Client);
 };
 
 #endif
