@@ -17,6 +17,8 @@ void GUI::Init() {
 void GUI::Draw() {
     for(int i = 0; i < elements.size(); i++) {
         SDL_RenderCopy(Game::renderer, elements[i].texture, NULL, elements[i].rect);
+        SDL_DestroyTexture(elements[i].texture);
+        delete elements[i].rect;
     }
     elements = std::vector<GUIElement>();
 }
@@ -44,4 +46,5 @@ void GUI::DrawText(std::string text, Vector2i position) {
             elements.push_back(GUIElement(textTexture, rect));
         }
     }
+    SDL_FreeSurface(textSurface);
 }

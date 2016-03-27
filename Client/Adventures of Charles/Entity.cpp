@@ -11,6 +11,7 @@ Entity::Entity() {
     curID++;
     speed = 5.0f;
     texture = LoadTexture("Textures/player.png");
+    position = Vector2f(40, 50);
 }
 
 void Entity::Draw() {
