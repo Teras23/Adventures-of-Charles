@@ -1,5 +1,7 @@
 #ifndef UTIL_H
 #define UTIL_H
+#include <SDL.h>
+#include <string>
 
 class Vector2i {
 public:
@@ -17,5 +19,6 @@ public:
     float y;
 };
 
+SDL_Texture* LoadTexture(std::string);
 
 #endif

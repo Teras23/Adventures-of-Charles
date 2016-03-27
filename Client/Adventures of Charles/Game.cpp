@@ -2,12 +2,14 @@
 #include "Game.h"
 #include "World.h"
 #include "Input.h"
+#include <SDL_image.h>
 
 const int FRAMERATE = 300;
 
-bool Game::running;
-SDL_Window* Game::window;
-SDL_Surface* Game::screen;
+bool Game::running = false;
+SDL_Window* Game::window = NULL;
+SDL_Surface* Game::screen = NULL;
+SDL_Renderer* Game::renderer = NULL;
 SDL_Event Game::sdlEvent;
 float Game::deltaTime;
 
@@ -18,11 +20,24 @@ int Game::Init() {
     }
     else {
         window = SDL_CreateWindow("AOC", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
-        screen = SDL_GetWindowSurface(window);
+        //screen = SDL_GetWindowSurface(window);
     }
 
     if(SDLNet_Init() < 0) {
         std::cout << "Could not init SDL_net " << SDLNet_GetError() << std::endl;
+        return -1;
+    }
+
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if(renderer == NULL) {
+        std::cout << "Could not create renderer " << SDL_GetError() << std::endl;
+        return -1;
+    }
+
+    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
+
+    if(!IMG_Init(IMG_INIT_PNG)) {
+        std::cout << "Could not init SDL_image " << IMG_GetError() << std::endl;
         return -1;
     }
 
@@ -33,6 +48,12 @@ int Game::Init() {
 }
 
 int Game::Quit() {
+    SDL_DestroyRenderer(renderer);
+    renderer = NULL;
+    SDL_DestroyWindow(window);
+    window = NULL;
+
+    IMG_Quit();
     SDL_Quit();
     return 0;
 }
@@ -103,12 +124,16 @@ void Game::Input() {
 }
 
 void Game::Render() {
+    SDL_RenderClear(renderer);
+    SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
     SDL_Rect* rect = new SDL_Rect();
-    rect->x = 0;
-    rect->y = 0;
-    rect->w = 800;
-    rect->h = 600;
-    SDL_FillRect(screen, rect, SDL_MapRGB(screen->format, 0xA3, 0x20, 0x40));
+    rect->x = 100;
+    rect->y = 100;
+    rect->w = 400;
+    rect->h = 400;
+    //SDL_FillRect(screen, rect, SDL_MapRGB(screen->format, 0xA3, 0x20, 0x40));
+    //SDL_RenderFillRect(renderer, rect);
     World::Draw();
-    SDL_UpdateWindowSurface(window);
+    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
+    SDL_RenderPresent(renderer);
 }

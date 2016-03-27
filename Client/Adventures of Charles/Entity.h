@@ -7,7 +7,10 @@ class Entity {
     Vector2f position;
     Vector2f velocity;
     float speed;
+    SDL_Texture* texture;
 public:
+    int id;
+    static int curID;
     Entity();
     virtual void Draw();
     virtual void Update();

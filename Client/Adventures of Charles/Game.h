@@ -10,6 +10,7 @@ class Game {
 public:
     static SDL_Surface* screen;
     static float deltaTime;
+    static SDL_Renderer* renderer;
 
     static int Init();
     static int Quit();
