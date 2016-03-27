@@ -23,6 +23,7 @@ Vector2f::Vector2f(float x, float y) {
     this->y = y;
 }
 
+//TODO: recompile png thing
 SDL_Texture* LoadTexture(std::string path) {
     SDL_Texture* texture = NULL;
     SDL_Surface* textureSurface = IMG_Load(path.c_str());
@@ -37,6 +38,15 @@ SDL_Texture* LoadTexture(std::string path) {
         }
         SDL_FreeSurface(textureSurface);
     }
-    std::cout << texture << std::endl;
     return texture;
+}
+
+TTF_Font* LoadFont(std::string path) {
+    TTF_Font* font = NULL;
+    //28 is font size, different sizes may look different
+    font = TTF_OpenFont(path.c_str(), 12);
+    if(font == NULL) {
+        std::cout << "Failed to load font " << path << std::endl;
+    }
+    return font;
 }

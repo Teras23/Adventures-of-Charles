@@ -9,7 +9,7 @@ int Entity::curID = 0;
 Entity::Entity() {
     id = curID;
     curID++;
-    speed = 10.0f;
+    speed = 5.0f;
     texture = LoadTexture("Textures/player.png");
 }
 
@@ -37,7 +37,6 @@ void Entity::Update() {
     velocity.y = 0;
     if(Input::WPressed) {
         velocity.y = -1 * speed * Game::deltaTime;
-        std::cout << Game::deltaTime << std::endl;
     }
     if(Input::SPressed) {
         velocity.y = 1 * speed * Game::deltaTime;

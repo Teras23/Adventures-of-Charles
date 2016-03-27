@@ -1,6 +1,7 @@
 #ifndef UTIL_H
 #define UTIL_H
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include <string>
 
 class Vector2i {
@@ -20,5 +21,6 @@ public:
 };
 
 SDL_Texture* LoadTexture(std::string);
+TTF_Font* LoadFont(std::string);
 
 #endif

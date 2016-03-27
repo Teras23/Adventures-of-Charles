@@ -74,8 +74,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDL2_net\include;C:\SDL2\include;C:\SDL2_image\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2_net\lib\x64;C:\SDL2\lib\x64;C:\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\SDL2_net\include;C:\SDL2\include;C:\SDL2_image\include;C:\SDL2_ttf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2_net\lib\x64;C:\SDL2\lib\x64;C:\SDL2_image\lib\x64;C:\SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
     <TargetName>aoc</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,8 +83,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\SDL2_net\include;C:\SDL2\include;C:\SDL2_image\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2_net\lib\x64;C:\SDL2\lib\x64;C:\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\SDL2_net\include;C:\SDL2\include;C:\SDL2_image\include;C:\SDL2_ttf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2_net\lib\x64;C:\SDL2\lib\x64;C:\SDL2_image\lib\x64;C:\SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
     <TargetName>aoc</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -111,7 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib; SDL2main.lib;SDL2_net.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib; SDL2main.lib;SDL2_net.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
     </Link>
@@ -148,12 +148,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib; SDL2main.lib;SDL2_net.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib; SDL2main.lib;SDL2_net.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adventures of Charles\Animation.cpp" />
     <ClCompile Include="Adventures of Charles\Entity.cpp" />
     <ClCompile Include="Adventures of Charles\Game.cpp" />
+    <ClCompile Include="Adventures of Charles\GUI.cpp" />
     <ClCompile Include="Adventures of Charles\Input.cpp" />
     <ClCompile Include="Adventures of Charles\Main.cpp" />
     <ClCompile Include="Adventures of Charles\Network.cpp" />
@@ -162,8 +164,10 @@
     <ClCompile Include="Adventures of Charles\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adventures of Charles\Animation.h" />
     <ClInclude Include="Adventures of Charles\Entity.h" />
     <ClInclude Include="Adventures of Charles\Game.h" />
+    <ClInclude Include="Adventures of Charles\GUI.h" />
     <ClInclude Include="Adventures of Charles\Input.h" />
     <ClInclude Include="Adventures of Charles\Network.h" />
     <ClInclude Include="Adventures of Charles\Player.h" />
