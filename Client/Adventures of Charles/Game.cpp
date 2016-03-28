@@ -131,6 +131,12 @@ void Game::Input() {
             case SDLK_a:
                 Input::APressed = false;
                 break;
+            case SDLK_PAGEUP:
+                World::AddEnemy();
+                break;
+            case SDLK_PAGEDOWN:
+                World::RemoveLastEnemy();
+                break;
             }
         }
     }

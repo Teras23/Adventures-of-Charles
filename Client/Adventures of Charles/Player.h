@@ -3,7 +3,7 @@
 #include <string>
 #include "Entity.h"
 
-class Player : Entity {
+class Player : public Entity {
     std::string name;
 public:
     Player();

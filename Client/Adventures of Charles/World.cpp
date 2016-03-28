@@ -1,4 +1,5 @@
 #include "World.h"
+#include "Enemy.h"
 
 std::vector<Entity*> World::entities;
 
@@ -26,4 +27,13 @@ Entity* World::GetPlayer() {
     else {
         return NULL;
     }
+}
+
+void World::AddEnemy() {
+    entities.push_back(new EnemyBase());
+}
+
+void World::RemoveLastEnemy() {
+    delete entities[entities.size() - 1];
+    entities.erase(entities.begin() + entities.size() - 1);
 }

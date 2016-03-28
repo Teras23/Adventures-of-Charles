@@ -9,6 +9,8 @@ public:
     static void Init();
     static void Draw();
     static void Update();
+    static void AddEnemy();
+    static void RemoveLastEnemy();
     static Entity* GetPlayer();
 };
 

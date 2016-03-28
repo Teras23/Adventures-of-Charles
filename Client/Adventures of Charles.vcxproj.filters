@@ -45,6 +45,9 @@
     <ClCompile Include="Adventures of Charles\GUI.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\Enemy.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Game.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\GUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
