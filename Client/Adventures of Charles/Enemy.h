@@ -1,6 +1,7 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #include "Entity.h"
+#include "Game.h"
 
 class EnemyBase : public Entity {
     float attackTime;
@@ -11,12 +12,14 @@ public:
     EnemyBase();
 };
 
-class EnemySpider : EnemyBase {
-
+class EnemySpider : public EnemyBase {
+public:
+    EnemySpider();
 };
 
-class EnemySolder : EnemyBase {
-
+class EnemySolder : public EnemyBase {
+public:
+    EnemySolder();
 };
 
 #endif

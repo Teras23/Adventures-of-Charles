@@ -2,6 +2,7 @@
 #define GAME_H
 #include <SDL.h>
 #include <SDL_net.h>
+#include <map>
 
 class Game {
     static bool running;
@@ -11,6 +12,8 @@ public:
     static SDL_Surface* screen;
     static float deltaTime;
     static SDL_Renderer* renderer;
+
+    static std::map<std::string, SDL_Texture*> textures;
 
     static int Init();
     static int Quit();

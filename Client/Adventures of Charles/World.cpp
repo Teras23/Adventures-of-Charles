@@ -1,11 +1,12 @@
 #include "World.h"
 #include "Enemy.h"
+#include "Player.h"
 
 std::vector<Entity*> World::entities;
 
 void World::Init() {
     entities = std::vector<Entity*>();
-    entities.push_back(new Entity());
+    entities.push_back(new Player());
 }
 
 void World::Draw() {
@@ -30,7 +31,7 @@ Entity* World::GetPlayer() {
 }
 
 void World::AddEnemy() {
-    entities.push_back(new EnemyBase());
+    entities.push_back(new EnemySolder());
 }
 
 void World::RemoveLastEnemy() {

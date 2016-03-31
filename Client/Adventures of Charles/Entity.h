@@ -5,6 +5,7 @@
 #include "Animation.h"
 
 class Entity {
+protected:
     Vector2f position;
     Vector2f velocity;
     float speed;

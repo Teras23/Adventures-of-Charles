@@ -15,6 +15,8 @@ SDL_Renderer* Game::renderer = NULL;
 SDL_Event Game::sdlEvent;
 float Game::deltaTime;
 
+std::map<std::string, SDL_Texture*> Game::textures;
+
 int Game::Init() {
     //Initialize 
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -51,6 +53,11 @@ int Game::Init() {
         return -1;
     }
 
+    //Loading files
+    textures["PlayerTexture"] = LoadTexture("Textures/player.png");
+    textures["SolderTexture"] = LoadTexture("Textures/solder.png");
+
+    //Other initialization
     SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
     running = true;
     GUI::Init();
