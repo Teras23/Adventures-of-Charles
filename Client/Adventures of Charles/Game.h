@@ -12,6 +12,7 @@ public:
     static SDL_Surface* screen;
     static float deltaTime;
     static SDL_Renderer* renderer;
+    static bool onlineMode;
 
     static std::map<std::string, SDL_Texture*> textures;
 

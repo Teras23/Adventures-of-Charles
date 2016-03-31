@@ -11,7 +11,7 @@ int Server::port;
 SDLNet_SocketSet Server::sockets;
 TCPsocket Server::server;
 char Server::buffer[1028];
-std::vector<Client> Server::clients;
+std::vector<Client> Server::clients = std::vector<Client>();
 int Server::timeoutTime;
 
 /*
@@ -33,12 +33,18 @@ int Server::Init() {
     IPaddress ipAddress;
     if(SDLNet_ResolveHost(&ipAddress, NULL, port)) {
         std::cout << "Could not resolve host " << SDLNet_GetError() << std::endl;
+        return -1;
     }
 
     sockets = SDLNet_AllocSocketSet(maxPlayers);
     server = SDLNet_TCP_Open(&ipAddress);
 
-    std::cout << "Server initialized" << std::endl;
+    std::cout << "Server initialized on port " << SDLNet_Read16(&ipAddress.port) << std::endl;
+
+    clients = std::vector<Client>();
+
+    running = true;
+    Server::Loop();
     return 0;
 }
 
@@ -61,18 +67,24 @@ void Server::Loop() {
 
         //New connection
         TCPsocket tcpSocket = SDLNet_TCP_Accept(server);
-        if(playerAmount < maxPlayers) {
-            SDLNet_TCP_AddSocket(sockets, tcpSocket);
-            sprintf(buffer, "0 %d \n", currentID);
-            playerAmount++;
-            currentID++;
-        }
-        else {
-            sprintf(buffer, "3 \n");
+        //If established connection
+        if(tcpSocket != NULL) {
+            //If server not full
+            if(playerAmount < maxPlayers) {
+                std::cout << "New Connection: " << GetIPFromSocket(tcpSocket) << std::endl;
+                SDLNet_TCP_AddSocket(sockets, tcpSocket);
+                sprintf(buffer, "0 %d \n", currentID);                      //Make new connection message
+                SDLNet_TCP_Send(tcpSocket, buffer, strlen(buffer) + 1);     //Send message
+                clients.push_back(Client(tcpSocket, SDL_GetTicks(), currentID));
+                playerAmount++;
+                currentID++;
+            }
+            else {
+                sprintf(buffer, "3 \n");
+                SDLNet_TCP_Send(tcpSocket, buffer, strlen(buffer) + 1);
+            }
         }
 
-        SDLNet_TCP_Send(tcpSocket, buffer, strlen(buffer) + 1);
-        
         //Disconnect player if timed out
         for(int i = 0; i < clients.size(); i++) {
             if(SDL_GetTicks() - clients[i].timeout > timeoutTime) {
@@ -128,13 +140,29 @@ void Server::Loop() {
                 }
             }
         }
+        
+        SDL_Delay(1);
     }
     Quit();
 }
 
 void Server::DisconnectTCPClient(Client client) {
+    std::cout << "Disconnected: " << GetIPFromSocket(client.socket) << std::endl;
     SDLNet_TCP_DelSocket(sockets, client.socket);
     SDLNet_TCP_Close(client.socket);
     clients.erase(find(clients.begin(), clients.end(), client));
     playerAmount--;
+}
+
+std::string Server::GetIPFromSocket(TCPsocket sock) {
+    IPaddress ipraw = *SDLNet_TCP_GetPeerAddress(sock);
+    Uint8* ip = (Uint8*)&ipraw.host;
+    return std::to_string(ip[0]) + "." + std::to_string(ip[1]) + "." + std::to_string(ip[2]) + "." + std::to_string(ip[3]);
+}
+
+//FUCKING BORKEN DON'T USE 
+std::string Server::GetPortFromSocket(TCPsocket sock) {
+    IPaddress ipraw = *SDLNet_TCP_GetPeerAddress(sock);
+    std::cout << SDLNet_Read16(&ipraw.port);
+    return std::to_string(SDLNet_Read16(&ipraw.port));
 }

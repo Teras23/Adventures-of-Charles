@@ -16,6 +16,7 @@ public:
         return false;
     }
 
+    Client();
     Client(TCPsocket, int, int);
     void SendTCPMessage(char*);
 };

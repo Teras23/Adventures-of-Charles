@@ -5,7 +5,7 @@ EnemyBase::EnemyBase() {
 }
 
 EnemySpider::EnemySpider() {
-
+    
 }
 
 EnemySolder::EnemySolder() {

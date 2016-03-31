@@ -1,13 +1,15 @@
 #ifndef NETWORK_H
 #define NETWORK_H
-#include <string>
 
 class Network {
-    static std::string name;
+    static SDLNet_SocketSet server;
+    static TCPsocket connection;
+    static char buffer[1028];
 public:
-    static void Connect(std::string);
+    static void Connect(std::string, int);
     static void Disconnect();
     static void SendMessage();
+    static void ReceiveMessage();
 };
 
 #endif

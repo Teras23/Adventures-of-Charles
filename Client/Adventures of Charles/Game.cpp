@@ -5,10 +5,12 @@
 #include "Game.h"
 #include "World.h"
 #include "Input.h"
+#include "Network.h"
 
 const int FRAMERATE = 300;
 
 bool Game::running = false;
+bool Game::onlineMode = false;
 SDL_Window* Game::window = NULL;
 SDL_Surface* Game::screen = NULL;
 SDL_Renderer* Game::renderer = NULL;
@@ -24,7 +26,7 @@ int Game::Init() {
         return -1;
     }
     else {
-        window = SDL_CreateWindow("AOC", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
+        window = SDL_CreateWindow("AOC", 400, 400, 800, 600, SDL_WINDOW_SHOWN);
         //screen = SDL_GetWindowSurface(window);
     }
 
@@ -63,6 +65,12 @@ int Game::Init() {
     GUI::Init();
     World::Init();
     std::cout << "Game initialized" << std::endl;
+
+    if(onlineMode) {
+        std::string ip = "192.168.1.79";
+        //ip = "127.0.0.1";
+        Network::Connect(ip, 1234);
+    }
     return 0;
 }
 
@@ -86,6 +94,8 @@ void Game::Loop() {
         int startTime = SDL_GetTicks();
         int frameTime = startTime - lastTime;
         if(frameTime >= 16) {
+            Network::ReceiveMessage();
+
             Input();
 
             //Logic

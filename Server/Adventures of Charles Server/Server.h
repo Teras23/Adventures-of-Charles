@@ -25,6 +25,9 @@ public:
     static void Loop();
     static void Quit();
     static void DisconnectTCPClient(Client);
+
+    static std::string GetIPFromSocket(TCPsocket);
+    static std::string GetPortFromSocket(TCPsocket);
 };
 
 #endif

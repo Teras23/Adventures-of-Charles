@@ -1,5 +1,9 @@
 #include "Client.h"
 
+Client::Client() {
+
+}
+
 Client::Client(TCPsocket s, int t, int i)
 {
     socket = s;
