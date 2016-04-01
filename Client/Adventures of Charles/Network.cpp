@@ -6,6 +6,7 @@
 TCPsocket Network::connection;
 SDLNet_SocketSet Network::server;
 char Network::buffer[1028];
+int Network::networkID = -1;
 
 void Network::Connect(std::string serverIP, int port) {
     IPaddress ip;
@@ -45,7 +46,31 @@ void Network::ReceiveMessage() {
         while(SDLNet_CheckSockets(server, 0) > 0 && SDLNet_SocketReady(connection)) {
             SDLNet_TCP_Recv(connection, buffer, 1024);
             std::cout << buffer << std::endl;
-            std::cout << "NEED MESSAGE" << std::endl;
+            
+            int msgNum;
+            sscanf(buffer, "%d ", &msgNum);
+
+            switch(msgNum)
+            {
+            case 0:     //Successful confirmation message from server with id
+                scanf(buffer, "%*d %d", &networkID);
+                std::cout << "Network ID: " << networkID << std::endl;
+                break;
+            case 1:     //Some game data only to this client
+                //
+                break;
+            case 2:     //Some game data to every client
+                //
+                break;
+            case 3:     //Server is full
+                std::cout << "The server you are trying to connect to is full" << std::endl;
+                Disconnect();
+                break;
+            case 4:     //Someone Timed out
+                std::cout << "Timed out from server" << std::endl;
+                Disconnect();
+                break;
+            }
         }
     }
 }

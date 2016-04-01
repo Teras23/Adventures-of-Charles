@@ -31,13 +31,18 @@ int Server::Init() {
         return -1;
     }
     IPaddress ipAddress;
-    if(SDLNet_ResolveHost(&ipAddress, NULL, port)) {
+    if(SDLNet_ResolveHost(&ipAddress, NULL, port) < 0) {
         std::cout << "Could not resolve host " << SDLNet_GetError() << std::endl;
         return -1;
     }
 
     sockets = SDLNet_AllocSocketSet(maxPlayers);
+
     server = SDLNet_TCP_Open(&ipAddress);
+    if(server == NULL) {
+        std::cout << "Could not host server (server already running?) " << SDLNet_GetError() << std::endl;
+        return -1;
+    }
 
     std::cout << "Server initialized on port " << SDLNet_Read16(&ipAddress.port) << std::endl;
 
@@ -65,19 +70,20 @@ void Server::Loop() {
         SendData()
         }*/
 
-        //New connection
-        TCPsocket tcpSocket = SDLNet_TCP_Accept(server);
-        //If established connection
-        if(tcpSocket != NULL) {
-            //If server not full
-            if(playerAmount < maxPlayers) {
-                std::cout << "New Connection: " << GetIPFromSocket(tcpSocket) << std::endl;
+        
+        TCPsocket tcpSocket = SDLNet_TCP_Accept(server);    //New connection
+        
+        if(tcpSocket != NULL) {                             //If established connection
+            if(playerAmount < maxPlayers) {                 //If server not full                
                 SDLNet_TCP_AddSocket(sockets, tcpSocket);
-                sprintf(buffer, "0 %d \n", currentID);                      //Make new connection message
-                SDLNet_TCP_Send(tcpSocket, buffer, strlen(buffer) + 1);     //Send message
                 clients.push_back(Client(tcpSocket, SDL_GetTicks(), currentID));
+                sprintf(buffer, "0 %d \n", currentID);                      //Make new connection message
+                clients.back().SendTCPMessage(buffer);                      //Send message
                 playerAmount++;
                 currentID++;
+                std::cout << "New Connection: " << GetIPFromSocket(clients.back().socket) << " ID: " << clients.back().id << std::endl;
+
+
             }
             else {
                 sprintf(buffer, "3 \n");
@@ -85,22 +91,22 @@ void Server::Loop() {
             }
         }
 
-        //Disconnect player if timed out
+        /*
+        Disconnect player if timed out
+        */
         for(int i = 0; i < clients.size(); i++) {
             if(SDL_GetTicks() - clients[i].timeout > timeoutTime) {
-                //Tell everyone who disconnected
-                for(int j = 0; j < clients.size(); j++) {
-                    //If not trying to send to client who sent the message
+                for(int j = 0; j < clients.size(); j++) {       //Tell everyone who disconnected
                     sprintf(buffer, "4 %d \n", clients[i].id);
                     clients[j].SendTCPMessage(buffer);
-                    //SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
                 }
-                //Remove from vectors and close connection
-                DisconnectTCPClient(clients[i]);
+                DisconnectTCPClient(clients[i]);                //Remove from vectors and close connection
             }
         }
 
-        //Receive Data
+        /*
+        Receive Data
+        */
         while(SDLNet_CheckSockets(sockets, 0) > 0) {
             for(int i = 0; i < clients.size(); i++) {
                 if(SDLNet_SocketReady(clients[i].socket)) {
@@ -109,33 +115,26 @@ void Server::Loop() {
                     int msgNum;
                     sscanf(buffer, "%d ", &msgNum);
 
-                    //Send to everyone
-                    if(msgNum == 1) {
-                        //Send message to all clients
-                        for(int j = 0; j < clients.size(); j++) {
-                            //If not trying to send to client who sent the message
-                            if(j != i) {
+                    
+                    switch(msgNum) {
+                    case 1:                                     //Send something to everybody
+                        for(int j = 0; j < clients.size(); j++) {   //Send message to all clients
+                            if(j != i) {                            //If not trying to send to client who sent the message
                                 clients[j].SendTCPMessage(buffer);
-                                //SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
                             }
                         }
-                    }
-                    //Disconnect
-                    else if(msgNum == 3) {
-                        //Tell everyone you disconnected
-                        for(int j = 0; j < clients.size(); j++) {
-                            //If not trying to send to client who sent the message
-                            if(j != i) {
+                        break;
+                    case 2:                                     //Send confirmation to one client
+                        //TODO
+                        break;
+                    case 3:                                     //Disconnected player
+                        for(int j = 0; j < clients.size(); j++) {   //Tell everyone you disconnected
+                            if(j != i) {                            //If not trying to send to client who sent the message
                                 clients[j].SendTCPMessage(buffer);
-                                //SDLNet_TCP_Send(clients[j].socket, buffer, strlen(buffer) + 1);
                             }
                         }
-                        //Remove from vectors and close connection
-                        DisconnectTCPClient(clients[i]);
-                    }
-                    //Something to tell the server
-                    else if(msgNum == 2) {
-                        //Hit something?
+                        DisconnectTCPClient(clients[i]);            //Remove from vectors and close connection
+                        break;
                     }
                 }
             }
@@ -147,7 +146,7 @@ void Server::Loop() {
 }
 
 void Server::DisconnectTCPClient(Client client) {
-    std::cout << "Disconnected: " << GetIPFromSocket(client.socket) << std::endl;
+    std::cout << "Disconnected: " << GetIPFromSocket(client.socket) << " ID: " << client.id << std::endl;
     SDLNet_TCP_DelSocket(sockets, client.socket);
     SDLNet_TCP_Close(client.socket);
     clients.erase(find(clients.begin(), clients.end(), client));
