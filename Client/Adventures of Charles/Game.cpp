@@ -75,6 +75,8 @@ int Game::Init() {
 }
 
 int Game::Quit() {
+    std::cout << "Qutting game normally" << std::endl;
+    Network::Disconnect();
     SDL_DestroyRenderer(renderer);
     renderer = NULL;
     SDL_DestroyWindow(window);

@@ -82,8 +82,6 @@ void Server::Loop() {
                 playerAmount++;
                 currentID++;
                 std::cout << "New Connection: " << GetIPFromSocket(clients.back().socket) << " ID: " << clients.back().id << std::endl;
-
-
             }
             else {
                 sprintf(buffer, "3 \n");
@@ -107,15 +105,15 @@ void Server::Loop() {
         /*
         Receive Data
         */
-        while(SDLNet_CheckSockets(sockets, 0) > 0) {
+        int numReady = SDLNet_CheckSockets(sockets, 0);
+        if(numReady > 0) {
+            //std::cout << "Bing " << SDLNet_CheckSockets(sockets, 0) << std::endl;
             for(int i = 0; i < clients.size(); i++) {
                 if(SDLNet_SocketReady(clients[i].socket)) {
-                    clients[i].timeout = SDL_GetTicks();
                     SDLNet_TCP_Recv(clients[i].socket, buffer, 1024);
                     int msgNum;
                     sscanf(buffer, "%d ", &msgNum);
 
-                    
                     switch(msgNum) {
                     case 1:                                     //Send something to everybody
                         for(int j = 0; j < clients.size(); j++) {   //Send message to all clients
@@ -127,13 +125,18 @@ void Server::Loop() {
                     case 2:                                     //Send confirmation to one client
                         //TODO
                         break;
-                    case 3:                                     //Disconnected player
+                    case 5:                                     //Disconnected player
                         for(int j = 0; j < clients.size(); j++) {   //Tell everyone you disconnected
                             if(j != i) {                            //If not trying to send to client who sent the message
                                 clients[j].SendTCPMessage(buffer);
                             }
                         }
                         DisconnectTCPClient(clients[i]);            //Remove from vectors and close connection
+                        break;
+                    default:
+                        if(msgNum != 0) {                           //Dont know why this is happening, client should not send it (server sending to itseld bacause of ip?)
+                            clients[i].timeout = SDL_GetTicks();
+                        }
                         break;
                     }
                 }

@@ -32,13 +32,20 @@ void Network::Connect(std::string serverIP, int port) {
 }
 
 void Network::Disconnect() {
-    SDLNet_TCP_Send(connection, "2 \n", 4);
+    SendMessage("5 \n");
     SDLNet_TCP_Close(connection);
     SDLNet_FreeSocketSet(server);
 }
 
-void Network::SendMessage() {
-    
+void Network::SendMessage(std::string msg) {
+    int len = SDLNet_TCP_Send(connection, msg.c_str(), msg.size());
+    if(len != msg.size()) {
+        std::cout << "Could not send message correctly" << std::endl;
+    }
+}
+
+void Network::SendGameData() {
+
 }
 
 void Network::ReceiveMessage() {
@@ -53,7 +60,8 @@ void Network::ReceiveMessage() {
             switch(msgNum)
             {
             case 0:     //Successful confirmation message from server with id
-                scanf(buffer, "%*d %d", &networkID);
+                
+                sscanf(buffer, "%*d %d", &networkID);
                 std::cout << "Network ID: " << networkID << std::endl;
                 break;
             case 1:     //Some game data only to this client
@@ -69,6 +77,8 @@ void Network::ReceiveMessage() {
             case 4:     //Someone Timed out
                 std::cout << "Timed out from server" << std::endl;
                 Disconnect();
+                break;
+            case 5:     //Someone disconnected
                 break;
             }
         }

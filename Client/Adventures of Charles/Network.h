@@ -9,7 +9,8 @@ class Network {
 public:
     static void Connect(std::string, int);
     static void Disconnect();
-    static void SendMessage();
+    static void SendMessage(std::string);
+    static void SendGameData();
     static void ReceiveMessage();
 };
 
