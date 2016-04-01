@@ -7,6 +7,7 @@ TCPsocket Network::connection;
 SDLNet_SocketSet Network::server;
 char Network::buffer[1028];
 int Network::networkID = -1;
+bool Network::connected = false;
 
 void Network::Connect(std::string serverIP, int port) {
     IPaddress ip;
@@ -28,13 +29,18 @@ void Network::Connect(std::string serverIP, int port) {
         server = SDLNet_AllocSocketSet(1);
         SDLNet_TCP_AddSocket(server, connection);
     }
+
+    connected = true;
     std::cout << "Connected to server!" << std::endl;
 }
 
 void Network::Disconnect() {
-    SendMessage("5 \n");
-    SDLNet_TCP_Close(connection);
-    SDLNet_FreeSocketSet(server);
+    if(connected) {
+        SendMessage("5 \n");
+        SDLNet_TCP_Close(connection);
+        SDLNet_FreeSocketSet(server);
+        connected = false;
+    }
 }
 
 void Network::SendMessage(std::string msg) {
@@ -49,7 +55,7 @@ void Network::SendGameData() {
 }
 
 void Network::ReceiveMessage() {
-    if(connection != NULL) {
+    if(connection != NULL && connected) {
         while(SDLNet_CheckSockets(server, 0) > 0 && SDLNet_SocketReady(connection)) {
             SDLNet_TCP_Recv(connection, buffer, 1024);
             std::cout << buffer << std::endl;

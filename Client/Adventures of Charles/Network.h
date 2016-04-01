@@ -6,6 +6,7 @@ class Network {
     static TCPsocket connection;
     static char buffer[1028];
     static int networkID;
+    static bool connected;
 public:
     static void Connect(std::string, int);
     static void Disconnect();

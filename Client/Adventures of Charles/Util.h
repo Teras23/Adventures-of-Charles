@@ -20,6 +20,11 @@ public:
     float y;
 };
 
+class Console {
+public:
+    static void Print(std::string);
+};
+
 SDL_Texture* LoadTexture(std::string);
 TTF_Font* LoadFont(std::string);
 

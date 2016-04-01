@@ -23,6 +23,15 @@ Vector2f::Vector2f(float x, float y) {
     this->y = y;
 }
 
+void Console::Print(std::string msg) {
+#if SERVER
+    std::cout << "server :)" << std::endl;
+#elif CLIENT
+    std::cout << "YOYO" << std::endl;
+#endif
+    std::cout << msg << std::endl;
+}
+
 //TODO: recompile png thing
 SDL_Texture* LoadTexture(std::string path) {
     SDL_Texture* texture = NULL;
