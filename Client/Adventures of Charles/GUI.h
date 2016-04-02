@@ -5,19 +5,16 @@
 #include <string>
 #include <vector>
 #include "Util.h"
-
-struct GUIElement {
-    SDL_Texture* texture;
-    SDL_Rect* rect;
-    GUIElement(SDL_Texture*, SDL_Rect*);
-};
+#include "GUIElement.h"
+#include "GUIBox.h"
+#include "GUIText.h"
 
 class GUI {
 public:
-    static std::vector<GUIElement> elements;
-    static TTF_Font* font;
+    static std::vector<GUIElement*> elements;
     static void Init();
     static void DrawText(std::string, Vector2i);
+    static void DrawBox(Vector2i, Vector2i);
     static void Draw();
 };
 

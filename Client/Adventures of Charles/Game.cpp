@@ -58,6 +58,7 @@ int Game::Init() {
     //Loading files
     textures["PlayerTexture"] = LoadTexture("Textures/player.png");
     textures["SolderTexture"] = LoadTexture("Textures/solder.png");
+    GUIBox::texture = LoadTexture("Textures/GUI/Box.png");
 
     //Other initialization
     SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
@@ -165,6 +166,7 @@ void Game::Render() {
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
 
+    GUI::DrawBox(Vector2i(0, 0), Vector2i(100, 100));
     GUI::DrawText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime), Vector2i(0, 0));
 
     World::Draw();

@@ -25,11 +25,19 @@ Vector2f::Vector2f(float x, float y) {
 
 void Console::Print(std::string msg) {
 #if SERVER
-    std::cout << "server :)" << std::endl;
+    //std::cout << "server :)" << std::endl;
 #elif CLIENT
-    std::cout << "YOYO" << std::endl;
+    //std::cout << "YOYO" << std::endl;
 #endif
     std::cout << msg << std::endl;
+}
+
+void Console::PrintError(std::string msg) {
+    std::cout << "Error: " << msg << std::endl;
+}
+
+void Console::PrintError(std::string msg, const char* errorMsg) {
+    std::cout << "Error: " << msg << " - " << errorMsg << std::endl;
 }
 
 //TODO: recompile png thing

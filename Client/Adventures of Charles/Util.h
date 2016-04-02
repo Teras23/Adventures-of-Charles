@@ -23,6 +23,8 @@ public:
 class Console {
 public:
     static void Print(std::string);
+    static void PrintError(std::string);
+    static void PrintError(std::string, const char*);
 };
 
 SDL_Texture* LoadTexture(std::string);

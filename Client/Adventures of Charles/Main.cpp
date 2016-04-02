@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     }
     
 #if CLIENT
-    Game::onlineMode = true;
+    Game::onlineMode = false;
     if(Game::Init() == 0) {
         Game::Loop();
     }

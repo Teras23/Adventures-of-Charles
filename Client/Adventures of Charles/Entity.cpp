@@ -10,7 +10,7 @@ Entity::Entity() {
     id = curID;
     curID++;
     speed = 5.0f;
-    position = Vector2f(40, 50);
+    position = Vector2f(300, 300);
     texture = NULL;
 }
 
