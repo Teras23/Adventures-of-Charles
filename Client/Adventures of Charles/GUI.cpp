@@ -11,7 +11,8 @@ GUIElement::GUIElement(SDL_Texture* tex, SDL_Rect* r) {
 }
 
 void GUI::Init() {
-    font = LoadFont("FreeSans.ttf");
+    //font = LoadFont("FreeSans.ttf");
+    font = LoadFont("PixelFJVerdana12pt.ttf");
 }
 
 void GUI::Draw() {

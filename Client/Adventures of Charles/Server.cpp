@@ -14,6 +14,10 @@ char Server::buffer[1028];
 std::vector<Client> Server::clients = std::vector<Client>();
 int Server::timeoutTime;
 
+#if SERVER
+
+#endif
+
 /*
 0 - new connection
 1 - tell everyone

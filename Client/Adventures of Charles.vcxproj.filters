@@ -1,84 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Adventures of Charles">
+      <UniqueIdentifier>{3904a592-ee12-43fa-95cc-68138272b7b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="Adventures of Charles\Client">
+      <UniqueIdentifier>{7478c39a-da7e-4387-b0d3-cb3dcfe41316}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Adventures of Charles\Server">
+      <UniqueIdentifier>{1591fdd4-8bcb-4cfa-a97f-6a55ad5c52e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Adventures of Charles\Shared">
+      <UniqueIdentifier>{932abe30-bc04-4190-9906-ccb007715117}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Adventures of Charles\Main.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Game.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Entity.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Player.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\World.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Util.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Adventures of Charles</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Input.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Network.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Animation.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Adventures of Charles\Client</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\GUI.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Entity.cpp">
+      <Filter>Adventures of Charles\Shared</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Enemy.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Animation.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Game.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Network.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\World.cpp">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Util.cpp">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Player.cpp">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Server\Adventures of Charles Server\Main.cpp">
+      <Filter>Adventures of Charles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Server\Adventures of Charles Server\Client.cpp">
+      <Filter>Adventures of Charles\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Server\Adventures of Charles Server\Server.cpp">
+      <Filter>Adventures of Charles\Server</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adventures of Charles\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\World.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Adventures of Charles\Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Network.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Animation.h">
-      <Filter>Header Files</Filter>
+      <Filter>Adventures of Charles\Client</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\GUI.h">
-      <Filter>Header Files</Filter>
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Entity.h">
+      <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Enemy.h">
-      <Filter>Header Files</Filter>
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Animation.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Game.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Network.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\World.h">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Util.h">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Player.h">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Server\Adventures of Charles Server\Client.h">
+      <Filter>Adventures of Charles\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Server\Adventures of Charles Server\Server.h">
+      <Filter>Adventures of Charles\Server</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
