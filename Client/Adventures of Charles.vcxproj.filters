@@ -16,6 +16,9 @@
     <Filter Include="Adventures of Charles\Client\GUI">
       <UniqueIdentifier>{7d6c2c93-e310-4139-a086-e43857b80843}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Adventures of Charles\Shared\Entity">
+      <UniqueIdentifier>{84926bb6-5bdc-465a-8d15-995650b6e118}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Adventures of Charles\Main.cpp">
@@ -23,12 +26,6 @@
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Input.cpp">
       <Filter>Adventures of Charles\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Entity.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Enemy.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Animation.cpp">
       <Filter>Adventures of Charles\Client</Filter>
@@ -43,9 +40,6 @@
       <Filter>Adventures of Charles\Shared</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Util.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Player.cpp">
       <Filter>Adventures of Charles\Shared</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Client.cpp">
@@ -66,16 +60,22 @@
     <ClCompile Include="Adventures of Charles\GUIText.cpp">
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\Enemy.cpp">
+      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Entity.cpp">
+      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Player.cpp">
+      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\GUITextBox.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Input.h">
       <Filter>Adventures of Charles\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Entity.h">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Enemy.h">
-      <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Animation.h">
       <Filter>Adventures of Charles\Client</Filter>
@@ -90,9 +90,6 @@
       <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Util.h">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Player.h">
       <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Client.h">
@@ -111,6 +108,18 @@
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\GUIText.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Enemy.h">
+      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Entity.h">
+      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Player.h">
+      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\GUITextBox.h">
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClInclude>
   </ItemGroup>

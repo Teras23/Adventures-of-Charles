@@ -65,5 +65,6 @@ TTF_Font* LoadFont(std::string path) {
     if(font == NULL) {
         std::cout << "Failed to load font " << path << std::endl;
     }
+    TTF_SetFontHinting(font, TTF_HINTING_NORMAL);
     return font;
 }

@@ -24,7 +24,7 @@ void GUIText::Draw() {
     color.r = 0;
     color.b = 0;
     color.g = 0;
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), color);
+    SDL_Surface* textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
     if(textSurface == NULL) {
         Console::PrintError("Unable to render text to surface", TTF_GetError());
     }
