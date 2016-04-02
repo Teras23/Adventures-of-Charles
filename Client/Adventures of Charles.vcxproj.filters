@@ -48,14 +48,14 @@
     <ClCompile Include="Adventures of Charles\Player.cpp">
       <Filter>Adventures of Charles\Shared</Filter>
     </ClCompile>
-    <ClCompile Include="..\Server\Adventures of Charles Server\Main.cpp">
+    <ClCompile Include="Adventures of Charles\Client.cpp">
+      <Filter>Adventures of Charles\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Server.cpp">
+      <Filter>Adventures of Charles\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\MainSERVER.cpp">
       <Filter>Adventures of Charles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Server\Adventures of Charles Server\Client.cpp">
-      <Filter>Adventures of Charles\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Server\Adventures of Charles Server\Server.cpp">
-      <Filter>Adventures of Charles\Server</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,10 +89,10 @@
     <ClInclude Include="Adventures of Charles\Player.h">
       <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
-    <ClInclude Include="..\Server\Adventures of Charles Server\Client.h">
+    <ClInclude Include="Adventures of Charles\Client.h">
       <Filter>Adventures of Charles\Server</Filter>
     </ClInclude>
-    <ClInclude Include="..\Server\Adventures of Charles Server\Server.h">
+    <ClInclude Include="Adventures of Charles\Server.h">
       <Filter>Adventures of Charles\Server</Filter>
     </ClInclude>
   </ItemGroup>

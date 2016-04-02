@@ -1,2 +1,2 @@
-start x64/Debug/aocserver.exe -s
+start x64/SERVER/aocserver.exe -s
 exit

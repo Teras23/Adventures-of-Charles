@@ -1,2 +1,2 @@
-start x64/Debug/aoc.exe
+start x64/CLIENT/aoc.exe
 exit
