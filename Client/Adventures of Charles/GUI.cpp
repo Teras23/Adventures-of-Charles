@@ -1,6 +1,4 @@
 #include "GUI.h"
-#include <iostream>
-#include "Game.h"
 
 std::vector<GUIElement*> GUI::elements;
 

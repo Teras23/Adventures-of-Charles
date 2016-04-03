@@ -1,25 +1,25 @@
-#include "GUIText.h"
+#include "GUIButton.h"
 
 TTF_Font* GUIText::font = NULL;
 
-GUIText::GUIText() {
+GUIButton::GUIButton() {
     text = "NULL";
     position = Vector2i(0, 0);
     size = Vector2i(0, 0);
 }
 
-GUIText::GUIText(std::string t, Vector2i p) {
+GUIButton::GUIButton(std::string t, Vector2i p) {
     text = t;
     position = p;
 }
 
-GUIText::GUIText(std::string t, Vector2i p, Vector2i s) {
+GUIButton::GUIButton(std::string t, Vector2i p, Vector2i s) {
     text = t;
     position = p;
     size = s;
 }
 
-void GUIText::Draw() {
+void GUIButton::Draw() {
     if(visible) {
         SDL_Color color;
         color.r = 0;

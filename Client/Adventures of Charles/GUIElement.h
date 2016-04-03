@@ -8,6 +8,7 @@ class GUIElement {
 public:
     SDL_Texture* texture;
     SDL_Rect* rect;
+    bool visible;
     GUIElement();
     GUIElement(SDL_Texture*, SDL_Rect*);
     virtual void Draw();

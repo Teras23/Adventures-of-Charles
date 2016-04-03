@@ -2,12 +2,17 @@
 #define GUI_H
 #include <SDL.h>
 #include <SDL_ttf.h>
+
 #include <string>
 #include <vector>
+
 #include "Util.h"
 #include "GUIElement.h"
 #include "GUIBox.h"
 #include "GUIText.h"
+#include "GUIButton.h"
+#include "GUICheckbox.h"
+#include "GUITextBox.h"
 
 class GUI {
 public:

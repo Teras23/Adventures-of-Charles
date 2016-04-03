@@ -72,6 +72,12 @@
     <ClCompile Include="Adventures of Charles\GUITextBox.cpp">
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\GUIButton.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\GUICheckbox.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Input.h">
@@ -120,6 +126,12 @@
       <Filter>Adventures of Charles\Shared\Entity</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\GUITextBox.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\GUIButton.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\GUICheckbox.h">
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,25 +1,23 @@
-#include "GUIText.h"
+#include "GUICheckbox.h"
 
-TTF_Font* GUIText::font = NULL;
-
-GUIText::GUIText() {
+GUICheckbox::GUICheckbox() {
     text = "NULL";
     position = Vector2i(0, 0);
     size = Vector2i(0, 0);
 }
 
-GUIText::GUIText(std::string t, Vector2i p) {
+GUICheckbox::GUICheckbox(std::string t, Vector2i p) {
     text = t;
     position = p;
 }
 
-GUIText::GUIText(std::string t, Vector2i p, Vector2i s) {
+GUICheckbox::GUICheckbox(std::string t, Vector2i p, Vector2i s) {
     text = t;
     position = p;
     size = s;
 }
 
-void GUIText::Draw() {
+void GUICheckbox::Draw() {
     if(visible) {
         SDL_Color color;
         color.r = 0;
