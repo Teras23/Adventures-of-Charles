@@ -9,6 +9,10 @@ private:
     std::string name;
 public:
     bool visible;
+    bool clickable;
+    bool clicked;
+    Vector2i position;
+    Vector2i size;
 
     GUIElement();
     void AddElement(GUIElement* element);
@@ -19,6 +23,9 @@ public:
 
     void SetName(std::string name);
     std::string GetName();
+
+    void OnHover();
+    void OnClick();
 };
 
 #endif

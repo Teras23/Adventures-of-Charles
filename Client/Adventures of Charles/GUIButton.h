@@ -5,10 +5,6 @@
 class GUIButton : public GUIElement {
 public:
     static TTF_Font* font;
-    std::string text;
-    bool pressed;
-    Vector2i position;
-    Vector2i size;
 
     GUIButton();
     GUIButton(std::string text, Vector2i position, Vector2i size);

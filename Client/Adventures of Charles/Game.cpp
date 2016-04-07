@@ -115,14 +115,13 @@ void Game::Loop() {
 
 void Game::Input() {
     while(SDL_PollEvent(&sdlEvent) != 0) {
-        if(sdlEvent.type == SDL_QUIT) {
+        switch(sdlEvent.type) {
+        case SDL_QUIT:
             running = false;
-        }
-        if(sdlEvent.type == SDL_KEYDOWN) {
-            switch(sdlEvent.key.keysym.sym)
-            {
+            break;
+        case SDL_KEYDOWN:
+            switch(sdlEvent.key.keysym.sym) {
             case SDLK_w:
-
                 Input::WPressed = true;
                 break;
             case SDLK_s:
@@ -135,8 +134,8 @@ void Game::Input() {
                 Input::APressed = true;
                 break;
             }
-        }
-        if(sdlEvent.type == SDL_KEYUP) {
+            break;
+        case SDL_KEYUP:
             switch(sdlEvent.key.keysym.sym)
             {
             case SDLK_w:
@@ -158,20 +157,22 @@ void Game::Input() {
                 World::RemoveLastEnemy();
                 break;
             }
-        }
-        if(sdlEvent.type == SDL_MOUSEBUTTONDOWN) {
-            //Give GUI Mouse down 
-            /*
-            if(!GUI::MouseDown(mouse data)) {
-                Do Something else
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            if(!GUI::MouseEvent(sdlEvent)) {
+                //Not clicked on gui
             }
-            */
-        }
-        if(sdlEvent.type == SDL_MOUSEBUTTONDOWN) {
-            //Check if something is pressed
-        }
-        if(sdlEvent.type == SDL_MOUSEMOTION) {
-            //Check if hovering
+            break;
+        case SDL_MOUSEBUTTONUP:
+            if(!GUI::MouseEvent(sdlEvent)) {
+                //Not clicked on gui
+            }
+            break;
+        case SDL_MOUSEMOTION:
+            if(!GUI::MouseEvent(sdlEvent)) {
+                //Not hover on gui
+            }
+            break;
         }
     }
 }

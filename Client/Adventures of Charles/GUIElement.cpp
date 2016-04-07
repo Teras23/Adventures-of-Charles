@@ -5,6 +5,8 @@
 GUIElement::GUIElement() {
     SetName("Name");
     visible = true;
+    clickable = false;
+    clicked = false;
 }
 
 void GUIElement::AddElement(GUIElement* element) {
@@ -31,4 +33,12 @@ void GUIElement::SetText(std::string) {
 
 std::string GUIElement::GetText() {
     return NULL;
+}
+
+void OnHover() {
+
+}
+
+void OnClick() {
+
 }
