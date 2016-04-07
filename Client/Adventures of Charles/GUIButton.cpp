@@ -1,22 +1,19 @@
 #include "GUIButton.h"
 
-TTF_Font* GUIText::font = NULL;
+TTF_Font* GUIButton::font = NULL;
 
 GUIButton::GUIButton() {
     text = "NULL";
     position = Vector2i(0, 0);
     size = Vector2i(0, 0);
-}
-
-GUIButton::GUIButton(std::string t, Vector2i p) {
-    text = t;
-    position = p;
+    GUIElement::AddElement(this);
 }
 
 GUIButton::GUIButton(std::string t, Vector2i p, Vector2i s) {
     text = t;
     position = p;
     size = s;
+    GUIElement::AddElement(this);
 }
 
 void GUIButton::Draw() {

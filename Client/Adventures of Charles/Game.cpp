@@ -159,6 +159,20 @@ void Game::Input() {
                 break;
             }
         }
+        if(sdlEvent.type == SDL_MOUSEBUTTONDOWN) {
+            //Give GUI Mouse down 
+            /*
+            if(!GUI::MouseDown(mouse data)) {
+                Do Something else
+            }
+            */
+        }
+        if(sdlEvent.type == SDL_MOUSEBUTTONDOWN) {
+            //Check if something is pressed
+        }
+        if(sdlEvent.type == SDL_MOUSEMOTION) {
+            //Check if hovering
+        }
     }
 }
 
@@ -166,8 +180,9 @@ void Game::Render() {
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
 
-    GUI::DrawBox(Vector2i(0, 0), Vector2i(100, 100));
-    GUI::DrawText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime), Vector2i(0, 0));
+    if(GUI::GetElement("Time") != NULL) {
+        GUI::GetElement("Time")->SetText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime));
+    }
 
     World::Draw();
     GUI::Draw();

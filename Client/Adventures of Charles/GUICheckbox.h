@@ -8,7 +8,7 @@ public:
     bool checked;
 
     GUICheckbox();
-    GUICheckbox(std::string, Vector2i);
+    GUICheckbox(bool checked, Vector2i position);
     void Draw();
 };
 

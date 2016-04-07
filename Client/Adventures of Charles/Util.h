@@ -7,7 +7,7 @@
 class Vector2i {
 public:
     Vector2i();
-    Vector2i(int, int);
+    Vector2i(int x, int y);
     int x;
     int y;
 };
@@ -15,16 +15,16 @@ public:
 class Vector2f {
 public:
     Vector2f();
-    Vector2f(float, float);
+    Vector2f(float x, float y);
     float x;
     float y;
 };
 
 class Console {
 public:
-    static void Print(std::string);
-    static void PrintError(std::string);
-    static void PrintError(std::string, const char*);
+    static void Print(std::string text);
+    static void PrintError(std::string errortext);
+    static void PrintError(std::string text, const char* error);
 };
 
 SDL_Texture* LoadTexture(std::string);

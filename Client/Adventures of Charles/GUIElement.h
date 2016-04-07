@@ -5,13 +5,20 @@
 #include "Game.h"
 
 class GUIElement {
+private:
+    std::string name;
 public:
-    SDL_Texture* texture;
-    SDL_Rect* rect;
     bool visible;
+
     GUIElement();
-    GUIElement(SDL_Texture*, SDL_Rect*);
+    void AddElement(GUIElement* element);
     virtual void Draw();
+
+    virtual void SetText(std::string text);
+    virtual std::string GetText();
+
+    void SetName(std::string name);
+    std::string GetName();
 };
 
 #endif

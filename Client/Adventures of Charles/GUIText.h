@@ -10,9 +10,12 @@ public:
     Vector2i size;
 
     GUIText();
-    GUIText(std::string, Vector2i);
-    GUIText(std::string, Vector2i, Vector2i);
+    GUIText(std::string text, Vector2i position);
+    GUIText(std::string text, Vector2i position, Vector2i size);
     void Draw();
+
+    void SetText(std::string);
+    std::string GetText();
 };
 
 #endif

@@ -4,12 +4,15 @@
 SDL_Texture* GUIBox::texture = NULL;
 
 GUIBox::GUIBox() {
-
+    SetName("GUIBox");
+    GUIElement::AddElement(this);
 }
 
 GUIBox::GUIBox(Vector2i p, Vector2i s) {
+    SetName("GUIBox");
     position = p;
     size = s;
+    GUIElement::AddElement(this);
 }
 
 void GUIBox::Draw() {

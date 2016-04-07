@@ -4,12 +4,14 @@
 SDL_Texture* GUITextBox::texture = NULL;
 
 GUITextBox::GUITextBox() {
-
+    GUIElement::AddElement(this);
 }
 
-GUITextBox::GUITextBox(Vector2i p, Vector2i s) {
+GUITextBox::GUITextBox(std::string t, Vector2i p, Vector2i s) {
+    text = t;
     position = p;
     size = s;
+    GUIElement::AddElement(this);
 }
 
 void GUITextBox::Draw() {

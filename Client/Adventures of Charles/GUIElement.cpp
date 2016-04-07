@@ -1,16 +1,34 @@
-#include <iostream>
+#include "Util.h"
 #include "GUIElement.h"
+#include "GUI.h"
 
 GUIElement::GUIElement() {
+    SetName("Name");
     visible = true;
 }
 
-GUIElement::GUIElement(SDL_Texture* tex, SDL_Rect* r) {
-    visible = true;
-    texture = tex;
-    rect = r;
+void GUIElement::AddElement(GUIElement* element) {
+    GUI::AddElement(element);
 }
 
 void GUIElement::Draw() {
     
+}
+
+void GUIElement::SetName(std::string n) {
+    GUI::RemoveElement(name);
+    name = n;
+    GUI::AddElement(this);
+}
+
+std::string GUIElement::GetName() {
+    return name;
+}
+
+void GUIElement::SetText(std::string) {
+
+}
+
+std::string GUIElement::GetText() {
+    return NULL;
 }

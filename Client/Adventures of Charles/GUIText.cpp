@@ -6,17 +6,20 @@ GUIText::GUIText() {
     text = "NULL";
     position = Vector2i(0, 0);
     size = Vector2i(0, 0);
+    GUIElement::AddElement(this);
 }
 
 GUIText::GUIText(std::string t, Vector2i p) {
     text = t;
     position = p;
+    GUIElement::AddElement(this);
 }
 
 GUIText::GUIText(std::string t, Vector2i p, Vector2i s) {
     text = t;
     position = p;
     size = s;
+    GUIElement::AddElement(this);
 }
 
 void GUIText::Draw() {
@@ -46,4 +49,12 @@ void GUIText::Draw() {
         }
         SDL_FreeSurface(textSurface);
     }
+}
+
+void GUIText::SetText(std::string t) {
+    text = t;
+}
+
+std::string GUIText::GetText() {
+    return text;
 }

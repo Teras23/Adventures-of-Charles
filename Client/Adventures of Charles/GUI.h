@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "Util.h"
 #include "GUIElement.h"
@@ -15,12 +16,15 @@
 #include "GUITextBox.h"
 
 class GUI {
+private:
+    static std::map<std::string, GUIElement*> elements;
 public:
-    static std::vector<GUIElement*> elements;
     static void Init();
-    static void DrawText(std::string, Vector2i);
-    static void DrawBox(Vector2i, Vector2i);
     static void Draw();
+
+    static void AddElement(GUIElement* element);
+    static void RemoveElement(std::string name);
+    static GUIElement* GetElement(std::string name);
 };
 
 #endif

@@ -11,7 +11,7 @@ public:
     Vector2i size;
 
     GUITextBox();
-    GUITextBox(Vector2i, Vector2i);
+    GUITextBox(std::string text, Vector2i position, Vector2i size);
     void Draw();
 };
 
