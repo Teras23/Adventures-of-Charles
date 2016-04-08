@@ -11,6 +11,9 @@ void GUI::Init() {
     GUIText* text = new GUIText("Test", Vector2i(10, 0));
     text->SetName("Time");
 
+    GUIButton* button = new GUIButton("Test", Vector2i(240, 20), Vector2i(50, 20));
+    button->SetName("TestButton");
+
     for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
         Console::Print(it->first + "  " + it->second->GetName());
     }
@@ -57,11 +60,12 @@ bool GUI::MouseEvent(SDL_Event e) {
     case SDL_MOUSEBUTTONDOWN:
         Console::Print("Press " + std::to_string(mousePos.x) + " " + std::to_string(mousePos.y));
         for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
-            if(it->second->clickable) {
-                if(mousePos.x > it->second->position.x &&
-                    mousePos.y > it->second->position.y &&
-                    mousePos.x < it->second->position.x + it->second->size.x &&
-                    mousePos.y < it->second->position.y + it->second->size.y) {
+            if(it->second->IsClickable()) {
+                if(mousePos.x > it->second->GetPosition().x &&
+                    mousePos.y > it->second->GetPosition().y &&
+                    mousePos.x < it->second->GetPosition().x + it->second->GetSize().x &&
+                    mousePos.y < it->second->GetPosition().y + it->second->GetSize().y) {
+                    it->second->SetPressed(true);
                     Console::Print(it->second->GetName());
                     return true;
                 }

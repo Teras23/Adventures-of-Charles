@@ -59,6 +59,7 @@ int Game::Init() {
     textures["PlayerTexture"] = LoadTexture("Textures/player.png");
     textures["SolderTexture"] = LoadTexture("Textures/solder.png");
     GUIBox::texture = LoadTexture("Textures/GUI/Box.png");
+    GUIButton::texture = LoadTexture("Textures/GUI/Box.png");
 
     //Other initialization
     SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
@@ -183,6 +184,12 @@ void Game::Render() {
 
     if(GUI::GetElement("Time") != NULL) {
         GUI::GetElement("Time")->SetText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime));
+    }
+
+    if(GUI::GetElement("TestButton") != NULL) {
+        if(GUI::GetElement("TestButton")->IsPressed()) {
+            Console::Print("Button Press");
+        }
     }
 
     World::Draw();

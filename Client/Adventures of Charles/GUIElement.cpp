@@ -6,7 +6,7 @@ GUIElement::GUIElement() {
     SetName("Name");
     visible = true;
     clickable = false;
-    clicked = false;
+    pressed = false;
 }
 
 void GUIElement::AddElement(GUIElement* element) {
@@ -35,10 +35,30 @@ std::string GUIElement::GetText() {
     return NULL;
 }
 
-void OnHover() {
+bool GUIElement::IsPressed() {
+    return pressed;
+}
+
+void GUIElement::SetPressed(bool p) {
+    pressed = p;
+}
+
+bool GUIElement::IsClickable() {
+    return clickable;
+}
+
+Vector2i GUIElement::GetPosition() {
+    return position;
+}
+
+Vector2i GUIElement::GetSize() {
+    return size;
+}
+
+void GUIElement::OnHover() {
 
 }
 
-void OnClick() {
+void GUIElement::OnClick() {
 
 }

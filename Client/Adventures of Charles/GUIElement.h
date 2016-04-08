@@ -7,13 +7,13 @@
 class GUIElement {
 private:
     std::string name;
-public:
+protected:
     bool visible;
     bool clickable;
-    bool clicked;
+    bool pressed;
     Vector2i position;
     Vector2i size;
-
+public:
     GUIElement();
     void AddElement(GUIElement* element);
     virtual void Draw();
@@ -21,8 +21,16 @@ public:
     virtual void SetText(std::string text);
     virtual std::string GetText();
 
+    bool IsPressed();
+    void SetPressed(bool state);
+
+    bool IsClickable();
+
     void SetName(std::string name);
     std::string GetName();
+
+    Vector2i GetSize();
+    Vector2i GetPosition();
 
     void OnHover();
     void OnClick();
