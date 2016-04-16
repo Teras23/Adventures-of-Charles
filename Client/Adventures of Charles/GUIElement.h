@@ -8,15 +8,18 @@ class GUIElement {
 private:
     std::string name;
 protected:
+    bool lastClickState;
     bool visible;
     bool clickable;
-    bool pressed;
+    bool clicked;
     Vector2i position;
     Vector2i size;
 public:
     GUIElement();
     void AddElement(GUIElement* element);
     virtual void Draw();
+
+    void Update();
 
     virtual void SetText(std::string text);
     virtual std::string GetText();

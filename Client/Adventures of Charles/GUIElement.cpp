@@ -6,7 +6,8 @@ GUIElement::GUIElement() {
     SetName("Name");
     visible = true;
     clickable = false;
-    pressed = false;
+    clicked = false;
+    lastClickState = false;
 }
 
 void GUIElement::AddElement(GUIElement* element) {
@@ -17,10 +18,14 @@ void GUIElement::Draw() {
     
 }
 
+void GUIElement::Update() {
+    lastClickState = clicked;
+}
+
 void GUIElement::SetName(std::string n) {
-    GUI::RemoveElement(name);
+    std::string oldName = name;
     name = n;
-    GUI::AddElement(this);
+    GUI::RenameElement(oldName, name, this);
 }
 
 std::string GUIElement::GetName() {
@@ -36,11 +41,14 @@ std::string GUIElement::GetText() {
 }
 
 bool GUIElement::IsPressed() {
-    return pressed;
+    if(!lastClickState && clicked) {
+        return true;
+    }
+    return false;
 }
 
 void GUIElement::SetPressed(bool p) {
-    pressed = p;
+    clicked = p;
 }
 
 bool GUIElement::IsClickable() {

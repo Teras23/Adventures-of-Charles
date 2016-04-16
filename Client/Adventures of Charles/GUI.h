@@ -18,10 +18,16 @@
 class GUI {
 private:
     static std::map<std::string, GUIElement*> elements;
+    static std::vector<std::string> elementOrder;
+    static GUIElement* clickedElement;
 public:
     static void Init();
     static void Draw();
+    static void Update();
 
+    static GUIElement* GetElementUnderMouse();
+
+    static void RenameElement(std::string oldName, std::string newName, GUIElement* element);
     static void AddElement(GUIElement* element);
     static void RemoveElement(std::string name);
     static GUIElement* GetElement(std::string name);

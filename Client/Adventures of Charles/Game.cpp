@@ -103,7 +103,7 @@ void Game::Loop() {
             Input();
 
             //Logic
-            World::Update();
+            Update();
 
             deltaTime = frameTime / 60.0f;
             lastTime = startTime;
@@ -178,18 +178,22 @@ void Game::Input() {
     }
 }
 
+void Game::Update() {
+    if(GUI::GetElement("TestButton") != NULL) {
+        if(GUI::GetElement("TestButton")->IsPressed()) {
+            Console::Print("Button Press");
+        }
+    }
+    GUI::Update();
+    World::Update();
+}
+
 void Game::Render() {
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
 
     if(GUI::GetElement("Time") != NULL) {
         GUI::GetElement("Time")->SetText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime));
-    }
-
-    if(GUI::GetElement("TestButton") != NULL) {
-        if(GUI::GetElement("TestButton")->IsPressed()) {
-            Console::Print("Button Press");
-        }
     }
 
     World::Draw();

@@ -19,6 +19,7 @@ public:
     static int Init();
     static int Quit();
     static void Loop();
+    static void Update();
     static void Render();
     static void Input();
 };

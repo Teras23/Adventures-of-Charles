@@ -1,6 +1,8 @@
 #include "GUI.h"
 
 std::map<std::string, GUIElement*> GUI::elements;
+std::vector<std::string> GUI::elementOrder;
+GUIElement* GUI::clickedElement;
 
 void GUI::Init() {
     //font = LoadFont("FreeSans.ttf");
@@ -11,7 +13,7 @@ void GUI::Init() {
     GUIText* text = new GUIText("Test", Vector2i(10, 0));
     text->SetName("Time");
 
-    GUIButton* button = new GUIButton("Test", Vector2i(240, 20), Vector2i(50, 20));
+    GUIButton* button = new GUIButton("Test", Vector2i(200, 20), Vector2i(50, 20));
     button->SetName("TestButton");
 
     for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
@@ -20,20 +22,37 @@ void GUI::Init() {
 }
 
 void GUI::Draw() {
-    for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
+    for(int i = 0; i < elementOrder.size(); i++) {
+        elements[elementOrder[i]]->Draw();
+    }
+    /*for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
         it->second->Draw();
+    }*/
+}
+
+void GUI::Update() {
+    if(clickedElement != NULL) {
+        clickedElement->Update();
     }
 }
 
+
+
+
+
+//
+//  Element Functions
+//
 void GUI::AddElement(GUIElement* e) {
-    if(elements.find(e->GetName()) == elements.end()) {
+    if(elements.find(e->GetName()) == elements.end()) {     //If elements map does not have that element
         elements.insert(std::make_pair(e->GetName(), e));
+        elementOrder.push_back(e->GetName());
     }
-    else {
+    else {                                                  //If elements map does have the element, try to add a number to the end
         for(int i = 0; i < 100; i++) {
             if(elements.find(e->GetName() + std::to_string(i)) == elements.end()) {
                 e->SetName(e->GetName() + std::to_string(i));
-                elements.insert(std::make_pair(e->GetName(), e));
+                //No need to change elements here, done with GUIElement setname function
                 break;
             }
         }
@@ -50,34 +69,59 @@ GUIElement* GUI::GetElement(std::string name) {
 }
 
 void GUI::RemoveElement(std::string name) {
-    elements.erase(name);
+    if(elements.find(name) != elements.end()) {
+        elements.erase(name);
+        elementOrder.erase(find(elementOrder.begin(), elementOrder.end(), name));
+    }
+}
+
+void GUI::RenameElement(std::string oldName, std::string newName, GUIElement* element) {
+    RemoveElement(oldName);
+    AddElement(element);
+}
+
+
+
+
+GUIElement* GUI::GetElementUnderMouse() {
+    Vector2i mousePos = Vector2i();
+    SDL_GetMouseState(&mousePos.x, &mousePos.y);
+    for(int i = elementOrder.size() - 1; i >= 0; i--) {
+        GUIElement* pressedElement = elements[elementOrder[i]];
+        if(mousePos.x > pressedElement->GetPosition().x &&
+        mousePos.y > pressedElement->GetPosition().y &&
+        mousePos.x < pressedElement->GetPosition().x + pressedElement->GetSize().x &&
+        mousePos.y < pressedElement->GetPosition().y + pressedElement->GetSize().y) {
+            
+            return pressedElement;
+        }
+    }
+    return NULL;
 }
 
 bool GUI::MouseEvent(SDL_Event e) {
     Vector2i mousePos = Vector2i();
     SDL_GetMouseState(&mousePos.x, &mousePos.y);
+    GUIElement* pressedElement = GetElementUnderMouse();
+
     switch(e.type) {
     case SDL_MOUSEBUTTONDOWN:
         Console::Print("Press " + std::to_string(mousePos.x) + " " + std::to_string(mousePos.y));
-        for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
-            if(it->second->IsClickable()) {
-                if(mousePos.x > it->second->GetPosition().x &&
-                    mousePos.y > it->second->GetPosition().y &&
-                    mousePos.x < it->second->GetPosition().x + it->second->GetSize().x &&
-                    mousePos.y < it->second->GetPosition().y + it->second->GetSize().y) {
-                    it->second->SetPressed(true);
-                    Console::Print(it->second->GetName());
-                    return true;
-                }
-            }
+        if(pressedElement != NULL) {
+            clickedElement = pressedElement;
+            pressedElement->SetPressed(true);
+            Console::Print(pressedElement->GetName());
+            return true;
         }
         break;
     case SDL_MOUSEBUTTONUP:
-
-        break;
+        if(clickedElement != NULL) {
+            clickedElement->SetPressed(false);
+        }
+        return true;
     case SDL_MOUSEMOTION:
 
-        break;
+        return false;
     }
     return false;
 }
