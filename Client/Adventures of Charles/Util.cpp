@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Game.h"
 #include <fstream>
+#include "World.h"
 
 Vector2i::Vector2i() {
     x = 0;
@@ -70,7 +71,9 @@ TTF_Font* LoadFont(std::string path) {
     return font;
 }
 
-void SaveMap(std::vector<std::vector<Tile>> map) {
+void SaveMap() {
+    std::vector<std::vector<Tile>> map = World::layers[0].tiles;
+
     std::ofstream ofile("map.txt");
     ofile << map[0].size() << " " << map.size() << std::endl;
     for(int y = 0; y < map.size(); y++) {
@@ -82,7 +85,7 @@ void SaveMap(std::vector<std::vector<Tile>> map) {
     ofile.close();
 }
 
-std::vector<std::vector<Tile>> LoadMap() {
+void LoadMap() {
     std::ifstream ifile("map.txt");
     int w, h;
     ifile >> w >> h;
@@ -96,5 +99,8 @@ std::vector<std::vector<Tile>> LoadMap() {
         }
         map.push_back(row);
     }
-    return map;
+    MapLayer layer = MapLayer();
+    layer.tiles = map;
+
+    World::layers.push_back(layer);
 }

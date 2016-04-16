@@ -35,7 +35,7 @@ public:
 
 SDL_Texture* LoadTexture(std::string);
 TTF_Font* LoadFont(std::string);
-void SaveMap(std::vector<std::vector<Tile>> map);
-std::vector<std::vector<Tile>> LoadMap();
+void SaveMap();
+void LoadMap();
 
 #endif

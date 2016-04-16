@@ -204,13 +204,13 @@ void Game::Update() {
     if(GUI::GetElement("TestButton") != NULL) {
         if(GUI::GetElement("TestButton")->IsPressed()) {
             Console::Print("Button Press");
-            SaveMap(World::tiles);
+            SaveMap();
         }
     }
 
     if(GUI::GetElement("TestButton2") != NULL) {
         if(GUI::GetElement("TestButton2")->IsPressed()) {
-            World::tiles = LoadMap();
+            LoadMap();
         }
     }
     GUI::Update();

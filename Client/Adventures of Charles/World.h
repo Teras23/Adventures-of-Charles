@@ -3,13 +3,14 @@
 #include <vector>
 #include "Entity.h"
 #include "Tile.h"
+#include "MapLayer.h"
 
 class World {
 private:
-    
     static std::vector<Entity*> entities;
 public:
-    static std::vector<std::vector<Tile>> tiles;
+    static std::vector<MapLayer> layers;
+
     static void Init();
     static void Draw();
     static void Update();

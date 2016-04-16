@@ -81,6 +81,9 @@
     <ClCompile Include="Adventures of Charles\Tile.cpp">
       <Filter>Adventures of Charles\Shared</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\MapLayer.cpp">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Input.h">
@@ -138,6 +141,9 @@
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Tile.h">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\MapLayer.h">
       <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
   </ItemGroup>
