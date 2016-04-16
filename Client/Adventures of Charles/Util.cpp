@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include "Game.h"
+#include <fstream>
 
 Vector2i::Vector2i() {
     x = 0;
@@ -67,4 +68,33 @@ TTF_Font* LoadFont(std::string path) {
     }
     TTF_SetFontHinting(font, TTF_HINTING_NORMAL);
     return font;
+}
+
+void SaveMap(std::vector<std::vector<Tile>> map) {
+    std::ofstream ofile("map.txt");
+    ofile << map[0].size() << " " << map.size() << std::endl;
+    for(int y = 0; y < map.size(); y++) {
+        for(int x = 0; x < map[0].size(); x++) {
+            ofile << map[y][x].id << " ";
+        }
+        ofile << std::endl;
+    }
+    ofile.close();
+}
+
+std::vector<std::vector<Tile>> LoadMap() {
+    std::ifstream ifile("map.txt");
+    int w, h;
+    ifile >> w >> h;
+    std::vector<std::vector<Tile>> map;
+    for(int y = 0; y < h; y++) {
+        std::vector<Tile> row;
+        for(int x = 0; x < w; x++) {
+            int tileId = 0;
+            ifile >> tileId;
+            row.push_back(Tile(tileId));
+        }
+        map.push_back(row);
+    }
+    return map;
 }

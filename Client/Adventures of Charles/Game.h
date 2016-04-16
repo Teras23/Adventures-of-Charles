@@ -10,7 +10,8 @@ class Game {
     static SDL_Event sdlEvent;
 public:
     static SDL_Surface* screen;
-    static float deltaTime;
+    static double deltaTime;
+    static double interpolation;
     static SDL_Renderer* renderer;
     static bool onlineMode;
 

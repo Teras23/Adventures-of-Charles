@@ -9,7 +9,7 @@ int Entity::curID = 0;
 Entity::Entity() {
     id = curID;
     curID++;
-    speed = 5.0f;
+    speed = 10.0f;
     position = Vector2f(300, 300);
     texture = NULL;
 }
@@ -19,22 +19,20 @@ void Entity::Draw() {
         std::cout << "Missing texture!" << std::endl;
     }
     else {
-        SDL_SetRenderDrawColor(Game::renderer, 0x00, 0x00, 0xFF, 0xFF);
         SDL_Rect* dest = new SDL_Rect();
-        dest->x = position.x;
-        dest->y = position.y;
-        dest->w = 32;
-        dest->h = 32;
+        dest->x = position.x + velocity.x * Game::interpolation;
+        dest->y = position.y + velocity.y * Game::interpolation;
+        dest->w = TILESIZE;
+        dest->h = TILESIZE;
 
         SDL_Rect* source = new SDL_Rect();
         source->x = 0;
         source->y = 0;
-        source->w = 32;
-        source->h = 32;
+        source->w = TILESIZE;
+        source->h = TILESIZE;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
         delete dest;
         delete source;
-        SDL_SetRenderDrawColor(Game::renderer, 0x00, 0xFF, 0xFF, 0xFF);
     }
 }
 

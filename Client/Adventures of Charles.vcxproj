@@ -386,6 +386,7 @@
     <ClCompile Include="Adventures of Charles\Network.cpp" />
     <ClCompile Include="Adventures of Charles\Player.cpp" />
     <ClCompile Include="Adventures of Charles\Server.cpp" />
+    <ClCompile Include="Adventures of Charles\Tile.cpp" />
     <ClCompile Include="Adventures of Charles\Util.cpp" />
     <ClCompile Include="Adventures of Charles\World.cpp" />
   </ItemGroup>
@@ -406,6 +407,7 @@
     <ClInclude Include="Adventures of Charles\Network.h" />
     <ClInclude Include="Adventures of Charles\Player.h" />
     <ClInclude Include="Adventures of Charles\Server.h" />
+    <ClInclude Include="Adventures of Charles\Tile.h" />
     <ClInclude Include="Adventures of Charles\Util.h" />
     <ClInclude Include="Adventures of Charles\World.h" />
   </ItemGroup>

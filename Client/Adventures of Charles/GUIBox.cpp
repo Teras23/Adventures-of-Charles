@@ -17,6 +17,8 @@ GUIBox::GUIBox(Vector2i p, Vector2i s) {
     GUIElement::AddElement(this);
 }
 
+#define GRID 8
+
 void GUIBox::Draw() {
     if(visible) {
         SDL_Rect* source = new SDL_Rect();
@@ -27,85 +29,85 @@ void GUIBox::Draw() {
         */
         source->x = 0;
         source->y = 0;
-        source->w = 8;
-        source->h = 8;
+        source->w = GRID;
+        source->h = GRID;
 
         dest->x = position.x;
         dest->y = position.y;
-        dest->w = 8;
-        dest->h = 8;
+        dest->w = GRID;
+        dest->h = GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         TOP MIDDLE
         */
-        source->x = 8;
-        dest->x = position.x + 8;
-        dest->w = size.x - 2 * 8;
+        source->x = GRID;
+        dest->x = position.x + GRID;
+        dest->w = size.x - 2 * GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         TOP RIGHT
         */
-        source->x = 2 * 8;
-        dest->x = position.x + size.x - 8;
-        dest->w = 8;
+        source->x = 2 * GRID;
+        dest->x = position.x + size.x - GRID;
+        dest->w = GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         MIDDLE LEFT
         */
         source->x = 0;
-        source->y = 8;
+        source->y = GRID;
 
         dest->x = position.x;
-        dest->y = position.y + 8;
-        dest->w = 8;
-        dest->h = size.y - 2 * 8;
+        dest->y = position.y + GRID;
+        dest->w = GRID;
+        dest->h = size.y - 2 * GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         MIDDLE MIDDLE
         */
-        source->x = 8;
-        dest->x = position.x + 8;
-        dest->w = size.x - 2 * 8;
+        source->x = GRID;
+        dest->x = position.x + GRID;
+        dest->w = size.x - 2 * GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         MIDDLE RIGHT
         */
-        source->x = 2 * 8;
-        dest->x = position.x + size.x - 8;
-        dest->w = 8;
+        source->x = 2 * GRID;
+        dest->x = position.x + size.x - GRID;
+        dest->w = GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         BOTTOM LEFT
         */
         source->x = 0;
-        source->y = 2 * 8;
+        source->y = 2 * GRID;
 
         dest->x = position.x;
-        dest->y = position.y + size.y - 8;
-        dest->w = 8;
-        dest->h = 8;
+        dest->y = position.y + size.y - GRID;
+        dest->w = GRID;
+        dest->h = GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         BOTTOM MIDDLE
         */
-        source->x = 8;
-        dest->x = position.x + 8;
-        dest->w = size.x - 2 * 8;
+        source->x = GRID;
+        dest->x = position.x + GRID;
+        dest->w = size.x - 2 * GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         /*
         BOTTOM RIGHT
         */
-        source->x = 2 * 8;
-        dest->x = position.x + size.x - 8;
-        dest->w = 8;
+        source->x = 2 * GRID;
+        dest->x = position.x + size.x - GRID;
+        dest->w = GRID;
         SDL_RenderCopy(Game::renderer, texture, source, dest);
 
         delete source;

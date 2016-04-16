@@ -15,7 +15,8 @@ SDL_Window* Game::window = NULL;
 SDL_Surface* Game::screen = NULL;
 SDL_Renderer* Game::renderer = NULL;
 SDL_Event Game::sdlEvent;
-float Game::deltaTime;
+double Game::deltaTime;
+double Game::interpolation;
 
 std::map<std::string, SDL_Texture*> Game::textures;
 
@@ -91,23 +92,43 @@ int Game::Quit() {
     return 0;
 }
 
+#define UPDATETIME 1000.0 / 60.0
+
 void Game::Loop() {
     int lastTime = SDL_GetTicks();
-    deltaTime = 0.02f;
-    while(running) {
-        int startTime = SDL_GetTicks();
-        int frameTime = startTime - lastTime;
-        if(frameTime >= 16) {
-            Network::ReceiveMessage();
+    deltaTime = 0.1;
+    //deltaTime = UPDATETIME;
+    double lag = 0.0;
 
+    Console::Print(std::to_string(UPDATETIME));
+
+    while(running) {
+        double currentTime = SDL_GetTicks();
+        double frameTime = currentTime - lastTime;
+        lastTime = currentTime;
+
+        lag += frameTime;
+
+        while(lag >= UPDATETIME) {
+            Network::ReceiveMessage();
+            //Console::Print(std::to_string(frameTime));
             Input();
 
             //Logic
             Update();
 
-            deltaTime = frameTime / 60.0f;
-            lastTime = startTime;
+            //deltaTime = frameTime / 1000.0;
+            
+            lag -= UPDATETIME;
         }
+
+        interpolation = lag / UPDATETIME;
+
+        //state ? now * interpolation + last * (1.0 - interpolation)
+
+        //Console::Print(std::to_string(interpolation));
+
+        //interpelation for between state
         Render();
         SDL_Delay(1);
     }
@@ -161,6 +182,7 @@ void Game::Input() {
             break;
         case SDL_MOUSEBUTTONDOWN:
             if(!GUI::MouseEvent(sdlEvent)) {
+                Console::Print("Not clicked on gui");
                 //Not clicked on gui
             }
             break;
@@ -182,6 +204,13 @@ void Game::Update() {
     if(GUI::GetElement("TestButton") != NULL) {
         if(GUI::GetElement("TestButton")->IsPressed()) {
             Console::Print("Button Press");
+            SaveMap(World::tiles);
+        }
+    }
+
+    if(GUI::GetElement("TestButton2") != NULL) {
+        if(GUI::GetElement("TestButton2")->IsPressed()) {
+            World::tiles = LoadMap();
         }
     }
     GUI::Update();

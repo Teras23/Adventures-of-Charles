@@ -2,7 +2,13 @@
 #define UTIL_H
 #include <SDL.h>
 #include <SDL_ttf.h>
+
 #include <string>
+#include <vector>
+
+#include "Tile.h"
+
+#define TILESIZE 32
 
 class Vector2i {
 public:
@@ -29,5 +35,7 @@ public:
 
 SDL_Texture* LoadTexture(std::string);
 TTF_Font* LoadFont(std::string);
+void SaveMap(std::vector<std::vector<Tile>> map);
+std::vector<std::vector<Tile>> LoadMap();
 
 #endif

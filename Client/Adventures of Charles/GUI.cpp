@@ -4,30 +4,35 @@ std::map<std::string, GUIElement*> GUI::elements;
 std::vector<std::string> GUI::elementOrder;
 GUIElement* GUI::clickedElement;
 
+
+//
+//General Functions
+//
 void GUI::Init() {
     //font = LoadFont("FreeSans.ttf");
     GUIText::font = LoadFont("DroidSans.ttf");
 
     GUIBox* box = new GUIBox(Vector2i(0, 0), Vector2i(230, 100));
-    GUIBox* box2 = new GUIBox(Vector2i(0, 100), Vector2i(100, 100));
+    GUIBox* box2 = new GUIBox(Vector2i(0, 98), Vector2i(100, 100));
     GUIText* text = new GUIText("Test", Vector2i(10, 0));
     text->SetName("Time");
 
-    GUIButton* button = new GUIButton("Test", Vector2i(200, 20), Vector2i(50, 20));
+    GUIButton* button = new GUIButton("Test", Vector2i(50, 20), Vector2i(50, 20));
     button->SetName("TestButton");
+    
+    GUIButton* button2 = new GUIButton("Load", Vector2i(50, 50), Vector2i(50, 20));
+    button2->SetName("TestButton2");
 
     for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
         Console::Print(it->first + "  " + it->second->GetName());
     }
 }
 
+//Goes through the elementOrder vector and draws the tiles in that order
 void GUI::Draw() {
     for(int i = 0; i < elementOrder.size(); i++) {
         elements[elementOrder[i]]->Draw();
     }
-    /*for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
-        it->second->Draw();
-    }*/
 }
 
 void GUI::Update() {
@@ -83,9 +88,14 @@ void GUI::RenameElement(std::string oldName, std::string newName, GUIElement* el
 
 
 
+
+//
+//Mouse Functions
+//
 GUIElement* GUI::GetElementUnderMouse() {
     Vector2i mousePos = Vector2i();
     SDL_GetMouseState(&mousePos.x, &mousePos.y);
+    //Checks if something is pressed in reverse drawing order
     for(int i = elementOrder.size() - 1; i >= 0; i--) {
         GUIElement* pressedElement = elements[elementOrder[i]];
         if(mousePos.x > pressedElement->GetPosition().x &&
