@@ -8,7 +8,7 @@ std::vector<MapLayer> World::layers;
 void World::Init() {
     entities = std::vector<Entity*>();
     entities.push_back(new Player());
-    Tile::tilemap = LoadTexture("Textures/tilemap.png");
+    Tile::tilemap = Game::textures["Tilemap"];
     LoadMap();
 }
 
@@ -48,4 +48,11 @@ void World::RemoveLastEnemy() {
         delete entities[entities.size() - 1];
         entities.erase(entities.begin() + entities.size() - 1);
     }
+}
+
+Vector2i World::GetGameMousePosition(Vector2i winPos) {
+    Vector2i pos = Vector2i();
+    pos.x = winPos.x + World::GetPlayer()->GetPosition().x - Game::screenSize.x / 2;
+    pos.y = winPos.y + World::GetPlayer()->GetPosition().y - Game::screenSize.y / 2;
+    return pos;
 }

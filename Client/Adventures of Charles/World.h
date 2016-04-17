@@ -17,6 +17,7 @@ public:
     static void AddEnemy();
     static void RemoveLastEnemy();
     static Entity* GetPlayer();
+    static Vector2i GetGameMousePosition(Vector2i windowMousePosition);
 };
 
 #endif

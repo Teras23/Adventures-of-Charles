@@ -15,6 +15,7 @@ SDL_Window* Game::window = NULL;
 SDL_Surface* Game::screen = NULL;
 SDL_Renderer* Game::renderer = NULL;
 SDL_Event Game::sdlEvent;
+Vector2i Game::screenSize;
 double Game::deltaTime;
 double Game::interpolation;
 
@@ -23,51 +24,56 @@ std::map<std::string, SDL_Texture*> Game::textures;
 int Game::Init() {
     //Initialize 
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        std::cout << "Could not init SDL" << std::endl;
+        Console::PrintError("Could not init SDL", SDL_GetError());
         return -1;
     }
     else {
-        window = SDL_CreateWindow("AOC", 400, 400, 800, 600, SDL_WINDOW_SHOWN);
+        window = SDL_CreateWindow("AOC", 400, 200, 1024, 768, SDL_WINDOW_SHOWN);
         //screen = SDL_GetWindowSurface(window);
     }
 
     //Initialize SDL_net
     if(SDLNet_Init() < 0) {
-        std::cout << "Could not init SDL_net " << SDLNet_GetError() << std::endl;
+        Console::PrintError("Could not init SDL_net", SDLNet_GetError());
         return -1;
     }
 
     //Create Renderer
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if(renderer == NULL) {
-        std::cout << "Could not create renderer " << SDL_GetError() << std::endl;
+        Console::PrintError("Could not create renderer", SDL_GetError());
         return -1;
     }
 
     //Initialize SDL_image
     if(!IMG_Init(IMG_INIT_PNG)) {
-        std::cout << "Could not init SDL_image " << IMG_GetError() << std::endl;
+        Console::PrintError("Could not init SDL_image", IMG_GetError());
         return -1;
     }
 
     //Initialize SDL_ttf
     if(TTF_Init() == -1) {
-        std::cout << "Could not init SDL_ttf" << TTF_GetError() << std::endl;
+        Console::PrintError("Could not init SDL_ttf", TTF_GetError());
         return -1;
     }
 
     //Loading files
     textures["PlayerTexture"] = LoadTexture("Textures/player.png");
     textures["SolderTexture"] = LoadTexture("Textures/solder.png");
-    GUIBox::texture = LoadTexture("Textures/GUI/Box.png");
-    GUIButton::texture = LoadTexture("Textures/GUI/Box.png");
+    textures["Tilemap"] = LoadTexture("Textures/tilemap.png");
+    textures["ButtonTexture"] = LoadTexture("Textures/GUI/Button.png");
+    textures["ButtonHoverTexture"] = LoadTexture("Textures/GUI/Button.png");
+    textures["ButtonPressTexture"] = LoadTexture("Textures/GUI/Button.png");
+    textures["BoxTexture"] = LoadTexture("Textures/GUI/Box.png");
 
     //Other initialization
+    screenSize = Vector2i(0, 0);
+    SDL_GetWindowSize(window, &screenSize.x, &screenSize.y);
     SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
     running = true;
     GUI::Init();
     World::Init();
-    std::cout << "Game initialized" << std::endl;
+    Console::Print("Game initialized");
 
     if(onlineMode) {
         std::string ip = "192.168.1.79";
@@ -78,7 +84,7 @@ int Game::Init() {
 }
 
 int Game::Quit() {
-    std::cout << "Qutting game normally" << std::endl;
+    Console::Print("Qutting game normally");
     Network::Disconnect();
     SDL_DestroyRenderer(renderer);
     renderer = NULL;
@@ -226,6 +232,13 @@ void Game::Render() {
 
     if(GUI::GetElement("Time") != NULL) {
         GUI::GetElement("Time")->SetText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime));
+    }
+
+    if(GUI::GetElement("Mouse") != NULL) {
+        Vector2i mousePos = Vector2i();
+        SDL_GetMouseState(&mousePos.x, &mousePos.y);
+        GUI::GetElement("Mouse")->SetText("Mouse Position: " + std::to_string(mousePos.x) + ", " + std::to_string(mousePos.y)
+            + "   Game Mouse Position: " + std::to_string(World::GetGameMousePosition(mousePos).x) +", " + std::to_string(World::GetGameMousePosition(mousePos).y));
     }
 
     World::Draw();

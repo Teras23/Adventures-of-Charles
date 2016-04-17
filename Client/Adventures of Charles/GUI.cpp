@@ -4,24 +4,31 @@ std::map<std::string, GUIElement*> GUI::elements;
 std::vector<std::string> GUI::elementOrder;
 GUIElement* GUI::clickedElement;
 
-
 //
 //General Functions
 //
 void GUI::Init() {
-    //font = LoadFont("FreeSans.ttf");
-    GUIText::font = LoadFont("DroidSans.ttf");
+    GUIElement::font = LoadFont("DroidSans.ttf");
+    GUIBox::texture = Game::textures["BoxTexture"];
+    GUIButton::texture = Game::textures["ButtonTexture"];
 
-    GUIBox* box = new GUIBox(Vector2i(0, 0), Vector2i(230, 100));
-    GUIBox* box2 = new GUIBox(Vector2i(0, 98), Vector2i(100, 100));
-    GUIText* text = new GUIText("Test", Vector2i(10, 0));
+    Console::Print(std::to_string(Game::screenSize.x));
+
+    GUIBox* box = new GUIBox(Vector2i(0, Game::screenSize.y - 100), Vector2i(Game::screenSize.x, 100));
+
+
+    GUIText* text = new GUIText("Test", Vector2i(box->GetPosition().x + 10, box->GetPosition().y + 1));
     text->SetName("Time");
+    GUIText* mouseText = new GUIText("Test", Vector2i(box->GetPosition().x + 300, box->GetPosition().y + 1));
+    mouseText->SetName("Mouse");
 
-    GUIButton* button = new GUIButton("Test", Vector2i(50, 20), Vector2i(50, 20));
+    GUIButton* button = new GUIButton("Save", Vector2i(box->GetPosition().x + 20, box->GetPosition().y + 20), Vector2i(50, 20));
     button->SetName("TestButton");
     
-    GUIButton* button2 = new GUIButton("Load", Vector2i(50, 50), Vector2i(50, 20));
+    GUIButton* button2 = new GUIButton("Load", Vector2i(box->GetPosition().x + 20, box->GetPosition().y + 50), Vector2i(50, 20));
     button2->SetName("TestButton2");
+
+    GUITexture* texture = new GUITexture(Vector2i(box->GetPosition().x + 20, box->GetPosition().y + 80), Vector2i(32, 32), Game::textures["Tilemap"]);
 
     for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
         Console::Print(it->first + "  " + it->second->GetName());

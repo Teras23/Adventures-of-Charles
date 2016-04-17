@@ -1,7 +1,5 @@
 #include "GUIText.h"
 
-TTF_Font* GUIText::font = NULL;
-
 GUIText::GUIText() {
     text = "NULL";
     position = Vector2i(0, 0);
@@ -45,6 +43,7 @@ void GUIText::Draw() {
                 rect->h = textSurface->h;
                 SDL_RenderCopy(Game::renderer, textTexture, NULL, rect);
                 SDL_DestroyTexture(textTexture);
+                delete rect;
             }
         }
         SDL_FreeSurface(textSurface);

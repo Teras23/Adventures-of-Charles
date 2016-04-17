@@ -381,6 +381,7 @@
     <ClCompile Include="Adventures of Charles\GUIElement.cpp" />
     <ClCompile Include="Adventures of Charles\GUIText.cpp" />
     <ClCompile Include="Adventures of Charles\GUITextBox.cpp" />
+    <ClCompile Include="Adventures of Charles\GUITexture.cpp" />
     <ClCompile Include="Adventures of Charles\Input.cpp" />
     <ClCompile Include="Adventures of Charles\Main.cpp" />
     <ClCompile Include="Adventures of Charles\MapLayer.cpp" />
@@ -404,6 +405,7 @@
     <ClInclude Include="Adventures of Charles\GUIElement.h" />
     <ClInclude Include="Adventures of Charles\GUIText.h" />
     <ClInclude Include="Adventures of Charles\GUITextBox.h" />
+    <ClInclude Include="Adventures of Charles\GUITexture.h" />
     <ClInclude Include="Adventures of Charles\Input.h" />
     <ClInclude Include="Adventures of Charles\MapLayer.h" />
     <ClInclude Include="Adventures of Charles\Network.h" />

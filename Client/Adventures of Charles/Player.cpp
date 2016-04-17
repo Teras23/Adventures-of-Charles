@@ -4,8 +4,10 @@
 
 Player::Player() {
     texture = Game::textures["PlayerTexture"];
-    position = Vector2f(400, 300);
+    position = Vector2f(Game::screenSize.x / 2 - TILESIZE / 2, Game::screenSize.y / 2 - TILESIZE / 2);
+    position = Vector2f(0, 0);
     health = 100;
+    speed = 20.0f;
 }
 
 void Player::Draw() {
@@ -18,8 +20,8 @@ void Player::Draw() {
         //dest->y = position.y + velocity.y * Game::interpolation;
 
         //Center the player on the screen
-        dest->x = 400;
-        dest->y = 300;
+        dest->x = Game::screenSize.x / 2 - TILESIZE / 2;
+        dest->y = Game::screenSize.y / 2 - TILESIZE / 2;
         dest->w = TILESIZE;
         dest->h = TILESIZE;
 

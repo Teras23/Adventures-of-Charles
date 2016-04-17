@@ -6,8 +6,9 @@
 
 class GUIButton : public GUIElement {
 public:
-    static TTF_Font* font;
     static SDL_Texture* texture;
+    static SDL_Texture* pressTexture;
+    static SDL_Texture* hoverTexture;
 
     std::string text;
     GUIText* buttonText;

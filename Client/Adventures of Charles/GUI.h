@@ -8,12 +8,14 @@
 #include <map>
 
 #include "Util.h"
+
 #include "GUIElement.h"
 #include "GUIBox.h"
 #include "GUIText.h"
 #include "GUIButton.h"
 #include "GUICheckbox.h"
 #include "GUITextBox.h"
+#include "GUITexture.h"
 
 class GUI {
 private:

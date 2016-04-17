@@ -2,6 +2,8 @@
 #include "GUIElement.h"
 #include "GUI.h"
 
+TTF_Font* GUIElement::font = NULL;
+
 GUIElement::GUIElement() {
     SetName("Name");
     visible = true;

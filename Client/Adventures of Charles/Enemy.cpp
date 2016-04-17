@@ -29,8 +29,6 @@ EnemySolder::EnemySolder() {
 }
 
 void EnemySolder::Update() {
-    Console::Print(std::to_string(orgPos.x) + " " + std::to_string(position.x));
-    
     if(position.x - orgPos.x  > 100) {
         velocity = Vector2f(-1, 0);
     }

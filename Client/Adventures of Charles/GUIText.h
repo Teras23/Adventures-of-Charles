@@ -4,7 +4,6 @@
 
 class GUIText : public GUIElement {
 public:
-    static TTF_Font* font;
     std::string text;
 
     GUIText();

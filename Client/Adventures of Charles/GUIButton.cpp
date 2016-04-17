@@ -1,9 +1,8 @@
 #include "GUIButton.h"
-#include "GUIText.h"
-#include "GUIBox.h"
 
-TTF_Font* GUIButton::font = NULL;
 SDL_Texture* GUIButton::texture = NULL;
+SDL_Texture* GUIButton::pressTexture = NULL;
+SDL_Texture* GUIButton::hoverTexture = NULL;
 
 GUIButton::GUIButton() {
     text = "NULL";
@@ -119,11 +118,18 @@ void GUIButton::Draw() {
         delete source;
         delete dest;
 
-        /*SDL_Color color;
+        //
+        //Text rendering
+        //
+
+#define TEXTOFFSETX 5
+#define TEXTOFFSETY 3
+
+        SDL_Color color;
         color.r = 0;
         color.b = 0;
         color.g = 0;
-        SDL_Surface* textSurface = TTF_RenderUTFGRID_Blended(font, text.c_str(), color);
+        SDL_Surface* textSurface = TTF_RenderUTF8_Blended(font, text.c_str(), color);
         if(textSurface == NULL) {
             Console::PrintError("Unable to render text to surface", TTF_GetError());
         }
@@ -134,14 +140,15 @@ void GUIButton::Draw() {
             }
             else {
                 SDL_Rect* rect = new SDL_Rect();
-                rect->x = position.x;
-                rect->y = position.y;
+                rect->x = position.x + TEXTOFFSETX;
+                rect->y = position.y + TEXTOFFSETY;
                 rect->w = textSurface->w;
                 rect->h = textSurface->h;
                 SDL_RenderCopy(Game::renderer, textTexture, NULL, rect);
                 SDL_DestroyTexture(textTexture);
+                delete rect;
             }
         }
-        SDL_FreeSurface(textSurface);*/
+        SDL_FreeSurface(textSurface);
     }
 }

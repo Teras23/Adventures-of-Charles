@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_net.h>
 #include <map>
+#include "Util.h"
 
 class Game {
     static bool running;
@@ -10,9 +11,10 @@ class Game {
     static SDL_Event sdlEvent;
 public:
     static SDL_Surface* screen;
+    static SDL_Renderer* renderer;
+    static Vector2i screenSize;
     static double deltaTime;
     static double interpolation;
-    static SDL_Renderer* renderer;
     static bool onlineMode;
 
     static std::map<std::string, SDL_Texture*> textures;

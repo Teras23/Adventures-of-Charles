@@ -15,6 +15,8 @@ protected:
     Vector2i position;
     Vector2i size;
 public:
+    static TTF_Font* font;
+
     GUIElement();
     void AddElement(GUIElement* element);
     virtual void Draw();
