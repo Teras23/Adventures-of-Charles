@@ -39,7 +39,7 @@ Entity* World::GetPlayer() {
 
 void World::AddEnemy() {
     EnemySolder* enemy = new EnemySolder();
-    enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y + 10));
+    //enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y));
     entities.push_back(enemy);
 }
 
@@ -50,9 +50,11 @@ void World::RemoveLastEnemy() {
     }
 }
 
+#define PLAYERSIZE 32
+
 Vector2i World::GetGameMousePosition(Vector2i winPos) {
     Vector2i pos = Vector2i();
-    pos.x = winPos.x + World::GetPlayer()->GetPosition().x - Game::screenSize.x / 2;
-    pos.y = winPos.y + World::GetPlayer()->GetPosition().y - Game::screenSize.y / 2;
+    pos.x = winPos.x + World::GetPlayer()->GetPosition().x - Game::screenSize.x / 2 + PLAYERSIZE / 2;
+    pos.y = winPos.y + World::GetPlayer()->GetPosition().y - Game::screenSize.y / 2 + PLAYERSIZE / 2;
     return pos;
 }

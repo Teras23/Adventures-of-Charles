@@ -11,10 +11,12 @@ Entity::Entity() {
     id = curID;
     curID++;
     speed = 10.0f;
-    position = Vector2f(200, 100);
+    position = Vector2f(0, 0);
     velocity = Vector2f(0, 0);
     texture = NULL;
 }
+
+#define PLAYERSIZE 32
 
 void Entity::Draw() {
     if(texture == NULL) {
@@ -22,8 +24,8 @@ void Entity::Draw() {
     }
     else {
         SDL_Rect* dest = new SDL_Rect();
-        dest->x = position.x - World::GetPlayer()->GetPosition().x + 400;
-        dest->y = position.y - World::GetPlayer()->GetPosition().y + 300;
+        dest->x = position.x - World::GetPlayer()->GetPosition().x + Game::screenSize.x / 2 - PLAYERSIZE / 2;
+        dest->y = position.y - World::GetPlayer()->GetPosition().y + Game::screenSize.y / 2 - PLAYERSIZE / 2;
         dest->w = TILESIZE;
         dest->h = TILESIZE;
 
@@ -48,7 +50,5 @@ Vector2f Entity::GetPosition() {
 }
 
 void Entity::SetPosition(Vector2f pos) {
-    Console::Print("Position set" + std::to_string(pos.x));
     position = pos;
-    Console::Print("Position set" + std::to_string(position.x));
 }

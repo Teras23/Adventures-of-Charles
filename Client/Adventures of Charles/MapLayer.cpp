@@ -7,14 +7,15 @@ MapLayer::MapLayer() {
 }
 
 #define TILESIZE 32
+#define PLAYERSIZE 32
 
 void MapLayer::Draw() {
     for(int y = 0; y < tiles.size(); y++) {
         for(int x = 0; x < tiles[0].size(); x++) {
             int tileId = tiles[y][x].id;
             SDL_Rect* dest = new SDL_Rect();
-            dest->x = x * TILESIZE - World::GetPlayer()->GetPosition().x + Game::screenSize.x / 2;
-            dest->y = y * TILESIZE - World::GetPlayer()->GetPosition().y + Game::screenSize.y / 2;
+            dest->x = x * TILESIZE - World::GetPlayer()->GetPosition().x + Game::screenSize.x / 2 - PLAYERSIZE / 2;
+            dest->y = y * TILESIZE - World::GetPlayer()->GetPosition().y + Game::screenSize.y / 2 - PLAYERSIZE / 2;
             dest->w = TILESIZE;
             dest->h = TILESIZE;
 
