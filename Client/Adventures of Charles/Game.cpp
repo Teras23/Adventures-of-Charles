@@ -183,6 +183,9 @@ void Game::Input() {
         case SDL_MOUSEBUTTONDOWN:
             if(!GUI::MouseEvent(sdlEvent)) {
                 Console::Print("Not clicked on gui");
+                Vector2i mousePos = Vector2i();
+                SDL_GetMouseState(&mousePos.x, &mousePos.y);
+                Console::Print("Clicked on " + std::to_string(mousePos.x / 32) + " " + std::to_string(mousePos.y / 32));
                 //Not clicked on gui
             }
             break;

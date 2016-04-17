@@ -4,10 +4,34 @@
 
 Player::Player() {
     texture = Game::textures["PlayerTexture"];
+    position = Vector2f(400, 300);
+    health = 100;
 }
 
 void Player::Draw() {
-    Entity::Draw();
+    if(texture == NULL) {
+        Console::Print("Missing texture!");
+    }
+    else {
+        SDL_Rect* dest = new SDL_Rect();
+        //dest->x = position.x + velocity.x * Game::interpolation;
+        //dest->y = position.y + velocity.y * Game::interpolation;
+
+        //Center the player on the screen
+        dest->x = 400;
+        dest->y = 300;
+        dest->w = TILESIZE;
+        dest->h = TILESIZE;
+
+        SDL_Rect* source = new SDL_Rect();
+        source->x = 0;
+        source->y = 0;
+        source->w = TILESIZE;
+        source->h = TILESIZE;
+        SDL_RenderCopy(Game::renderer, texture, source, dest);
+        delete dest;
+        delete source;
+    }
 }
 
 void Player::Update() {

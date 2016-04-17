@@ -7,7 +7,6 @@ class EnemyBase : public Entity {
     float attackTime;
     float currentAttackTime;
     bool isAttacking;
-    int health;
 public:
     EnemyBase();
 };
@@ -20,6 +19,9 @@ public:
 class EnemySolder : public EnemyBase {
 public:
     EnemySolder();
+    float path;
+    Vector2f orgPos;
+    void Update();
 };
 
 #endif

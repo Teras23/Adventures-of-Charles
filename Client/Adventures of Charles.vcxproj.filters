@@ -10,11 +10,11 @@
     <Filter Include="Adventures of Charles\Server">
       <UniqueIdentifier>{1591fdd4-8bcb-4cfa-a97f-6a55ad5c52e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Adventures of Charles\Shared">
-      <UniqueIdentifier>{932abe30-bc04-4190-9906-ccb007715117}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Adventures of Charles\Client\GUI">
       <UniqueIdentifier>{7d6c2c93-e310-4139-a086-e43857b80843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Adventures of Charles\Shared">
+      <UniqueIdentifier>{932abe30-bc04-4190-9906-ccb007715117}</UniqueIdentifier>
     </Filter>
     <Filter Include="Adventures of Charles\Shared\Entity">
       <UniqueIdentifier>{84926bb6-5bdc-465a-8d15-995650b6e118}</UniqueIdentifier>

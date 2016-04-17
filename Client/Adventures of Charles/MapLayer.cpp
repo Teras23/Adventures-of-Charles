@@ -1,5 +1,6 @@
 #include "MapLayer.h"
 #include "Game.h"
+#include "World.h"
 
 MapLayer::MapLayer() {
 
@@ -12,8 +13,8 @@ void MapLayer::Draw() {
         for(int x = 0; x < tiles[0].size(); x++) {
             int tileId = tiles[y][x].id;
             SDL_Rect* dest = new SDL_Rect();
-            dest->x = x * TILESIZE;
-            dest->y = y * TILESIZE;
+            dest->x = x * TILESIZE - World::GetPlayer()->GetPosition().x + 400;
+            dest->y = y * TILESIZE - World::GetPlayer()->GetPosition().y + 300;
             dest->w = TILESIZE;
             dest->h = TILESIZE;
 

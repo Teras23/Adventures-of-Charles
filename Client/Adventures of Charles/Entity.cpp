@@ -3,6 +3,7 @@
 #include "Input.h"
 #include <iostream>
 #include <SDL_image.h>
+#include "World.h"
 
 int Entity::curID = 0;
 
@@ -10,18 +11,19 @@ Entity::Entity() {
     id = curID;
     curID++;
     speed = 10.0f;
-    position = Vector2f(300, 300);
+    position = Vector2f(200, 100);
+    velocity = Vector2f(0, 0);
     texture = NULL;
 }
 
 void Entity::Draw() {
     if(texture == NULL) {
-        std::cout << "Missing texture!" << std::endl;
+        Console::Print("Missing texture!");
     }
     else {
         SDL_Rect* dest = new SDL_Rect();
-        dest->x = position.x + velocity.x * Game::interpolation;
-        dest->y = position.y + velocity.y * Game::interpolation;
+        dest->x = position.x - World::GetPlayer()->GetPosition().x + 400;
+        dest->y = position.y - World::GetPlayer()->GetPosition().y + 300;
         dest->w = TILESIZE;
         dest->h = TILESIZE;
 
@@ -37,5 +39,16 @@ void Entity::Draw() {
 }
 
 void Entity::Update() {
-    
+    position.x += velocity.x;
+    position.y += velocity.y;
+}
+
+Vector2f Entity::GetPosition() {
+    return position;
+}
+
+void Entity::SetPosition(Vector2f pos) {
+    Console::Print("Position set" + std::to_string(pos.x));
+    position = pos;
+    Console::Print("Position set" + std::to_string(position.x));
 }

@@ -1,5 +1,5 @@
 #ifndef MAPLAYER_H
-#define MAPLYAER_H
+#define MAPLAYER_H
 #include <SDL.h>
 #include <vector>
 

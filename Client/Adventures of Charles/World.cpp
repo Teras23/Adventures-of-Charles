@@ -38,10 +38,14 @@ Entity* World::GetPlayer() {
 }
 
 void World::AddEnemy() {
-    entities.push_back(new EnemySolder());
+    EnemySolder* enemy = new EnemySolder();
+    enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y + 10));
+    entities.push_back(enemy);
 }
 
 void World::RemoveLastEnemy() {
-    delete entities[entities.size() - 1];
-    entities.erase(entities.begin() + entities.size() - 1);
+    if(entities.size() != 1) {
+        delete entities[entities.size() - 1];
+        entities.erase(entities.begin() + entities.size() - 1);
+    }
 }
