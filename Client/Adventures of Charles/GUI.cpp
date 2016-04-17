@@ -28,7 +28,7 @@ void GUI::Init() {
     GUIButton* button2 = new GUIButton("Load", Vector2i(box->GetPosition().x + 20, box->GetPosition().y + 50), Vector2i(50, 20));
     button2->SetName("TestButton2");
 
-    GUITexture* texture = new GUITexture(Vector2i(box->GetPosition().x + 20, box->GetPosition().y + 80), Vector2i(32, 32), Game::textures["Tilemap"]);
+    GUITexture* texture = new GUITexture(Vector2i(box->GetPosition().x + 100, box->GetPosition().y + 20), Vector2i(32, 32), Game::textures["Tilemap"]);
 
     for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
         Console::Print(it->first + "  " + it->second->GetName());

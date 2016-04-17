@@ -39,7 +39,7 @@ Entity* World::GetPlayer() {
 
 void World::AddEnemy() {
     EnemySolder* enemy = new EnemySolder();
-    //enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y));
+    enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y + 32));
     entities.push_back(enemy);
 }
 

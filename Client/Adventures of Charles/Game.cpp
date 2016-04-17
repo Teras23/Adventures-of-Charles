@@ -191,6 +191,7 @@ void Game::Input() {
                 Console::Print("Not clicked on gui");
                 Vector2i mousePos = Vector2i();
                 SDL_GetMouseState(&mousePos.x, &mousePos.y);
+                mousePos = World::GetGameMousePosition(mousePos);
                 Console::Print("Clicked on " + std::to_string(mousePos.x / 32) + " " + std::to_string(mousePos.y / 32));
                 //Not clicked on gui
             }
@@ -238,7 +239,7 @@ void Game::Render() {
         Vector2i mousePos = Vector2i();
         SDL_GetMouseState(&mousePos.x, &mousePos.y);
         GUI::GetElement("Mouse")->SetText("Mouse Position: " + std::to_string(mousePos.x) + ", " + std::to_string(mousePos.y)
-            + "   Game Mouse Position: " + std::to_string(World::GetGameMousePosition(mousePos).x) +", " + std::to_string(World::GetGameMousePosition(mousePos).y));
+            + "\nGame Mouse Position: " + std::to_string(World::GetGameMousePosition(mousePos).x) +", " + std::to_string(World::GetGameMousePosition(mousePos).y));
     }
 
     World::Draw();
