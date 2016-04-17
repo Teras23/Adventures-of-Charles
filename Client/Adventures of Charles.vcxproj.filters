@@ -19,6 +19,9 @@
     <Filter Include="Adventures of Charles\Shared\Entity">
       <UniqueIdentifier>{84926bb6-5bdc-465a-8d15-995650b6e118}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Adventures of Charles\Client\Menus">
+      <UniqueIdentifier>{623437fc-00cc-448b-a35a-ad228d3ef548}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Adventures of Charles\Main.cpp">
@@ -47,9 +50,6 @@
     </ClCompile>
     <ClCompile Include="Adventures of Charles\Server.cpp">
       <Filter>Adventures of Charles\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUI.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClCompile>
     <ClCompile Include="Adventures of Charles\GUIBox.cpp">
       <Filter>Adventures of Charles\Client\GUI</Filter>
@@ -87,6 +87,15 @@
     <ClCompile Include="Adventures of Charles\GUITexture.cpp">
       <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\GUI.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\MenuEditor.cpp">
+      <Filter>Adventures of Charles\Client\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Adventures of Charles\Renderer.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Input.h">
@@ -112,9 +121,6 @@
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Server.h">
       <Filter>Adventures of Charles\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUI.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\GUIBox.h">
       <Filter>Adventures of Charles\Client\GUI</Filter>
@@ -151,6 +157,15 @@
     </ClInclude>
     <ClInclude Include="Adventures of Charles\GUITexture.h">
       <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\GUI.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\MenuEditor.h">
+      <Filter>Adventures of Charles\Client\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Renderer.h">
+      <Filter>Adventures of Charles\Client</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -15,6 +15,9 @@ protected:
     Vector2i position;
     Vector2i size;
 public:
+    SDL_Rect* source;
+    SDL_Rect* dest;
+
     static TTF_Font* font;
 
     GUIElement();
@@ -31,14 +34,16 @@ public:
 
     bool IsClickable();
 
+    void SetVisibility(bool visibility);
+
     void SetName(std::string name);
     std::string GetName();
 
     Vector2i GetSize();
     Vector2i GetPosition();
 
-    void OnHover();
-    void OnClick();
+    virtual void OnHover();
+    virtual void OnClick();
 };
 
 #endif

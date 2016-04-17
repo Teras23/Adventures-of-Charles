@@ -6,6 +6,8 @@
 #include "World.h"
 #include "Input.h"
 #include "Network.h"
+#include "MenuEditor.h"
+#include "Renderer.h"
 
 const int FRAMERATE = 300;
 
@@ -28,8 +30,14 @@ int Game::Init() {
         return -1;
     }
     else {
-        window = SDL_CreateWindow("AOC", 400, 200, 1024, 768, SDL_WINDOW_SHOWN);
+        window = SDL_CreateWindow("AOC", 400, 200, 1024, 768, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
         //screen = SDL_GetWindowSurface(window);
+    }
+
+    Renderer::context = SDL_GL_CreateContext(window);
+    if(Renderer::context == NULL) {
+        Console::PrintError("Could not create OpenGL context", SDL_GetError());
+        return -1;
     }
 
     //Initialize SDL_net
@@ -223,6 +231,31 @@ void Game::Update() {
             LoadMap();
         }
     }
+
+    if(GUI::GetElement("NextTexture") != NULL) {
+        if(GUI::GetElement("NextTexture")->IsPressed()) {
+            MenuEditor::NextTile();
+        }
+    }
+
+    if(GUI::GetElement("PrevTexture") != NULL) {
+        if(GUI::GetElement("PrevTexture")->IsPressed()) {
+            MenuEditor::PrevTile();
+        }
+    }
+
+    if(GUI::GetElement("PrevLayer") != NULL) {
+        if(GUI::GetElement("PrevLayer")->IsPressed()) {
+            MenuEditor::PrevLayer();
+        }
+    }
+
+    if(GUI::GetElement("NextLayer") != NULL) {
+        if(GUI::GetElement("NextLayer")->IsPressed()) {
+            MenuEditor::NextLayer();
+        }
+    }
+
     GUI::Update();
     World::Update();
 }

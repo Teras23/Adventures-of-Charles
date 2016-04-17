@@ -17,6 +17,14 @@
       <Configuration>CLIENT + SERVER</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Client Debug|Win32">
+      <Configuration>Client Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Client Debug|x64">
+      <Configuration>Client Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="CLIENT|Win32">
       <Configuration>CLIENT</Configuration>
       <Platform>Win32</Platform>
@@ -76,6 +84,12 @@
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SERVER|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -102,6 +116,12 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CLIENT|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
@@ -143,6 +163,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\AOC properties.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\AOC properties.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='SERVER|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\AOC properties.props" />
@@ -160,6 +184,10 @@
     <Import Project="..\AOC properties.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='CLIENT|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\AOC properties.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\AOC properties.props" />
   </ImportGroup>
@@ -181,6 +209,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CLIENT|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SERVER|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
@@ -197,6 +228,12 @@
     <TargetName>aoc</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CLIENT|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\SDL2_net\include;C:\SDL2\include;C:\SDL2_image\include;C:\SDL2_ttf\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2_net\lib\x64;C:\SDL2\lib\x64;C:\SDL2_image\lib\x64;C:\SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
+    <TargetName>aoc</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\SDL2_net\include;C:\SDL2\include;C:\SDL2_image\include;C:\SDL2_ttf\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SDL2_net\lib\x64;C:\SDL2\lib\x64;C:\SDL2_image\lib\x64;C:\SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
@@ -244,6 +281,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='CLIENT|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -308,6 +358,22 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>CLIENT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib; SDL2main.lib;SDL2_net.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Client Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>CLIENT;DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -385,8 +451,10 @@
     <ClCompile Include="Adventures of Charles\Input.cpp" />
     <ClCompile Include="Adventures of Charles\Main.cpp" />
     <ClCompile Include="Adventures of Charles\MapLayer.cpp" />
+    <ClCompile Include="Adventures of Charles\MenuEditor.cpp" />
     <ClCompile Include="Adventures of Charles\Network.cpp" />
     <ClCompile Include="Adventures of Charles\Player.cpp" />
+    <ClCompile Include="Adventures of Charles\Renderer.cpp" />
     <ClCompile Include="Adventures of Charles\Server.cpp" />
     <ClCompile Include="Adventures of Charles\Tile.cpp" />
     <ClCompile Include="Adventures of Charles\Util.cpp" />
@@ -408,8 +476,10 @@
     <ClInclude Include="Adventures of Charles\GUITexture.h" />
     <ClInclude Include="Adventures of Charles\Input.h" />
     <ClInclude Include="Adventures of Charles\MapLayer.h" />
+    <ClInclude Include="Adventures of Charles\MenuEditor.h" />
     <ClInclude Include="Adventures of Charles\Network.h" />
     <ClInclude Include="Adventures of Charles\Player.h" />
+    <ClInclude Include="Adventures of Charles\Renderer.h" />
     <ClInclude Include="Adventures of Charles\Server.h" />
     <ClInclude Include="Adventures of Charles\Tile.h" />
     <ClInclude Include="Adventures of Charles\Util.h" />

@@ -1,4 +1,5 @@
 #include "GUI.h"
+#include "MenuEditor.h"
 
 std::map<std::string, GUIElement*> GUI::elements;
 std::vector<std::string> GUI::elementOrder;
@@ -11,8 +12,6 @@ void GUI::Init() {
     GUIElement::font = LoadFont("DroidSans.ttf");
     GUIBox::texture = Game::textures["BoxTexture"];
     GUIButton::texture = Game::textures["ButtonTexture"];
-
-    Console::Print(std::to_string(Game::screenSize.x));
 
     GUIBox* box = new GUIBox(Vector2i(0, Game::screenSize.y - 100), Vector2i(Game::screenSize.x, 100));
 
@@ -28,11 +27,11 @@ void GUI::Init() {
     GUIButton* button2 = new GUIButton("Load", Vector2i(box->GetPosition().x + 20, box->GetPosition().y + 50), Vector2i(50, 20));
     button2->SetName("TestButton2");
 
-    GUITexture* texture = new GUITexture(Vector2i(box->GetPosition().x + 100, box->GetPosition().y + 20), Vector2i(32, 32), Game::textures["Tilemap"]);
+    MenuEditor::Init();
 
-    for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
+    /*for(std::map<std::string, GUIElement*>::iterator it = elements.begin(); it != elements.end(); it++) {
         Console::Print(it->first + "  " + it->second->GetName());
-    }
+    }*/
 }
 
 //Goes through the elementOrder vector and draws the tiles in that order
@@ -46,6 +45,8 @@ void GUI::Update() {
     if(clickedElement != NULL) {
         clickedElement->Update();
     }
+
+    MenuEditor::Update();
 }
 
 

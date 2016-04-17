@@ -72,3 +72,7 @@ void GUIElement::OnHover() {
 void GUIElement::OnClick() {
 
 }
+
+void GUIElement::SetVisibility(bool vis) {
+    visible = vis;
+}
