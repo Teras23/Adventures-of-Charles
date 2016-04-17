@@ -4,7 +4,7 @@
 
 class GUIText : public GUIElement {
 public:
-    std::string text;
+    std::vector<std::string> lines;
 
     GUIText();
     GUIText(std::string text, Vector2i position);

@@ -1,20 +1,20 @@
 #include "GUIText.h"
 
 GUIText::GUIText() {
-    text = "NULL";
+    SetText("NULL");
     position = Vector2i(0, 0);
     size = Vector2i(0, 0);
     GUIElement::AddElement(this);
 }
 
 GUIText::GUIText(std::string t, Vector2i p) {
-    text = t;
+    SetText(t);
     position = p;
     GUIElement::AddElement(this);
 }
 
 GUIText::GUIText(std::string t, Vector2i p, Vector2i s) {
-    text = t;
+    SetText(t);
     position = p;
     size = s;
     GUIElement::AddElement(this);
@@ -25,23 +25,11 @@ void GUIText::Draw() {
         SDL_Color color;
         color.r = 0;
         color.b = 0;
-        color.g = 0;
-        //Normally 16 
+        color.g = 0; 
 
-        std::vector<size_t> positions;
-
-        positions.push_back(0);
-
-        std::size_t pos = text.find("\n");
-        while(pos != std::string::npos) {
-            positions.push_back(pos + 1);
-            pos = text.find("\n", pos + 1);
-        }
-
-        positions.push_back(text.size() - 1);
-
-        for(int i = 0; i < positions.size() - 1; i++) {
-            SDL_Surface* textSurface = TTF_RenderUTF8_Blended(font, text.substr(positions[i], positions[i + 1] - 1).c_str(), color);
+        for(int i = 0; i < lines.size(); i++) {
+            SDL_Surface* textSurface = TTF_RenderUTF8_Blended(font, lines[i].c_str(), color);
+            //Console::Print(text.substr(positions[i], positions[i + 1] - 10));
             if(textSurface == NULL) {
                 Console::PrintError("Unable to render text to surface", TTF_GetError());
             }
@@ -67,9 +55,27 @@ void GUIText::Draw() {
 }
 
 void GUIText::SetText(std::string t) {
-    text = t;
+    lines = std::vector<std::string>();
+    t += "\n";
+
+    std::size_t lastPos = 0;
+    std::size_t pos = t.find("\n");
+    while(pos != std::string::npos) {
+        lines.push_back(t.substr(lastPos, pos - lastPos ));
+        lastPos = pos + 1;
+        pos = t.find("\n", pos + 1);
+    }
 }
 
 std::string GUIText::GetText() {
+    std::string text;
+    for(int i = 0; i < lines.size(); i++) {
+        if(i != lines.size() - 1) {
+            text += lines[i] + "\n";
+        }
+        else {
+            text += lines[i];
+        }
+    }
     return text;
 }
