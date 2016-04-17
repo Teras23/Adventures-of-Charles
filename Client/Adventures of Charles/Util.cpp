@@ -47,6 +47,8 @@ SDL_Texture* LoadTexture(std::string path) {
     SDL_Texture* texture = NULL;
     SDL_Surface* textureSurface = IMG_Load(path.c_str());
 
+    Console::Print("Loaded " + path);
+
     if(textureSurface == NULL) {
         std::cout << "Failed to load image  " << path << std::endl;
     }

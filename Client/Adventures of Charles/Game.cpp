@@ -39,6 +39,9 @@ int Game::Init() {
         Console::PrintError("Could not create OpenGL context", SDL_GetError());
         return -1;
     }
+    else {
+        Renderer::Init();
+    }
 
     //Initialize SDL_net
     if(SDLNet_Init() < 0) {
@@ -77,7 +80,7 @@ int Game::Init() {
     //Other initialization
     screenSize = Vector2i(0, 0);
     SDL_GetWindowSize(window, &screenSize.x, &screenSize.y);
-    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
+    //SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
     running = true;
     GUI::Init();
     World::Init();
@@ -94,6 +97,7 @@ int Game::Init() {
 int Game::Quit() {
     Console::Print("Qutting game normally");
     Network::Disconnect();
+    SDL_GL_DeleteContext(Renderer::context);
     SDL_DestroyRenderer(renderer);
     renderer = NULL;
     SDL_DestroyWindow(window);
@@ -113,8 +117,6 @@ void Game::Loop() {
     deltaTime = 0.1;
     //deltaTime = UPDATETIME;
     double lag = 0.0;
-
-    Console::Print(std::to_string(UPDATETIME));
 
     while(running) {
         double currentTime = SDL_GetTicks();
@@ -139,10 +141,10 @@ void Game::Loop() {
         interpolation = lag / UPDATETIME;
 
         //state ? now * interpolation + last * (1.0 - interpolation)
-
         //Console::Print(std::to_string(interpolation));
-
         //interpelation for between state
+
+        //Renderer::Render();
         Render();
         SDL_Delay(1);
     }
@@ -196,7 +198,6 @@ void Game::Input() {
             break;
         case SDL_MOUSEBUTTONDOWN:
             if(!GUI::MouseEvent(sdlEvent)) {
-                Console::Print("Not clicked on gui");
                 Vector2i mousePos = Vector2i();
                 SDL_GetMouseState(&mousePos.x, &mousePos.y);
                 mousePos = World::GetGameMousePosition(mousePos);

@@ -7,9 +7,9 @@
 
 class Game {
     static bool running;
-    static SDL_Window* window;
     static SDL_Event sdlEvent;
 public:
+    static SDL_Window* window;
     static SDL_Surface* screen;
     static SDL_Renderer* renderer;
     static Vector2i screenSize;
