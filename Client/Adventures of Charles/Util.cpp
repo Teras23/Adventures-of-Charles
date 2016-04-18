@@ -76,7 +76,7 @@ TTF_Font* LoadFont(std::string path) {
 void SaveMap() {
     std::vector<std::vector<Tile>> map = World::layers[0].tiles;
 
-    std::ofstream ofile("map.txt");
+    std::ofstream ofile("Resources/map.txt");
     ofile << map[0].size() << " " << map.size() << std::endl;
     for(int y = 0; y < map.size(); y++) {
         for(int x = 0; x < map[0].size(); x++) {
@@ -88,7 +88,7 @@ void SaveMap() {
 }
 
 void LoadMap() {
-    std::ifstream ifile("map.txt");
+    std::ifstream ifile("Resources/map.txt");
     int w, h;
     ifile >> w >> h;
     std::vector<std::vector<Tile>> map;

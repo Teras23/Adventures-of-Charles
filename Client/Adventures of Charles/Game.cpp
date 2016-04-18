@@ -69,13 +69,13 @@ int Game::Init() {
     }
 
     //Loading files
-    textures["PlayerTexture"] = LoadTexture("Textures/player.png");
-    textures["SolderTexture"] = LoadTexture("Textures/solder.png");
-    textures["Tilemap"] = LoadTexture("Textures/tilemap.png");
-    textures["ButtonTexture"] = LoadTexture("Textures/GUI/Button.png");
-    textures["ButtonHoverTexture"] = LoadTexture("Textures/GUI/Button.png");
-    textures["ButtonPressTexture"] = LoadTexture("Textures/GUI/Button.png");
-    textures["BoxTexture"] = LoadTexture("Textures/GUI/Box.png");
+    textures["PlayerTexture"] = LoadTexture("Resources/Textures/player.png");
+    textures["SolderTexture"] = LoadTexture("Resources/Textures/solder.png");
+    textures["Tilemap"] = LoadTexture("Resources/Textures/tilemap.png");
+    textures["ButtonTexture"] = LoadTexture("Resources/Textures/GUI/Button.png");
+    textures["ButtonHoverTexture"] = LoadTexture("Resources/Textures/GUI/Button.png");
+    textures["ButtonPressTexture"] = LoadTexture("Resources/Textures/GUI/Button.png");
+    textures["BoxTexture"] = LoadTexture("Resources/Textures/GUI/Box.png");
 
     //Other initialization
     screenSize = Vector2i(0, 0);

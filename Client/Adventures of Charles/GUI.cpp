@@ -9,7 +9,7 @@ GUIElement* GUI::clickedElement;
 //General Functions
 //
 void GUI::Init() {
-    GUIElement::font = LoadFont("DroidSans.ttf");
+    GUIElement::font = LoadFont("Resources/DroidSans.ttf");
     GUIBox::texture = Game::textures["BoxTexture"];
     GUIButton::texture = Game::textures["ButtonTexture"];
 
