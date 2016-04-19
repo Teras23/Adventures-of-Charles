@@ -53,3 +53,7 @@ Vector2f Entity::GetPosition() {
 void Entity::SetPosition(Vector2f pos) {
     position = pos;
 }
+
+EntityType Entity::GetType() {
+    return type;
+}

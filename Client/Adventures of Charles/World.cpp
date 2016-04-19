@@ -29,12 +29,12 @@ void World::Update() {
 }
 
 Entity* World::GetPlayer() {
-    if(entities.size() > 0) {
-        return entities[0];
+    for(int i = 0; i < entities.size(); i++) {
+        if(entities[i]->GetType() == ENTITY_PLAYER) {
+            return entities[i];
+        }
     }
-    else {
-        return NULL;
-    }
+    return NULL;
 }
 
 void World::AddEnemy() {

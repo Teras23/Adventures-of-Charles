@@ -38,6 +38,8 @@ public:
     virtual void Draw();
     virtual void Update();
 
+    EntityType GetType();
+
     Vector2f GetPosition();
     void SetPosition(Vector2f position);
 };
