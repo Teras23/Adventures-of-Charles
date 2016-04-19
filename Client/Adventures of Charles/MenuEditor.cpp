@@ -76,8 +76,10 @@ void MenuEditor::PrevTile() {
     }
 }
 
+#define LAYERS 6
+
 void MenuEditor::NextLayer() {
-    if(selectedLayer + 1 <= 4) {
+    if(selectedLayer + 1 < LAYERS) {
         selectedLayer++;
     }
 }

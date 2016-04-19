@@ -86,6 +86,8 @@ int Game::Init() {
     World::Init();
     Console::Print("Game initialized");
 
+    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
+
     if(onlineMode) {
         std::string ip = "192.168.1.79";
         //ip = "127.0.0.1";
@@ -263,7 +265,6 @@ void Game::Update() {
 
 void Game::Render() {
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
 
     if(GUI::GetElement("Time") != NULL) {
         GUI::GetElement("Time")->SetText("Ticks: " + std::to_string(SDL_GetTicks()) + " DeltaTime: " + std::to_string(deltaTime));
@@ -278,7 +279,6 @@ void Game::Render() {
 
     World::Draw();
     GUI::Draw();
-    
-    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
+
     SDL_RenderPresent(renderer);
 }

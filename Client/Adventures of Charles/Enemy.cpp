@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
 EnemyBase::EnemyBase() {
-    
+    type = ENTITY_ENEMY_UNDEFINED;
 }
 
 
@@ -11,7 +11,7 @@ EnemyBase::EnemyBase() {
 //Spider
 //
 EnemySpider::EnemySpider() {
-    
+    type = ENTITY_ENEMY_SPIDER;
 }
 
 
@@ -21,7 +21,8 @@ EnemySpider::EnemySpider() {
 //Solder
 //
 EnemySolder::EnemySolder() {
-    EnemyBase::texture = Game::textures["SolderTexture"];
+    type = ENTITY_ENEMY_SOLDER;
+    EnemyBase::sprite.texture = Game::textures["SolderTexture"];
     health = 50;
     path = 0;
     orgPos = position;

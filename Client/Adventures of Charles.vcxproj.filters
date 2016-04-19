@@ -96,6 +96,9 @@
     <ClCompile Include="Adventures of Charles\Renderer.cpp">
       <Filter>Adventures of Charles\Client</Filter>
     </ClCompile>
+    <ClCompile Include="Adventures of Charles\Sprite.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventures of Charles\Input.h">
@@ -165,6 +168,9 @@
       <Filter>Adventures of Charles\Client\Menus</Filter>
     </ClInclude>
     <ClInclude Include="Adventures of Charles\Renderer.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Adventures of Charles\Sprite.h">
       <Filter>Adventures of Charles\Client</Filter>
     </ClInclude>
   </ItemGroup>

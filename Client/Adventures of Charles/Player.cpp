@@ -3,7 +3,8 @@
 #include "Input.h"
 
 Player::Player() {
-    texture = Game::textures["PlayerTexture"];
+    type = ENTITY_PLAYER;
+    sprite.texture = Game::textures["PlayerTexture"];
     position = Vector2f(Game::screenSize.x / 2 - TILESIZE / 2, Game::screenSize.y / 2 - TILESIZE / 2);
     position = Vector2f(0, 0);
     health = 100;
@@ -11,29 +12,7 @@ Player::Player() {
 }
 
 void Player::Draw() {
-    if(texture == NULL) {
-        Console::Print("Missing texture!");
-    }
-    else {
-        SDL_Rect* dest = new SDL_Rect();
-        //dest->x = position.x + velocity.x * Game::interpolation;
-        //dest->y = position.y + velocity.y * Game::interpolation;
-
-        //Center the player on the screen
-        dest->x = Game::screenSize.x / 2 - TILESIZE / 2;
-        dest->y = Game::screenSize.y / 2 - TILESIZE / 2;
-        dest->w = TILESIZE;
-        dest->h = TILESIZE;
-
-        SDL_Rect* source = new SDL_Rect();
-        source->x = 0;
-        source->y = 0;
-        source->w = TILESIZE;
-        source->h = TILESIZE;
-        SDL_RenderCopy(Game::renderer, texture, source, dest);
-        delete dest;
-        delete source;
-    }
+    sprite.Draw(Vector2f(Game::screenSize.x / 2 - TILESIZE / 2, Game::screenSize.y / 2 - TILESIZE / 2), Vector2f());
 }
 
 void Player::Update() {

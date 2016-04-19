@@ -77,7 +77,7 @@ void SaveMap() {
     std::vector<std::vector<Tile>> map = World::layers[0].tiles;
 
     std::ofstream ofile("Resources/map.txt");
-    ofile << map[0].size() << " " << map.size() << std::endl;
+    ofile << map[0].size() << " " << map.size() << " " << World::layers.size() << std::endl;
     for(int y = 0; y < map.size(); y++) {
         for(int x = 0; x < map[0].size(); x++) {
             ofile << map[y][x].id << " ";
@@ -89,8 +89,10 @@ void SaveMap() {
 
 void LoadMap() {
     std::ifstream ifile("Resources/map.txt");
-    int w, h;
-    ifile >> w >> h;
+    std::vector<MapLayer> mapLayers;
+
+    int w, h, l;
+    ifile >> w >> h >> l;
     std::vector<std::vector<Tile>> map;
     for(int y = 0; y < h; y++) {
         std::vector<Tile> row;
@@ -103,6 +105,7 @@ void LoadMap() {
     }
     MapLayer layer = MapLayer();
     layer.tiles = map;
-
-    World::layers.push_back(layer);
+    mapLayers.push_back(layer);
+    World::layers = mapLayers;
+    ifile.close();
 }

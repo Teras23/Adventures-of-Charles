@@ -28,7 +28,7 @@ bool Renderer::Init() {
         return -1;
     }
 
-    glClearColor(0.0f, 0.5f, 1.0f, 0.0f);
+    glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
 
     programId = glCreateProgram();
 
@@ -95,6 +95,10 @@ bool Renderer::Init() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index), index, GL_STATIC_DRAW);
     return 0;
+}
+
+void Renderer::Quit() {
+
 }
 
 void Renderer::Render() {
