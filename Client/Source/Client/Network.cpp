@@ -1,7 +1,9 @@
 #include <SDL_net.h>
 #include <iostream>
-#include "Network.h"
 #include <string>
+
+#include "Network.h"
+#include "../Shared/Util.h"
 
 TCPsocket Network::connection;
 SDLNet_SocketSet Network::server;
@@ -12,17 +14,18 @@ bool Network::connected = false;
 void Network::Connect(std::string serverIP, int port) {
     IPaddress ip;
 
+    Console::Print("Connecting to: " + serverIP + ":" + std::to_string(port));
+
     //Resolve host
     if(SDLNet_ResolveHost(&ip, serverIP.c_str(), port) == -1) {
-        std::cout << "Error resolving to host " << SDLNet_GetError() << std::endl;
+        Console::PrintError("Error resolving to host", SDLNet_GetError());
         return;
     }
 
     //Make connection
-    std::cout << "Connecting to: " << serverIP << ":" << std::to_string(port) << std::endl;
     connection = SDLNet_TCP_Open(&ip);
     if(connection == NULL) {
-        std::cout << "Error connection to server (Wrong IP or Server Down)" << std::endl;
+        Console::PrintError("Error connection to server (Wrong IP or Server Down)", SDLNet_GetError());
         return;
     }
     else {
@@ -31,7 +34,7 @@ void Network::Connect(std::string serverIP, int port) {
     }
 
     connected = true;
-    std::cout << "Connected to server!" << std::endl;
+    Console::Print("Connected to server!");
 }
 
 void Network::Disconnect() {
@@ -46,7 +49,7 @@ void Network::Disconnect() {
 void Network::SendMessage(std::string msg) {
     int len = SDLNet_TCP_Send(connection, msg.c_str(), msg.size());
     if(len != msg.size()) {
-        std::cout << "Could not send message correctly" << std::endl;
+        Console::Print("Could not send message correctly");
     }
 }
 
@@ -68,7 +71,7 @@ void Network::ReceiveMessage() {
             case 0:     //Successful confirmation message from server with id
                 
                 sscanf(buffer, "%*d %d", &networkID);
-                std::cout << "Network ID: " << networkID << std::endl;
+                Console::Print("Network ID: " + std::to_string(networkID));
                 break;
             case 1:     //Some game data only to this client
                 //
@@ -77,11 +80,11 @@ void Network::ReceiveMessage() {
                 //
                 break;
             case 3:     //Server is full
-                std::cout << "The server you are trying to connect to is full" << std::endl;
+                Console::Print("The server you are trying to connect to is full");
                 Disconnect();
                 break;
             case 4:     //Someone Timed out
-                std::cout << "Timed out from server" << std::endl;
+                Console::Print("Timed out from server");
                 Disconnect();
                 break;
             case 5:     //Someone disconnected

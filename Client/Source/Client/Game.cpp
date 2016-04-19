@@ -89,10 +89,15 @@ int Game::Init() {
 
     SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
 
+    onlineMode = true;
+
     if(onlineMode) {
-        std::string ip = "192.168.1.79";
-        //ip = "127.0.0.1";
+        Console::Print("Running online");
+        std::string ip = "127.0.0.1";
         Network::Connect(ip, 1234);
+    }
+    else {
+        Console::Print("Running offline");
     }
     return 0;
 }

@@ -9,11 +9,13 @@ int main(int argc, char* argv[]) {
     }
     
 #if CLIENT
+    Console::Print("Running Client!");
     Game::onlineMode = false;
     if(Game::Init() == 0) {
         Game::Loop();
     }
 #elif SERVER
+    Console::Print("Running Server!");
     if(Server::Init() == 0) {
         Server::Loop();
     }
