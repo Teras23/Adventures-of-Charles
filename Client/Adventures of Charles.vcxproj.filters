@@ -22,156 +22,159 @@
     <Filter Include="Adventures of Charles\Client\Menus">
       <UniqueIdentifier>{623437fc-00cc-448b-a35a-ad228d3ef548}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Adventures of Charles\Shared\World">
+      <UniqueIdentifier>{87aa49f3-f9a5-476c-b909-2f89259b1319}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Adventures of Charles\Main.cpp">
+    <ClCompile Include="Source\Main.cpp">
       <Filter>Adventures of Charles</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Input.cpp">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Animation.cpp">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Game.cpp">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Network.cpp">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\World.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Util.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Client.cpp">
+    <ClCompile Include="Source\Server\Server.cpp">
       <Filter>Adventures of Charles\Server</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Server.cpp">
+    <ClCompile Include="Source\Server\Client.cpp">
       <Filter>Adventures of Charles\Server</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUIBox.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUIElement.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUIText.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Enemy.cpp">
+    <ClCompile Include="Source\Shared\Enemy.cpp">
       <Filter>Adventures of Charles\Shared\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Entity.cpp">
+    <ClCompile Include="Source\Shared\Entity.cpp">
       <Filter>Adventures of Charles\Shared\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Player.cpp">
-      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    <ClCompile Include="Source\Shared\MapLayer.cpp">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUITextBox.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
+    <ClCompile Include="Source\Shared\Tile.cpp">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUIButton.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
+    <ClCompile Include="Source\Shared\Util.cpp">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUICheckbox.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
+    <ClCompile Include="Source\Shared\World.cpp">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\Tile.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\MapLayer.cpp">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUITexture.cpp">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\GUI.cpp">
+    <ClCompile Include="Source\Client\Animation.cpp">
       <Filter>Adventures of Charles\Client</Filter>
     </ClCompile>
-    <ClCompile Include="Adventures of Charles\MenuEditor.cpp">
+    <ClCompile Include="Source\Client\Game.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUI.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\Input.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\Network.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\Player.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\Renderer.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\Sprite.cpp">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUIBox.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUIButton.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUICheckbox.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUIElement.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUIText.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUITextBox.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\GUITexture.cpp">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Client\MenuEditor.cpp">
       <Filter>Adventures of Charles\Client\Menus</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Renderer.cpp">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClCompile>
-    <ClCompile Include="Adventures of Charles\Sprite.cpp">
-      <Filter>Adventures of Charles\Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Adventures of Charles\Input.h">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Animation.h">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Game.h">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Network.h">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\World.h">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Util.h">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Client.h">
+    <ClInclude Include="Source\Server\Server.h">
       <Filter>Adventures of Charles\Server</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\Server.h">
+    <ClInclude Include="Source\Server\Client.h">
       <Filter>Adventures of Charles\Server</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUIBox.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUIElement.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUIText.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Enemy.h">
+    <ClInclude Include="Source\Shared\Enemy.h">
       <Filter>Adventures of Charles\Shared\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\Entity.h">
+    <ClInclude Include="Source\Shared\Entity.h">
       <Filter>Adventures of Charles\Shared\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\Player.h">
-      <Filter>Adventures of Charles\Shared\Entity</Filter>
+    <ClInclude Include="Source\Shared\MapLayer.h">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUITextBox.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
+    <ClInclude Include="Source\Shared\Tile.h">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUIButton.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
+    <ClInclude Include="Source\Shared\Util.h">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUICheckbox.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
+    <ClInclude Include="Source\Shared\World.h">
+      <Filter>Adventures of Charles\Shared\World</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\Tile.h">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\MapLayer.h">
-      <Filter>Adventures of Charles\Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUITexture.h">
-      <Filter>Adventures of Charles\Client\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\GUI.h">
+    <ClInclude Include="Source\Client\Animation.h">
       <Filter>Adventures of Charles\Client</Filter>
     </ClInclude>
-    <ClInclude Include="Adventures of Charles\MenuEditor.h">
+    <ClInclude Include="Source\Client\Game.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUI.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\Input.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\Network.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\Player.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\Renderer.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\Sprite.h">
+      <Filter>Adventures of Charles\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUIBox.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUIButton.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUICheckbox.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUIElement.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUIText.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUITextBox.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\GUITexture.h">
+      <Filter>Adventures of Charles\Client\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Client\MenuEditor.h">
       <Filter>Adventures of Charles\Client\Menus</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Renderer.h">
-      <Filter>Adventures of Charles\Client</Filter>
-    </ClInclude>
-    <ClInclude Include="Adventures of Charles\Sprite.h">
-      <Filter>Adventures of Charles\Client</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #ifndef GUIELEMENT_H
 #define GUIELEMENT_H
 #include <SDL.h>
-#include "Util.h"
+#include "../Shared/Util.h"
 #include "Game.h"
 
 class GUIElement {

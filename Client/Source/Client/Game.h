@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include <SDL_net.h>
 #include <map>
-#include "Util.h"
+#include "../Shared/Util.h"
 
 class Game {
     static bool running;

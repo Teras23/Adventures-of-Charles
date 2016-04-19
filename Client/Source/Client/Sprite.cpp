@@ -1,6 +1,6 @@
 #include "Sprite.h"
-#include "Util.h"
-#include "World.h"
+#include "../Shared/Util.h"
+#include "../Shared/World.h"
 #include "Game.h"
 
 Sprite::Sprite() {

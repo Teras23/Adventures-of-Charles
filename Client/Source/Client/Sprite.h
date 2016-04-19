@@ -1,7 +1,7 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 #include <SDL.h>
-#include "Util.h"
+#include "../Shared/Util.h"
 #include "Animation.h"
 
 class Sprite {

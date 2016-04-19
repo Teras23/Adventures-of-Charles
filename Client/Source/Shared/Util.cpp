@@ -1,8 +1,9 @@
-#include "Util.h"
 #include <SDL_image.h>
 #include <iostream>
-#include "Game.h"
 #include <fstream>
+
+#include "Util.h"
+#include "../Client/Game.h"
 #include "World.h"
 
 Vector2i::Vector2i() {

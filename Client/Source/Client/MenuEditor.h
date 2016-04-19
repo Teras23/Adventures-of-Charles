@@ -2,7 +2,7 @@
 #define MENUEDITOR_H
 #include <vector>
 
-#include "Util.h"
+#include "../Shared/Util.h"
 
 #include "GUIElement.h"
 #include "GUIBox.h"

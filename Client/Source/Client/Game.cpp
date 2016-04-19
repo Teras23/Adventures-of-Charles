@@ -3,11 +3,12 @@
 #include <iostream>
 #include "GUI.h"
 #include "Game.h"
-#include "World.h"
 #include "Input.h"
 #include "Network.h"
 #include "MenuEditor.h"
 #include "Renderer.h"
+#include "../Shared/World.h"
+#include "../Shared/Util.h"
 
 const int FRAMERATE = 300;
 

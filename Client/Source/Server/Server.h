@@ -3,6 +3,7 @@
 #include <SDL_net.h>
 #include <vector>
 #include "Client.h"
+#include "../Shared/Util.h"
 
 class Server {
     static int currentID;

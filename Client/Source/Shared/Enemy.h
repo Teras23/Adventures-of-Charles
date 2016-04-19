@@ -1,7 +1,7 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #include "Entity.h"
-#include "Game.h"
+#include "../Shared/Util.h"
 
 class EnemyBase : public Entity {
     float attackTime;

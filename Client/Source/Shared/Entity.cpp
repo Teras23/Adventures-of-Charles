@@ -1,9 +1,7 @@
 #include "Entity.h"
-#include "Game.h"
-#include "Input.h"
-#include <iostream>
-#include <SDL_image.h>
 #include "World.h"
+#include "../Client/Game.h"
+#include "../Client/Input.h"
 
 int Entity::curId = 0;
 

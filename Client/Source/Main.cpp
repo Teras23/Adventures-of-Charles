@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Game.h"
-#include "Server.h"
+#include "Client/Game.h"
+#include "Server/Server.h"
 
 int main(int argc, char* argv[]) {
 

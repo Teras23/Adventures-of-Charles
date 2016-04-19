@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "../Client/Game.h"
 
 EnemyBase::EnemyBase() {
     type = ENTITY_ENEMY_UNDEFINED;

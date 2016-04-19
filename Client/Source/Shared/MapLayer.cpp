@@ -1,6 +1,6 @@
 #include "MapLayer.h"
-#include "Game.h"
 #include "World.h"
+#include "../Client/Game.h"
 
 MapLayer::MapLayer() {
 

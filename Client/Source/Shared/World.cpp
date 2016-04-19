@@ -1,6 +1,7 @@
 #include "World.h"
 #include "Enemy.h"
-#include "Player.h"
+#include "../Client/Game.h"
+#include "../Client/Player.h"
 
 std::vector<Entity*> World::entities;
 std::vector<MapLayer> World::layers;

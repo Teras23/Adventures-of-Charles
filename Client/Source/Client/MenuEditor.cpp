@@ -1,5 +1,5 @@
 #include "MenuEditor.h"
-#include "World.h"
+#include "../Shared/World.h"
 
 int MenuEditor::selectedTile = 0;
 int MenuEditor::selectedLayer = 0;

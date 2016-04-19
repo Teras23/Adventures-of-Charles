@@ -7,7 +7,7 @@
 #include <vector>
 #include <map>
 
-#include "Util.h"
+#include "../Shared/Util.h"
 
 #include "GUIElement.h"
 #include "GUIBox.h"

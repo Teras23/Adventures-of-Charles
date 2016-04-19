@@ -1,9 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 #include <SDL.h>
-#include "Util.h"
-#include "Animation.h"
-#include "Sprite.h"
+#include "../Shared/Util.h"
+#include "../Client/Sprite.h"
+#include "../Client/Animation.h"
 
 enum EntityType {
     ENTITY_UNDEFINED,
