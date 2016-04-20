@@ -29,6 +29,8 @@ public:
 
     static void NextLayer();
     static void PrevLayer();
+
+    static void EditTile(Vector2i tile);
 };
 
 #endif

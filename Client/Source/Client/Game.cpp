@@ -209,6 +209,7 @@ void Game::Input() {
                 SDL_GetMouseState(&mousePos.x, &mousePos.y);
                 mousePos = World::GetGameMousePosition(mousePos);
                 Console::Print("Clicked on " + std::to_string(mousePos.x / 32) + " " + std::to_string(mousePos.y / 32));
+                MenuEditor::EditTile(Vector2i(mousePos.x / 32, mousePos.y / 32));
                 //Not clicked on gui
             }
             break;

@@ -87,3 +87,11 @@ void MenuEditor::PrevLayer() {
         selectedLayer--;
     }
 }
+
+void MenuEditor::EditTile(Vector2i tile) {
+    if(tile.x < 32 && tile.x >= 0) {
+        if(tile.y < 32 && tile.y >= 0) {
+            World::layers[selectedLayer].tiles[tile.y][tile.x].id = selectedTile + 1;
+        }
+    }
+}
