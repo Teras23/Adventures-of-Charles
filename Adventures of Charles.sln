@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adventures of Charles Clien
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		C + S|x64 = C + S|x64
-		C + S|x86 = C + S|x86
 		Client Debug|x64 = Client Debug|x64
 		Client Debug|x86 = Client Debug|x86
 		Debug|x64 = Debug|x64
@@ -19,10 +17,6 @@ Global
 		Server Debug|x86 = Server Debug|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.C + S|x64.ActiveCfg = CLIENT + SERVER|x64
-		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.C + S|x64.Build.0 = CLIENT + SERVER|x64
-		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.C + S|x86.ActiveCfg = C + S|Win32
-		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.C + S|x86.Build.0 = C + S|Win32
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Client Debug|x64.ActiveCfg = Client Debug|x64
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Client Debug|x64.Build.0 = Client Debug|x64
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Client Debug|x86.ActiveCfg = Client Debug|Win32
@@ -36,8 +30,8 @@ Global
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Release|x64.Build.0 = Release|x64
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Release|x86.ActiveCfg = Release|Win32
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Release|x86.Build.0 = Release|Win32
-		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Server Debug|x64.ActiveCfg = Server Debug|x64
-		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Server Debug|x64.Build.0 = Server Debug|x64
+		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Server Debug|x64.ActiveCfg = Client Debug|x64
+		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Server Debug|x64.Build.0 = Client Debug|x64
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Server Debug|x86.ActiveCfg = Server Debug|Win32
 		{0FF02622-640F-428F-ACB4-EFDF0AC5A68A}.Server Debug|x86.Build.0 = Server Debug|Win32
 	EndGlobalSection
