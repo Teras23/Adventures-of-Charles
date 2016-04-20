@@ -14,13 +14,14 @@ void World::Init() {
 }
 
 void World::Draw() {
-    for(int i = 0; i < layers.size(); i++) {
-        layers[i].Draw();
-    }
+    layers[0].Draw();
 
+    layers[1].Draw();
     for(int i = 0; i < entities.size(); i++) {
         entities[i]->Draw();
     }
+
+    layers[2].Draw();
 }
 
 void World::Update() {

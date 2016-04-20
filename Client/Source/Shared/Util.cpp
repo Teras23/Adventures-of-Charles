@@ -70,15 +70,20 @@ TTF_Font* LoadFont(std::string path) {
 }
 
 void SaveMap() {
-    std::vector<std::vector<Tile>> map = World::layers[0].tiles;
+    //std::vector<std::vector<Tile>> map = World::layers[0].tiles;
+    std::vector<MapLayer> map = World::layers;
 
     std::ofstream ofile("Resources/map.txt");
-    ofile << map[0].size() << " " << map.size() << " " << World::layers.size() << std::endl;
-    for(int y = 0; y < map.size(); y++) {
-        for(int x = 0; x < map[0].size(); x++) {
-            ofile << map[y][x].id << " ";
+
+    ofile << map[0].tiles[0].size() << " " << map[0].tiles.size() << " " << map.size() << std::endl;
+    for(int i = 0; i < map.size(); i++) {
+        std::vector<std::vector<Tile>> layer = map[i].tiles;
+        for(int y = 0; y < layer.size(); y++) {
+            for(int x = 0; x < layer[0].size(); x++) {
+                ofile << layer[y][x].id << " ";
+            }
+            ofile << std::endl;
         }
-        ofile << std::endl;
     }
     ofile.close();
 }
@@ -87,21 +92,30 @@ void LoadMap() {
     std::ifstream ifile("Resources/map.txt");
     std::vector<MapLayer> mapLayers;
 
-    int w, h, l;
-    ifile >> w >> h >> l;
-    std::vector<std::vector<Tile>> map;
-    for(int y = 0; y < h; y++) {
-        std::vector<Tile> row;
-        for(int x = 0; x < w; x++) {
-            int tileId = 0;
-            ifile >> tileId;
-            row.push_back(Tile(tileId));
-        }
-        map.push_back(row);
+    if(ifile.fail()) {
+        Console::PrintError("Failed to open map");
     }
-    MapLayer layer = MapLayer();
-    layer.tiles = map;
-    mapLayers.push_back(layer);
-    World::layers = mapLayers;
-    ifile.close();
+    else {
+        int w, h, l;
+        ifile >> w >> h >> l;
+
+        std::vector<MapLayer> map;
+
+        for(int i = 0; i < l; i++) {
+            MapLayer layer = MapLayer();
+            for(int y = 0; y < h; y++) {
+                std::vector<Tile> row;
+                for(int x = 0; x < w; x++) {
+                    int tileId = 0;
+                    ifile >> tileId;
+                    row.push_back(Tile(tileId));
+                }
+                layer.tiles.push_back(row);
+            }
+            map.push_back(layer);
+        }
+
+        World::layers = map;
+        ifile.close();
+    }
 }

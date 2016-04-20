@@ -76,10 +76,8 @@ void MenuEditor::PrevTile() {
     }
 }
 
-#define LAYERS 6
-
 void MenuEditor::NextLayer() {
-    if(selectedLayer + 1 < LAYERS) {
+    if(selectedLayer + 1 < World::layers.size()) {
         selectedLayer++;
     }
 }
