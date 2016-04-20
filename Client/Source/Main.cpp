@@ -4,13 +4,24 @@
 
 int main(int argc, char* argv[]) {
 
+    Game::onlineMode = false;
+
     for(int i = 1; i < argc; i++) {
-        std::cout << argv[i] << std::endl;
+        std::string argument = argv[i];
+        Console::Print(argv[i]);
+
+        if(argument.compare("-online") == 0) {
+            if(i + 1 < argc) {
+                Game::onlineMode = true;
+                Game::serverIp = argv[i + 1];
+                Console::Print(argv[i + 1]);
+                i++;
+            }
+        }
     }
     
 #if CLIENT
     Console::Print("Running Client!");
-    Game::onlineMode = false;
     if(Game::Init() == 0) {
         Game::Loop();
     }

@@ -21,6 +21,7 @@ SDL_Event Game::sdlEvent;
 Vector2i Game::screenSize;
 double Game::deltaTime;
 double Game::interpolation;
+std::string Game::serverIp = "127.0.0.1";
 
 std::map<std::string, SDL_Texture*> Game::textures;
 
@@ -89,12 +90,10 @@ int Game::Init() {
 
     SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0xFF, 0xFF);
 
-    onlineMode = true;
-
     if(onlineMode) {
         Console::Print("Running online");
-        std::string ip = "127.0.0.1";
-        Network::Connect(ip, 1234);
+        //serverIp = "192.168.1.79";
+        Network::Connect(serverIp, 1234);
     }
     else {
         Console::Print("Running offline");
@@ -121,7 +120,7 @@ int Game::Quit() {
 #define UPDATETIME 1000.0 / 60.0
 
 void Game::Loop() {
-    int lastTime = SDL_GetTicks();
+    double lastTime = SDL_GetTicks();
     deltaTime = 0.1;
     //deltaTime = UPDATETIME;
     double lag = 0.0;

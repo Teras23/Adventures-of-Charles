@@ -16,6 +16,7 @@ public:
     static double deltaTime;
     static double interpolation;
     static bool onlineMode;
+    static std::string serverIp;
 
     static std::map<std::string, SDL_Texture*> textures;
 
