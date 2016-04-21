@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "../Client/Game.h"
 #include "../Client/Player.h"
+#include "Collision.h"
 
 std::vector<Entity*> World::entities;
 std::vector<MapLayer> World::layers;
@@ -9,6 +10,9 @@ std::vector<MapLayer> World::layers;
 void World::Init() {
     entities = std::vector<Entity*>();
     entities.push_back(new Player());
+
+    AddEnemy();
+
     Tile::tilemap = Game::textures["Tilemap"];
     LoadMap();
 }
@@ -25,6 +29,9 @@ void World::Draw() {
 }
 
 void World::Update() {
+
+    Collision::TestCollision(entities[0], entities[1]);
+
     for(int i = 0; i < entities.size(); i++) {
         entities[i]->Update();
     }
@@ -41,7 +48,7 @@ Entity* World::GetPlayer() {
 
 void World::AddEnemy() {
     EnemySolder* enemy = new EnemySolder();
-    enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y + 32));
+    enemy->SetPosition(Vector2f(World::GetPlayer()->GetPosition().x, World::GetPlayer()->GetPosition().y + 40));
     entities.push_back(enemy);
 }
 
