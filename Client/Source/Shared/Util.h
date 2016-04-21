@@ -26,6 +26,17 @@ public:
     float y;
 };
 
+class Rect {
+public:
+    Rect();
+    Rect(int x, int y, int w, int h);
+    int x;
+    int y;
+    int w;
+    int h;
+    SDL_Rect* GetSDLRect();
+};
+
 class Console {
 public:
     static void Print(std::string text);

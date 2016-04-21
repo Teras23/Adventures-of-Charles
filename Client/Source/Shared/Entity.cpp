@@ -14,6 +14,7 @@ Entity::Entity() {
     velocity = Vector2f(0, 0);
 
     speed = 10.0f;
+    collider = Rect(0, 0, 32, 32);
 
     maxHealth = 100;
     health = maxHealth;
@@ -21,6 +22,11 @@ Entity::Entity() {
     isAlive = true;
     isVisible = true;
     isStatic = false;
+    isCollidable = true;
+}
+
+void Entity::Use() {
+    Console::Print(std::to_string(type) + " with id " + std::to_string(id) + " was used");
 }
 
 #define PLAYERSIZE 32
@@ -54,4 +60,8 @@ void Entity::SetPosition(Vector2f pos) {
 
 EntityType Entity::GetType() {
     return type;
+}
+
+Rect Entity::GetCollider() {
+    return collider;
 }
