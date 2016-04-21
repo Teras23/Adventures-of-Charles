@@ -25,7 +25,7 @@ bld/
 /x64
 /x86
 /Client/x64
-
+/Client/Client Debug
 
 # Visual Studio 2015 cache/options directory
 .vs/
