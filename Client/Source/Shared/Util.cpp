@@ -26,29 +26,6 @@ Vector2f::Vector2f(float x, float y) {
     this->y = y;
 }
 
-Rect::Rect() {
-    x = 0;
-    y = 0;
-    w = 0;
-    h = 0;
-}
-
-Rect::Rect(int x, int y, int w, int h) {
-    this->x = x;
-    this->y = y;
-    this->w = w;
-    this->h = h;
-}
-
-SDL_Rect* Rect::GetSDLRect() {
-    SDL_Rect rect = SDL_Rect();
-    rect.x = x;
-    rect.y = y;
-    rect.w = w;
-    rect.h = h;
-    return &rect;
-}
-
 void Console::Print(std::string msg) {
     std::cout << msg << std::endl;
 }

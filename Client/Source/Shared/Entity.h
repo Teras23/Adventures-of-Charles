@@ -26,10 +26,8 @@ protected:
     bool isAlive;
     bool isVisible;
     bool isStatic;
-    bool isCollidable;
 
     Sprite sprite;
-    Rect collider;
 
     int id;
     static int curId;
@@ -37,7 +35,6 @@ protected:
 public:
     Entity();
 
-    virtual void Use();
     virtual void Draw();
     virtual void Update();
 
@@ -45,8 +42,6 @@ public:
 
     Vector2f GetPosition();
     void SetPosition(Vector2f position);
-
-    Rect GetCollider();
 };
 
 #endif

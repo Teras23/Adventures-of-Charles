@@ -5,7 +5,7 @@
 Player::Player() {
     type = ENTITY_PLAYER;
     sprite.texture = Game::textures["PlayerTexture"];
-    //position = Vector2f((float)Game::screenSize.x / 2 - TILESIZE / 2, (float)Game::screenSize.y / 2 - TILESIZE / 2);
+    position = Vector2f(Game::screenSize.x / 2 - TILESIZE / 2, Game::screenSize.y / 2 - TILESIZE / 2);
     position = Vector2f(0, 0);
     health = 100;
     speed = 20.0f;
@@ -30,6 +30,6 @@ void Player::Update() {
     if(Input::APressed) {
         velocity.x = -1 * speed * Game::deltaTime;
     }
-
-    Entity::Update();
+    position.x += velocity.x;
+    position.y += velocity.y;
 }
