@@ -102,6 +102,9 @@
     <ClCompile Include="Source\Client\MenuEditor.cpp">
       <Filter>Adventures of Charles\Client\Menus</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Shared\Collision.cpp">
+      <Filter>Adventures of Charles\Shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Server\Server.h">
@@ -175,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="Source\Client\MenuEditor.h">
       <Filter>Adventures of Charles\Client\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\Collision.h">
+      <Filter>Adventures of Charles\Shared</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

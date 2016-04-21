@@ -54,6 +54,7 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Server\Client.cpp" />
     <ClCompile Include="Source\Server\Server.cpp" />
+    <ClCompile Include="Source\Shared\Collision.cpp" />
     <ClCompile Include="Source\Shared\Enemy.cpp" />
     <ClCompile Include="Source\Shared\Entity.cpp" />
     <ClCompile Include="Source\Shared\MapLayer.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="Source\Client\Sprite.h" />
     <ClInclude Include="Source\Server\Client.h" />
     <ClInclude Include="Source\Server\Server.h" />
+    <ClInclude Include="Source\Shared\Collision.h" />
     <ClInclude Include="Source\Shared\Enemy.h" />
     <ClInclude Include="Source\Shared\Entity.h" />
     <ClInclude Include="Source\Shared\MapLayer.h" />
