@@ -17,5 +17,6 @@ namespace Eucolus
 
 	private:
 		GLuint m_texture;
+		int height, width;
 	};
 }

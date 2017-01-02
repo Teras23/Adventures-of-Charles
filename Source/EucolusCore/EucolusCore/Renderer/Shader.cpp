@@ -87,7 +87,9 @@ namespace Eucolus
 
 		//Setting the projection and model matrix for this shader
 
-		glm::mat4 projMat = glm::ortho(0.0f, 2.0f, 2.0f, 0.0f, -1.0f, 1.0f);
+		//HARDCODED WIDTH AND HEIGHT!!!!!!!!
+
+		glm::mat4 projMat = glm::ortho(0.0f, 300.0f, 300.0f, 0.0f, -1.0f, 1.0f);
 		glUniformMatrix4fv(projMatrixLocation, 1, GL_FALSE, glm::value_ptr(projMat));
 
 		glm::mat4 modelMat = glm::mat4();

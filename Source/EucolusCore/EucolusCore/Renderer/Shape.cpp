@@ -32,10 +32,10 @@ namespace Eucolus
 		fillColor = Colorf(1.0f, 1.0f, 1.0f, 1.0f);
 
 		Vertex vertices[] = {
-			Vertex(Vector2f(0, 0), fillColor, Vector2f(0.0f, 0.0f)), //Top left
-			Vertex(Vector2f(1, 0), fillColor, Vector2f(1.0f, 0.0f)), //Top right
-			Vertex(Vector2f(1, 1), fillColor, Vector2f(1.0f, 1.0f)), //Bottom right
-			Vertex(Vector2f(0, 1), fillColor, Vector2f(0.0f, 1.0f)) //Bottom left
+			Vertex(Vector2f(position.m_x, position.m_y), fillColor, Vector2f(0.0f, 0.0f)), //Top left
+			Vertex(Vector2f(size.m_x, 0), fillColor, Vector2f(1.0f, 0.0f)), //Top right
+			Vertex(Vector2f(size.m_x,size.m_y), fillColor, Vector2f(1.0f, 1.0f)), //Bottom right
+			Vertex(Vector2f(0, size.m_y), fillColor, Vector2f(0.0f, 1.0f)) //Bottom left
 		};
 
 		glGenBuffers(1, &vbo);

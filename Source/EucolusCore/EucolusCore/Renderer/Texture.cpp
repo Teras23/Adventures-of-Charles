@@ -12,6 +12,9 @@ namespace Eucolus
 			Console::PrintError("Could not load image: " + path);
 		}
 
+		width = sdlSurface->w;
+		height = sdlSurface->h;
+
 		glGenTextures(1, &m_texture);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 
