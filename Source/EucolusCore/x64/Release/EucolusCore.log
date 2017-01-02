@@ -1,0 +1,23 @@
+﻿  Game.cpp
+  GUI.cpp
+  GUIButton.cpp
+  GUIElement.cpp
+  GUILabel.cpp
+  GUIPanel.cpp
+  EucolusLua.cpp
+  Renderer.cpp
+  Color.cpp
+EucolusCore\Utility\Color.cpp(18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+EucolusCore\Utility\Color.cpp(27): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Console.cpp
+  Window.cpp
+SDL2_net.lib(SDL2_net.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+opengl32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+GUIElement.obj : warning LNK4006: "public: virtual void __cdecl Eucolus::GUI::Element::Render(void)" (?Render@Element@GUI@Eucolus@@UEAAXXZ) already defined in GUILabel.obj; second definition ignored
+GUIElement.obj : warning LNK4006: "public: virtual void __cdecl Eucolus::GUI::Element::Update(void)" (?Update@Element@GUI@Eucolus@@UEAAXXZ) already defined in GUILabel.obj; second definition ignored
+GUIElement.obj : warning LNK4006: "public: __cdecl Eucolus::GUI::Element::~Element(void)" (??1Element@GUI@Eucolus@@QEAA@XZ) already defined in GUILabel.obj; second definition ignored
+GUIElement.obj : warning LNK4006: "public: __cdecl Eucolus::GUI::Element::Element(void)" (??0Element@GUI@Eucolus@@QEAA@XZ) already defined in GUILabel.obj; second definition ignored
+  EucolusCore.vcxproj -> C:\Users\KarlMartin\Documents\Adventures of Charles\x64\Release\EucolusCore.lib

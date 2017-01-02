@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EucolusCore\Audio\Audio.cpp" />
+    <ClCompile Include="EucolusCore\Game.cpp" />
+    <ClCompile Include="EucolusCore\GameState.cpp" />
+    <ClCompile Include="EucolusCore\GameStateMenu.cpp" />
+    <ClCompile Include="EucolusCore\GameStatePlaying.cpp" />
+    <ClCompile Include="EucolusCore\GUI\GUI.cpp" />
+    <ClCompile Include="EucolusCore\GUI\GUIButton.cpp" />
+    <ClCompile Include="EucolusCore\GUI\GUIElement.cpp" />
+    <ClCompile Include="EucolusCore\GUI\GUILabel.cpp" />
+    <ClCompile Include="EucolusCore\GUI\GUIPanel.cpp" />
+    <ClCompile Include="EucolusCore\Lua\EucolusLua.cpp" />
+    <ClCompile Include="EucolusCore\Network\Network.cpp" />
+    <ClCompile Include="EucolusCore\Renderer\Renderable.cpp" />
+    <ClCompile Include="EucolusCore\Renderer\Renderer.cpp" />
+    <ClCompile Include="EucolusCore\Renderer\Shader.cpp" />
+    <ClCompile Include="EucolusCore\Renderer\Shape.cpp" />
+    <ClCompile Include="EucolusCore\Renderer\Texture.cpp" />
+    <ClCompile Include="EucolusCore\Utility\Color.cpp" />
+    <ClCompile Include="EucolusCore\Utility\Console.cpp" />
+    <ClCompile Include="EucolusCore\Utility\FileSystem.cpp" />
+    <ClCompile Include="EucolusCore\Utility\Vector2.cpp" />
+    <ClCompile Include="EucolusCore\Utility\Vector3.cpp" />
+    <ClCompile Include="EucolusCore\Utility\Vertex.cpp" />
+    <ClCompile Include="EucolusCore\Window.cpp" />
+    <ClCompile Include="EucolusCore\World\Component.cpp" />
+    <ClCompile Include="EucolusCore\World\Entity.cpp" />
+    <ClCompile Include="EucolusCore\World\GameObject.cpp" />
+    <ClCompile Include="EucolusCore\World\Tilemap.cpp" />
+    <ClCompile Include="EucolusCore\World\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EucolusCore\Audio\Audio.h" />
+    <ClInclude Include="EucolusCore\Game.h" />
+    <ClInclude Include="EucolusCore\GameState.h" />
+    <ClInclude Include="EucolusCore\GameStateMenu.h" />
+    <ClInclude Include="EucolusCore\GameStatePlaying.h" />
+    <ClInclude Include="EucolusCore\GUI\GUI.h" />
+    <ClInclude Include="EucolusCore\GUI\GUIButton.h" />
+    <ClInclude Include="EucolusCore\GUI\GUIElement.h" />
+    <ClInclude Include="EucolusCore\GUI\GUILabel.h" />
+    <ClInclude Include="EucolusCore\GUI\GUIPanel.h" />
+    <ClInclude Include="EucolusCore\Lua\EucolusLua.h" />
+    <ClInclude Include="EucolusCore\Network\Network.h" />
+    <ClInclude Include="EucolusCore\Renderer\Renderable.h" />
+    <ClInclude Include="EucolusCore\Renderer\Renderer.h" />
+    <ClInclude Include="EucolusCore\Renderer\Shader.h" />
+    <ClInclude Include="EucolusCore\Renderer\Shape.h" />
+    <ClInclude Include="EucolusCore\Renderer\Texture.h" />
+    <ClInclude Include="EucolusCore\Utility\Color.h" />
+    <ClInclude Include="EucolusCore\Utility\Console.h" />
+    <ClInclude Include="EucolusCore\Utility\FileSystem.h" />
+    <ClInclude Include="EucolusCore\Utility\Utility.h" />
+    <ClInclude Include="EucolusCore\Utility\Vector2.h" />
+    <ClInclude Include="EucolusCore\Utility\Vector3.h" />
+    <ClInclude Include="EucolusCore\Utility\Vertex.h" />
+    <ClInclude Include="EucolusCore\Window.h" />
+    <ClInclude Include="EucolusCore\World\Component.h" />
+    <ClInclude Include="EucolusCore\World\Entity.h" />
+    <ClInclude Include="EucolusCore\World\GameObject.h" />
+    <ClInclude Include="EucolusCore\World\Tilemap.h" />
+    <ClInclude Include="EucolusCore\World\World.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1FDD80AC-1F63-4927-87BF-10F55AE23FC8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>EucolusCore</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\Dependencies\Lua\include;$(SolutionDir)\Dependencies\SDL2\include;$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)\Dependencies\SDL2_image\include;$(SolutionDir)\Dependencies\SDL2_net\include;$(SolutionDir)\Dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\Lua;$(SolutionDir)\Dependencies\SDL2\lib\x86;$(SolutionDir)\Dependencies\SDL2_ttf\lib\x86;$(SolutionDir)\Dependencies\SDL2_image\lib\x86;$(SolutionDir)\Dependencies\SDL2_net\lib\x86;$(SolutionDir)\Dependencies\GLEW\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\Dependencies\Lua\include;$(SolutionDir)\Dependencies\SDL2\include;$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)\Dependencies\SDL2_image\include;$(SolutionDir)\Dependencies\SDL2_net\include;$(SolutionDir)\Dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\Lua;$(SolutionDir)\Dependencies\SDL2\lib\x86;$(SolutionDir)\Dependencies\SDL2_ttf\lib\x86;$(SolutionDir)\Dependencies\SDL2_image\lib\x86;$(SolutionDir)\Dependencies\SDL2_net\lib\x86;$(SolutionDir)\Dependencies\GLEW\lib\Release\Win32;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)\Dependencies\Lua\include;$(SolutionDir)\Dependencies\SDL2\include;$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)\Dependencies\SDL2_image\include;$(SolutionDir)\Dependencies\SDL2_net\include;$(SolutionDir)\Dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\Lua;$(SolutionDir)\Dependencies\SDL2\lib\x64;$(SolutionDir)\Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)\Dependencies\SDL2_image\lib\x64;$(SolutionDir)\Dependencies\SDL2_net\lib\x64;$(SolutionDir)\Dependencies\GLEW\lib\Release\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)\Dependencies\Lua\include;$(SolutionDir)\Dependencies\SDL2\include;$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)\Dependencies\SDL2_image\include;$(SolutionDir)\Dependencies\SDL2_net\include;$(SolutionDir)\Dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\Lua;$(SolutionDir)\Dependencies\SDL2\lib\x64;$(SolutionDir)\Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)\Dependencies\SDL2_image\lib\x64;$(SolutionDir)\Dependencies\SDL2_net\lib\x64;$(SolutionDir)\Dependencies\GLEW\lib\Release\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
