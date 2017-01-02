@@ -81,7 +81,7 @@ namespace Eucolus
 		glDeleteShader(m_fragmentShader);
 	}
 
-	void Shader::Bind()
+	void Shader::Bind(Vector2f position)
 	{
 		glUseProgram(m_program);
 
@@ -93,6 +93,7 @@ namespace Eucolus
 		glUniformMatrix4fv(projMatrixLocation, 1, GL_FALSE, glm::value_ptr(projMat));
 
 		glm::mat4 modelMat = glm::mat4();
+		modelMat = glm::translate(modelMat, glm::vec3(position.m_x, position.m_y, 0));
 		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMat));
 	}
 

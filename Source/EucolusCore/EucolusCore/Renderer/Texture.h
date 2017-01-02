@@ -7,16 +7,16 @@
 
 namespace Eucolus
 {
-	class Texture : public Renderable
+	class Texture : public Rect
 	{
 	public:
-		Texture(std::string path);
+		Texture(std::string path, Vector2f, Vector2f, Vector2f);
 		~Texture();
 
-		void Render();
+		void Render(Vector2f);
 
 	private:
 		GLuint m_texture;
-		int height, width;
+		int m_height, m_width;
 	};
 }

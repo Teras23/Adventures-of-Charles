@@ -1,6 +1,9 @@
 #pragma once
 
 #include <GL/glew.h>
+#include "Renderer/Shader.h"
+#include "Utility/Utility.h"
+#include <memory>
 
 namespace Eucolus {
 	class Renderable
@@ -11,6 +14,7 @@ namespace Eucolus {
 
 		virtual void Render();
 	protected:
-		GLuint vbo, ibo;
+		GLuint m_vbo, m_ibo;
+		std::shared_ptr<Shader> m_shader;
 	};
 }

@@ -1,11 +1,11 @@
 #include "Renderer/Renderer.h"
 #include "Renderer/Shape.h"
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+#include "Renderer/Texture.h"
 
 namespace Eucolus
 {
+	std::vector<std::shared_ptr<Shader>> Renderer::_shaders;
+
 	Renderer::Renderer(std::shared_ptr<Window> window) :
 		m_window(window)
 	{
@@ -45,6 +45,11 @@ namespace Eucolus
 		return false;
 	}
 
+	std::vector<std::shared_ptr<Shader>> Renderer::GetShaders()
+	{
+		return _shaders;
+	}
+
 	bool Renderer::InitGL()
 	{
 		glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
@@ -55,7 +60,7 @@ namespace Eucolus
 
 		glCreateProgram();
 
-		m_shaders.push_back(std::make_shared<Shader>("Resources/Shaders/textureShading"));
+		_shaders.push_back(std::make_shared<Shader>("Resources/Shaders/textureShading"));
 		return false;
 	}
 
@@ -63,12 +68,12 @@ namespace Eucolus
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		m_shaders[0]->Bind();
+		//Rect rect = Rect(Vector2f(0, 0), Vector2f(128, 128), Color(255, 0, 255, 255));
+		Texture texture = Texture("Resources/Textures/player.png", Vector2f(0, 0), Vector2f(64, 64), Vector2f(32, 32));
+		texture.Render(Vector2f(0, 0));
 
-		Rect rect = Rect(Vector2f(0, 0), Vector2f(128, 128), Color(255, 0, 255, 255));
-		Texture texture = Texture("Resources/Textures/player.png");
-		texture.Render();
-		rect.Render();
+		Texture texture2 = Texture("Resources/Textures/player.png", Vector2f(0, 0), Vector2f(128, 128), Vector2f(64, 64));
+		texture2.Render(Vector2f(100, 0));
 
 		SDL_GL_SwapWindow(m_window->GetSDLWindow());
 	}
@@ -76,10 +81,6 @@ namespace Eucolus
 	bool Renderer::Quit()
 	{
 		return false;
-	}
-
-	void Renderer::DrawTexture(Vector2f position, Vector2f size, Texture texture)
-	{
 	}
 
 	void Renderer::DrawRect(Vector2f position, Vector2f size, Color color)

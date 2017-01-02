@@ -5,8 +5,6 @@
 
 int main(int argc, char* args[])
 {
-	std::cout << "Test" << std::endl;
-
 	Eucolus::LuaManager lm = Eucolus::LuaManager();
 
 	auto game = Eucolus::Game();

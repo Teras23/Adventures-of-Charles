@@ -2,6 +2,7 @@
 
 #include <gl/glew.h>
 #include <string>
+#include "Utility/Utility.h"
 
 namespace Eucolus
 {
@@ -12,8 +13,7 @@ namespace Eucolus
 		Shader(std::string shaderPath);
 		~Shader();
 
-		void Bind();
-		bool Compile(std::string shaderSource, GLuint shader);
+		void Bind(Vector2f);
 
 	private:
 		GLuint m_vertexShader;
@@ -23,5 +23,7 @@ namespace Eucolus
 
 		GLuint projMatrixLocation;
 		GLuint modelMatrixLocation;
+
+		bool Compile(std::string shaderSource, GLuint shader);
 	};
 }

@@ -9,8 +9,8 @@ namespace Eucolus
 
 	Renderable::~Renderable()
 	{
-		glDeleteBuffers(1, &vbo);
-		glDeleteBuffers(1, &ibo);
+		glDeleteBuffers(1, &m_vbo);
+		glDeleteBuffers(1, &m_ibo);
 	}
 
 	void Renderable::Render()
