@@ -118,6 +118,9 @@
     <ClCompile Include="EucolusCore\Renderer\Renderable.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="EucolusCore\Utility\Vector4.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EucolusCore\Game.h">
@@ -209,6 +212,9 @@
     </ClInclude>
     <ClInclude Include="EucolusCore\Renderer\Renderable.h">
       <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\Utility\Vector4.h">
+      <Filter>Source Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

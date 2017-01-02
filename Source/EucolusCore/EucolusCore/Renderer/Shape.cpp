@@ -1,5 +1,7 @@
 #include "Renderer/Shape.h"
 #include "Utility/Utility.h"
+#include <glm/gtc/matrix_transform.inl>
+#include "Renderer.h"
 
 namespace Eucolus
 {
@@ -30,10 +32,10 @@ namespace Eucolus
 		fillColor = Colorf(1.0f, 1.0f, 1.0f, 1.0f);
 
 		Vertex vertices[] = {
-			Vertex(Vector2f(-0.5f, 0.5f), fillColor, Vector2f(0.0f, 0.0f)), //Top left
-			Vertex(Vector2f(0.5f, 0.5f), fillColor, Vector2f(1.0f, 0.0f)), //Top right
-			Vertex(Vector2f(0.5f, -0.5f), fillColor, Vector2f(1.0f, 1.0f)), //Bottom right
-			Vertex(Vector2f(-0.5f, -0.5f), fillColor, Vector2f(0.0f, 1.0f)) //Bottom left
+			Vertex(Vector2f(0, 0), fillColor, Vector2f(0.0f, 0.0f)), //Top left
+			Vertex(Vector2f(1, 0), fillColor, Vector2f(1.0f, 0.0f)), //Top right
+			Vertex(Vector2f(1, 1), fillColor, Vector2f(1.0f, 1.0f)), //Bottom right
+			Vertex(Vector2f(0, 1), fillColor, Vector2f(0.0f, 1.0f)) //Bottom left
 		};
 
 		glGenBuffers(1, &vbo);

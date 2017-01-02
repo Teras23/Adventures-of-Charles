@@ -1,5 +1,8 @@
-#include "Renderer\Renderer.h"
-#include "Renderer\Shape.h"
+#include "Renderer/Renderer.h"
+#include "Renderer/Shape.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace Eucolus {
 	Renderer::Renderer(std::shared_ptr<Window> window) :
@@ -50,10 +53,10 @@ namespace Eucolus {
 	}
 
     void Renderer::Render() {
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		
 
 		m_shaders[0]->Bind();
-		
+
 		Rect rect = Rect(Vector2f(0, 0), Vector2f(32, 32), Color(255, 0, 255, 255));
 		Texture texture = Texture("Resources/Textures/player.png");
 		texture.Render();

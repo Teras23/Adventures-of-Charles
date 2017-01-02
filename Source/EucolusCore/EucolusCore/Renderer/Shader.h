@@ -1,15 +1,16 @@
-#ifndef SHADER_H
-#define SHADER_H
+#pragma once;
 
-#include <gl\glew.h>
+#include <gl/glew.h>
 #include <string>
 
-namespace Eucolus {
-    class Shader {
-    public:
+namespace Eucolus
+{
+	class Shader
+	{
+	public:
 		Shader();
 		Shader(std::string shaderPath);
-        ~Shader();
+		~Shader();
 
 		void Bind();
 		bool Compile(std::string shaderSource, GLuint shader);
@@ -19,7 +20,8 @@ namespace Eucolus {
 		GLuint m_fragmentShader;
 
 		GLuint m_program;
-    };
-}
 
-#endif
+		GLuint projMatrixLocation;
+		GLuint modelMatrixLocation;
+	};
+}

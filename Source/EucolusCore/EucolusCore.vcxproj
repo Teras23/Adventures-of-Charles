@@ -41,6 +41,7 @@
     <ClCompile Include="EucolusCore\Utility\FileSystem.cpp" />
     <ClCompile Include="EucolusCore\Utility\Vector2.cpp" />
     <ClCompile Include="EucolusCore\Utility\Vector3.cpp" />
+    <ClCompile Include="EucolusCore\Utility\Vector4.cpp" />
     <ClCompile Include="EucolusCore\Utility\Vertex.cpp" />
     <ClCompile Include="EucolusCore\Window.cpp" />
     <ClCompile Include="EucolusCore\World\Component.cpp" />
@@ -73,6 +74,7 @@
     <ClInclude Include="EucolusCore\Utility\Utility.h" />
     <ClInclude Include="EucolusCore\Utility\Vector2.h" />
     <ClInclude Include="EucolusCore\Utility\Vector3.h" />
+    <ClInclude Include="EucolusCore\Utility\Vector4.h" />
     <ClInclude Include="EucolusCore\Utility\Vertex.h" />
     <ClInclude Include="EucolusCore\Window.h" />
     <ClInclude Include="EucolusCore\World\Component.h" />
@@ -155,7 +157,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Dependencies\glm;C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,7 +174,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Dependencies\glm;C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -191,7 +193,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Dependencies\glm;C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -212,7 +214,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\KarlMartin\Documents\Adventures of Charles\Dependencies\glm;C:\Users\KarlMartin\Documents\Adventures of Charles\Source\EucolusCore\EucolusCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
