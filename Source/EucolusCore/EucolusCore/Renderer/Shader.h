@@ -21,7 +21,7 @@ namespace Eucolus
 
 		GLuint m_program;
 
-		GLuint projMatrixLocation;
-		GLuint modelMatrixLocation;
+		GLuint m_projMatrixLocation;
+		GLuint m_modelMatrixLocation;
 	};
 }

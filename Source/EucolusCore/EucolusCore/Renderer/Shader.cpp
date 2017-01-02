@@ -5,6 +5,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Game.h"
+
 namespace Eucolus
 {
 	Shader::Shader()
@@ -61,13 +63,13 @@ namespace Eucolus
 		//Getting proj and model matrix position in this shader (program)
 
 		glUseProgram(m_program);
-		projMatrixLocation = glGetUniformLocation(m_program, "projectionMatrix");
-		modelMatrixLocation = glGetUniformLocation(m_program, "modelMatrix");
+		m_projMatrixLocation = glGetUniformLocation(m_program, "projectionMatrix");
+		m_modelMatrixLocation = glGetUniformLocation(m_program, "modelMatrix");
 
 		GLenum error = glGetError();
 		if(error != GL_NO_ERROR)
 		{
-			printf("Error initializing OpenGL! %s\n", gluErrorString(error));
+			printf("Error ceating uniform locations! %s\n", gluErrorString(error));
 		}
 
 		glDetachShader(m_program, m_vertexShader);
@@ -87,11 +89,13 @@ namespace Eucolus
 
 		//Setting the projection and model matrix for this shader
 
+		Game::GetGame();
+
 		glm::mat4 projMat = glm::ortho(0.0f, 2.0f, 2.0f, 0.0f, -1.0f, 1.0f);
-		glUniformMatrix4fv(projMatrixLocation, 1, GL_FALSE, glm::value_ptr(projMat));
+		glUniformMatrix4fv(m_projMatrixLocation, 1, GL_FALSE, glm::value_ptr(projMat));
 
 		glm::mat4 modelMat = glm::mat4();
-		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMat));
+		glUniformMatrix4fv(m_modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMat));
 	}
 
 	bool Shader::Compile(std::string shaderSource, GLuint shader)

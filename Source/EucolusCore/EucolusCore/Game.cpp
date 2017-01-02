@@ -4,11 +4,14 @@
 
 namespace Eucolus
 {
+	std::shared_ptr<Game> Game::_gameSingleton = nullptr;
+
 	Game::Game() :
 		m_renderer(nullptr),
 		m_window(nullptr),
 		m_gameState(nullptr)
 	{
+		Console::Print("Game Created");
 	}
 
 	Game::~Game()
@@ -33,9 +36,9 @@ namespace Eucolus
 			return true;
 		}
 
-		m_window = std::make_shared<Window>(windowName, windowPosition, windowSize);
-		m_renderer = std::make_shared<Renderer>(m_window);
-
+		m_window = Window::GetWindow();
+		m_window->Init(windowName, windowPosition, windowSize);
+		m_renderer = Renderer::GetRenderer();
 		m_renderer->Init();
 
 		Console::Print("Game initialization complete!");
@@ -76,5 +79,14 @@ namespace Eucolus
 		Console::Print("Game closed normally!");
 		SDL_Quit();
 		return false;
+	}
+
+	std::shared_ptr<Game> Game::GetGame()
+	{
+		if(_gameSingleton == nullptr)
+		{
+			_gameSingleton = std::make_shared<Game>();
+		}
+		return _gameSingleton;
 	}
 }

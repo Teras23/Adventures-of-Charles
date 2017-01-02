@@ -1,23 +1,26 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
-#include "Utility\Utility.h"
+#include "Utility/Utility.h"
 
 #include <SDL.h>
 #include <memory>
-#include <string>
 
-namespace Eucolus {
-    class Window {
-    public:
-        Window(std::string windowName, Vector2f windowPosition, Vector2f windowSize);
-        ~Window();
+namespace Eucolus
+{
+	class Window
+	{
+	public:
+		Window();
+		~Window();
+
+		void Init(std::string windowName, Vector2f windowPosition, Vector2f windowSize);
 
 		SDL_Window* GetSDLWindow();
 
-    private:
+		static std::shared_ptr<Window> GetWindow();
+	private:
 		SDL_Window* m_sdlWindow = nullptr;
-    };
-}
 
-#endif
+		static std::shared_ptr<Window> _windowSingleton;
+	};
+}

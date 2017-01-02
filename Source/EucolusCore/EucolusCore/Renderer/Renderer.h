@@ -1,5 +1,5 @@
-#ifndef RENDERER_H
-#define RENDERER_H
+#pragma once
+
 #include "Window.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Shader.h"
@@ -15,7 +15,7 @@ namespace Eucolus
 	class Renderer
 	{
 	public:
-		Renderer(std::shared_ptr<Window> window);
+		Renderer();
 		~Renderer();
 
 		bool Init();
@@ -28,14 +28,13 @@ namespace Eucolus
 		void DrawLine(Vector2f origin, Vector2f destination, Color color); //Line width
 		void DrawText(Vector2f origin, std::string text); //Text size, font
 
-	private:
+		static std::shared_ptr<Renderer> GetRenderer();
+
+	protected:
 		bool InitGL();
-
 		std::vector<std::shared_ptr<Shader>> m_shaders;
-
 		SDL_GLContext m_glContext;
-		std::shared_ptr<Window> m_window;
+
+		static std::shared_ptr<Renderer> _rendererSingleton;
 	};
 }
-
-#endif
