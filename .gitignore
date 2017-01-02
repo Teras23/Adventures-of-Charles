@@ -5,6 +5,8 @@
 *.sln.docstates
 *.vcxproj.filters
 
+!Dependencies/*
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -62,9 +64,6 @@ artifacts/
 *.svclog
 *.scc
 
-# Chutzpah Test files
-_Chutzpah*
-
 # Visual C++ cache files
 ipch/
 *.aps
@@ -81,9 +80,6 @@ ipch/
 *.vsp
 *.vspx
 *.sap
-
-# TFS 2012 Local Workspace
-$tf/
 
 # Guidance Automation Toolkit
 *.gpState
