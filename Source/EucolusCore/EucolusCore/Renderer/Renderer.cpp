@@ -3,15 +3,14 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "Game.h"
 
 namespace Eucolus {
-
-	std::shared_ptr<Renderer> Renderer::_rendererSingleton = nullptr;
-
-	Renderer::Renderer()
+	Renderer::Renderer(std::shared_ptr<Window> window) :
+		m_window(window)
 	{
-		Console::Print("Renderer Created");
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     }
 
     Renderer::~Renderer() {
@@ -19,23 +18,9 @@ namespace Eucolus {
     }
 
     bool Renderer::Init() {
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		m_glContext = SDL_GL_CreateContext(m_window->GetSDLWindow());
 
-		SDL_Window* sdlWindow = Window::GetWindow()->GetSDLWindow();
-
-		if(sdlWindow == nullptr)
-		{
-			Console::PrintError("Could not get SDL Window");
-			return true;
-		}
-
-		SDL_GLContext context = SDL_GL_CreateContext(sdlWindow);
-
-    	m_glContext = context;
-
-		if(context == nullptr) {
+		if(m_glContext == nullptr) {
 			Console::PrintError("Could not create OpenGL context");
 			return true;
 		}
@@ -43,7 +28,7 @@ namespace Eucolus {
 		GLenum glewError = glewInit();
 
 		if(glewError != GLEW_OK) {
-			Console::PrintError("GLEW init error " + std::to_string(glewError));
+			Console::PrintError("GLEW init error");
 			return true;
 		}
 
@@ -51,20 +36,8 @@ namespace Eucolus {
 			Console::PrintError("Error initing OpenGL");
 		}
 
-		Console::Print("Game initialization complete!");
-
 		return false;
     }
-
-	std::shared_ptr<Renderer> Renderer::GetRenderer()
-	{
-		if(_rendererSingleton == nullptr)
-		{
-			std::make_shared<Renderer>();
-		}
-
-		return _rendererSingleton;
-	}
 
 	bool Renderer::InitGL() {
 		glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
@@ -89,7 +62,7 @@ namespace Eucolus {
 		texture.Render();
 		rect.Render();
 
-		SDL_GL_SwapWindow(Game::GetGame()->m_window->GetSDLWindow());
+		SDL_GL_SwapWindow(m_window->GetSDLWindow());
     }
 
     bool Renderer::Quit() {

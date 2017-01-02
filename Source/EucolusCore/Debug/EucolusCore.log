@@ -1,2 +1,5 @@
-﻿  Shader.cpp
+﻿  Shape.cpp
+  Shader.cpp
+  Renderer.cpp
+  Generating Code...
   EucolusCore.vcxproj -> C:\Users\KarlMartin\Documents\Adventures of Charles\Debug\EucolusCore.lib
