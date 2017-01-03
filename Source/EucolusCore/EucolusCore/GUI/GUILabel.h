@@ -1,22 +1,23 @@
-#ifndef GUILABEL_H
-#define GUILABEL_H
-#include "Utility\Utility.h"
-#include "GUI\GUIElement.h"
+#pragma once
 
-namespace Eucolus {
-    namespace GUI {
-		class Label : Element{
-        public:
+#include "Utility/Utility.h"
+#include "GUI/GUIElement.h"
+
+namespace Eucolus
+{
+	namespace GUI
+	{
+		class Label : Element
+		{
+		public:
 			Label();
-            ~Label();
+			~Label();
 
-            void Update();
-            void Render();
+			void Update();
+			void Render();
 
-        private:
+		private:
 			std::string m_text;
-        };
-    }
+		};
+	}
 }
-
-#endif

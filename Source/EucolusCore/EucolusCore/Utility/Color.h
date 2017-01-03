@@ -1,22 +1,23 @@
-#ifndef COLOR_H
-#define COLOR_H
+#pragma once
 
-namespace Eucolus {
-
-    class Color {
-    public:
+namespace Eucolus
+{
+	class Color
+	{
+	public:
 		Color();
 		Color(int r, int b, int g);
 		Color(int r, int b, int g, int a);
-        ~Color();
+		~Color();
 
 		int m_r;
 		int m_b;
 		int m_g;
 		int m_a;
-    };
+	};
 
-	class Colorf{
+	class Colorf
+	{
 	public:
 		Colorf();
 		Colorf(float r, float b, float g);
@@ -31,5 +32,3 @@ namespace Eucolus {
 
 	Colorf ToColorf(Color);
 }
-
-#endif

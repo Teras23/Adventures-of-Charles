@@ -1,5 +1,5 @@
-#ifndef EUCOLUSLUA_H
-#define EUCOLUSLUA_H
+#pragma once
+
 
 #include <memory>
 
@@ -10,19 +10,19 @@
 }*/
 #include <lua.hpp>
 
-namespace Eucolus {
-    class LuaManager {
-    public:
+namespace Eucolus
+{
+	class LuaManager
+	{
+	public:
 		LuaManager();
-        ~LuaManager();
+		~LuaManager();
 
-        bool Init();
-        void Update();
+		bool Init();
+		void Update();
 		bool Quit();
 
-    private:
-		lua_State *m_L;
-    };
+	private:
+		lua_State* m_L;
+	};
 }
-
-#endif

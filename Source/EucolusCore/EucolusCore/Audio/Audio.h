@@ -1,15 +1,13 @@
-#ifndef AUDIO_H
-#define AUDIO_H
+#pragma once
 
-namespace Eucolus {
-    class Audio {
-    public:
-        Audio();
-        ~Audio();
+namespace Eucolus
+{
+	class Audio
+	{
+	public:
+		Audio();
+		~Audio();
 
-    private:
-
-    };
+	private:
+	};
 }
-
-#endif

@@ -1,22 +1,23 @@
 #include "GUI/GUILabel.h"
 
-namespace Eucolus {
-    namespace GUI {
-        Label::Label() {
-
-        }
-
-		Label::~Label() {
-
-        }
-
-		void Label::Update() {
-
+namespace Eucolus
+{
+	namespace GUI
+	{
+		Label::Label()
+		{
 		}
 
-		void Label::Render() {
-
+		Label::~Label()
+		{
 		}
-    }
+
+		void Label::Update()
+		{
+		}
+
+		void Label::Render()
+		{
+		}
+	}
 }
-

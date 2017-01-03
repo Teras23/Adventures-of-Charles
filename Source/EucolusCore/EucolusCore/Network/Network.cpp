@@ -1,23 +1,26 @@
-#include "NetWork.h"
+#include "Network/Network.h"
 
-namespace Eucolus {
-    Network::Network() {
+namespace Eucolus
+{
+	Network::Network()
+	{
+	}
 
-    }
+	Network::~Network()
+	{
+	}
 
-    Network::~Network() {
-
-    }
-
-    bool Network::Init() {
+	bool Network::Init()
+	{
 		return false;
-    }
+	}
 
-    void Network::Update() {
+	void Network::Update()
+	{
+	}
 
-    }
-
-    bool Network::Quit() {
+	bool Network::Quit()
+	{
 		return false;
-    }
+	}
 }

@@ -1,22 +1,22 @@
-#ifndef GUIBUTTON_H
-#define GUIBUTTON_H
-#include "Utility\Utility.h"
-#include "GUI\GUIElement.h"
+#pragma once
 
-namespace Eucolus {
-    namespace GUI {
-        class Button : Element {
-        public:
+#include "Utility/Utility.h"
+#include "GUI/GUIElement.h"
+
+namespace Eucolus
+{
+	namespace GUI
+	{
+		class Button : Element
+		{
+		public:
 			Button();
-            ~Button();
+			~Button();
 
-            void Update();
-            void Render();
+			void Update();
+			void Render();
 
-        private:
-			
-        };
-    }
+		private:
+		};
+	}
 }
-
-#endif

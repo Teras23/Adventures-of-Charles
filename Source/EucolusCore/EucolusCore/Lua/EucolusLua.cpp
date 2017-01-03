@@ -1,6 +1,6 @@
-#include "Lua\EucolusLua.h"
+#include "Lua/EucolusLua.h"
 
-#include "Utility\Utility.h"
+#include "Utility/Utility.h"
 
 #include <iostream>
 #include <LuaBridge.h>
@@ -8,8 +8,10 @@
 
 using namespace luabridge;
 
-namespace Eucolus {
-	LuaManager::LuaManager() {
+namespace Eucolus
+{
+	LuaManager::LuaManager()
+	{
 		m_L = luaL_newstate();
 
 		luaL_dofile(m_L, "test.lua");
@@ -20,9 +22,9 @@ namespace Eucolus {
 
 		std::cout << s.cast<std::string>();
 
-		getGlobalNamespace(m_L)	
+		getGlobalNamespace(m_L)
 			.beginNamespace("Console")
-				.addFunction("Print", Console::Print)
+			.addFunction("Print", Console::Print)
 			.endNamespace();
 
 		LuaRef initFunction = getGlobal(m_L, "Init");
@@ -31,21 +33,23 @@ namespace Eucolus {
 		LuaRef renderFunction = getGlobal(m_L, "Render");
 
 		std::cout << "LuaManager Initialized" << std::endl;
-    }
+	}
 
-	LuaManager::~LuaManager() {
+	LuaManager::~LuaManager()
+	{
+	}
 
-    }
-
-    bool LuaManager::Init() {
+	bool LuaManager::Init()
+	{
 		return false;
-    }
+	}
 
-    void LuaManager::Update() {
+	void LuaManager::Update()
+	{
+	}
 
-    }
-
-	bool LuaManager::Quit() {
+	bool LuaManager::Quit()
+	{
 		lua_close(m_L);
 		return false;
 	}

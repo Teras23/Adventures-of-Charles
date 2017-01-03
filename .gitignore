@@ -1,11 +1,12 @@
+!Dependencies/*
+!Dependencies/
+
 # User-specific files
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 *.vcxproj.filters
-
-!Dependencies/*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

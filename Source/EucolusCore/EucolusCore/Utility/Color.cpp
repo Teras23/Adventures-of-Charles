@@ -1,14 +1,14 @@
-#include "Utility\Color.h"
+#include "Utility/Color.h"
 
-namespace Eucolus {
+namespace Eucolus
+{
 	Color::Color() :
 		m_r(0),
 		m_b(0),
 		m_g(0),
 		m_a(0)
 	{
-
-    }
+	}
 
 	Color::Color(int r, int b, int g) :
 		m_r(r),
@@ -16,7 +16,6 @@ namespace Eucolus {
 		m_g(g),
 		m_a(255)
 	{
-
 	}
 
 	Color::Color(int r, int b, int g, int a) :
@@ -25,12 +24,11 @@ namespace Eucolus {
 		m_g(g),
 		m_a(a)
 	{
-
 	}
-	
-	Color::~Color() {
 
-    }
+	Color::~Color()
+	{
+	}
 
 	//
 	//Colorf
@@ -42,7 +40,6 @@ namespace Eucolus {
 		m_g(1.0f),
 		m_a(1.0f)
 	{
-
 	}
 
 	Colorf::Colorf(float r, float b, float g) :
@@ -51,7 +48,6 @@ namespace Eucolus {
 		m_g(g),
 		m_a(1.0f)
 	{
-
 	}
 
 	Colorf::Colorf(float r, float b, float g, float a) :
@@ -60,17 +56,17 @@ namespace Eucolus {
 		m_g(g),
 		m_a(a)
 	{
-
 	}
 
-	Colorf::~Colorf() {
-
+	Colorf::~Colorf()
+	{
 	}
 
-	Colorf ToColorf(Color color) {
-		return Colorf((float)(color.m_r) / 255.0f, 
-			(float)(color.m_b) / 255.0f,
-			(float)(color.m_g) / 255.0f,
-			(float)(color.m_a) / 255.0f);
+	Colorf ToColorf(Color color)
+	{
+		return Colorf((float)(color.m_r) / 255.0f,
+		              (float)(color.m_b) / 255.0f,
+		              (float)(color.m_g) / 255.0f,
+		              (float)(color.m_a) / 255.0f);
 	}
 }

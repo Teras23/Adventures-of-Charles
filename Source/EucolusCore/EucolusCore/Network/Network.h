@@ -1,19 +1,17 @@
-#ifndef NETWORK_H
-#define NETWORK_H
+#pragma once
 
-namespace Eucolus {
-    class Network {
-    public:
-        Network();
-        ~Network();
+namespace Eucolus
+{
+	class Network
+	{
+	public:
+		Network();
+		~Network();
 
-        bool Init();
-        void Update();
-        bool Quit();
+		bool Init();
+		void Update();
+		bool Quit();
 
-    private:
-
-    };
+	private:
+	};
 }
-
-#endif

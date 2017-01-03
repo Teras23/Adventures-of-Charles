@@ -1,11 +1,12 @@
 #include "Audio.h"
 
-namespace Eucolus {
-    Audio::Audio() {
+namespace Eucolus
+{
+	Audio::Audio()
+	{
+	}
 
-    }
-
-    Audio::~Audio() {
-
-    }
+	Audio::~Audio()
+	{
+	}
 }

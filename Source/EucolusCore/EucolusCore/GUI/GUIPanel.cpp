@@ -1,26 +1,27 @@
 #include "GUI/GUIPanel.h"
 
-namespace Eucolus {
-    namespace GUI {
-        Panel::Panel() {
-
-        }
-
-		Panel::~Panel() {
-
-        }
-
-		void Panel::Update() {
-
+namespace Eucolus
+{
+	namespace GUI
+	{
+		Panel::Panel()
+		{
 		}
 
-		void Panel::Render() {
-
+		Panel::~Panel()
+		{
 		}
 
-		void Panel::AddElement() {
-
+		void Panel::Update()
+		{
 		}
-    }
+
+		void Panel::Render()
+		{
+		}
+
+		void Panel::AddElement()
+		{
+		}
+	}
 }
-
