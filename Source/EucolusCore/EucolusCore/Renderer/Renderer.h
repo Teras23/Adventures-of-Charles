@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Window.h"
+#include "Game/Window.h"
 #include "Renderer/Shader.h"
 
 #include <SDL.h>
@@ -18,9 +18,11 @@ namespace Eucolus
 		~Renderer();
 
 		bool Init();
-		void Render();
+		void StartRender();
+		void EndRender();
 		bool Quit();
 
+		void DrawTexture(Vector2f position, Vector2f size, Vector2f origin);
 		void DrawRect(Vector2f position, Vector2f size, Color color);
 		void DrawRectBorder(Vector2f position, Vector2f size, Color color); //Border width
 		void DrawLine(Vector2f origin, Vector2f destination, Color color); //Line width
@@ -31,7 +33,7 @@ namespace Eucolus
 	private:
 		bool InitGL();
 
-		static std::vector<std::shared_ptr<Shader>> _shaders;
+		static std::vector<std::shared_ptr<Eucolus::Shader>> _shaders;
 
 		SDL_GLContext m_glContext;
 		std::shared_ptr<Window> m_window;

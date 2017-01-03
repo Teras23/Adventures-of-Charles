@@ -29,23 +29,14 @@
     <Filter Include="Source Files\Utility">
       <UniqueIdentifier>{9a0255f1-3a92-40d3-9bc3-0d866b599a7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\World\Components">
+      <UniqueIdentifier>{bb769f61-49f0-4d64-af2d-d2e11bb0ff82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{80e5f786-71cf-4991-bed3-58981ed61ec0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EucolusCore\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EucolusCore\GameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EucolusCore\GameStateMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EucolusCore\GameStatePlaying.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EucolusCore\Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EucolusCore\World\Component.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
@@ -121,23 +112,29 @@
     <ClCompile Include="EucolusCore\Utility\Vector4.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="EucolusCore\World\Components\MovementComponent.cpp">
+      <Filter>Source Files\World\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="EucolusCore\World\Components\RenderComponent.cpp">
+      <Filter>Source Files\World\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="EucolusCore\Game\GameStateMenu.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EucolusCore\Game\GameStatePlaying.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EucolusCore\Game\Window.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EucolusCore\Game\GameState.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EucolusCore\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EucolusCore\Game.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EucolusCore\GameState.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EucolusCore\GameStateMenu.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EucolusCore\GameStatePlaying.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EucolusCore\Window.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="EucolusCore\World\Component.h">
       <Filter>Source Files\World</Filter>
     </ClInclude>
@@ -215,6 +212,27 @@
     </ClInclude>
     <ClInclude Include="EucolusCore\Utility\Vector4.h">
       <Filter>Source Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\World\Components\MovementComponent.h">
+      <Filter>Source Files\World\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\World\Components\RenderComponent.h">
+      <Filter>Source Files\World\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\Game\GameState.h">
+      <Filter>Source Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\Game\GameStateMenu.h">
+      <Filter>Source Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\Game\GameStatePlaying.h">
+      <Filter>Source Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\Game\Window.h">
+      <Filter>Source Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EucolusCore\Game.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

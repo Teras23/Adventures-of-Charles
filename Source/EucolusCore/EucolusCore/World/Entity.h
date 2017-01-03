@@ -1,23 +1,23 @@
-#ifndef ENTITY_H
-#define ENTITY_H
+#pragma once
+
 #include "GameObject.h"
 #include "Component.h"
 
 #include <vector>
 #include <memory>
 
-namespace Eucolus {
-    class Entity : GameObject {
-    public:
-        Entity();
-        ~Entity();
+namespace Eucolus
+{
+	class Entity : public GameObject
+	{
+	public:
+		Entity();
+		~Entity();
 
-        bool Init();
-        void Update();
+		bool Init();
+		void Update();
 
-    private:
-        std::vector<std::shared_ptr<Component>> components;
-    };
+	private:
+		
+	};
 }
-
-#endif

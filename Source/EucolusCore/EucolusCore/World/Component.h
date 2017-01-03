@@ -1,18 +1,15 @@
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#pragma once
 
-namespace Eucolus {
-    class Component {
-    public:
-        Component();
-        ~Component();
+namespace Eucolus
+{
+	class Component
+	{
+	public:
+		Component();
+		~Component();
 
-        virtual bool Init();
-        virtual void Update();
-
-    private:
-        
-    };
+		virtual bool Init();
+		virtual void Update();
+		virtual void Render();
+	};
 }
-
-#endif

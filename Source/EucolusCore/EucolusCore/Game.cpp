@@ -1,6 +1,7 @@
-#include "Game.h"
 #include <iostream>
 #include <SDL_image.h>
+#include "Game.h"
+#include "Utility/Utility.h"
 
 namespace Eucolus
 {
@@ -38,6 +39,8 @@ namespace Eucolus
 
 		m_renderer->Init();
 
+		m_world = std::make_shared<World>();
+
 		Console::Print("Game initialization complete!");
 
 		return false;
@@ -61,7 +64,11 @@ namespace Eucolus
 
 			Update();
 
-			m_renderer->Render();
+			m_renderer->StartRender();
+
+			m_world->Render();
+
+			m_renderer->EndRender();
 			SDL_Delay(1);
 		}
 		Quit();

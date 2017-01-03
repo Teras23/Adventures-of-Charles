@@ -1,6 +1,6 @@
 #include "Renderer/Texture.h"
 #include <SDL_image.h>
-#include "Renderer.h"
+#include "Renderer/Renderer.h"
 
 namespace Eucolus
 {
@@ -85,5 +85,7 @@ namespace Eucolus
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); //Actually signed int
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 }

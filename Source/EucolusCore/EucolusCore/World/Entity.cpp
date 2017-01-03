@@ -1,19 +1,21 @@
 #include "Entity.h"
 
-namespace Eucolus {
-    Entity::Entity() {
+namespace Eucolus
+{
+	Entity::Entity()
+	{
+	}
 
-    }
+	Entity::~Entity()
+	{
+	}
 
-    Entity::~Entity() {
-
-    }
-
-    bool Entity::Init() {
+	bool Entity::Init()
+	{
 		return false;
-    }
+	}
 
-    void Entity::Update() {
-
-    }
+	void Entity::Update()
+	{
+	}
 }

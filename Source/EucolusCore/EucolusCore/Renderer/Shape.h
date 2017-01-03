@@ -13,12 +13,12 @@ namespace Eucolus
 		~Shape();
 	};
 
-	class Rect : public Shape
+	class DrawableRect : public Shape
 	{
 	public:
-		Rect();
-		Rect(Vector2f position, Vector2f size, Color color);
-		~Rect();
+		DrawableRect();
+		DrawableRect(Vector2f position, Vector2f size, Color color);
+		~DrawableRect();
 
 		void Render();
 		void RenderBorder();

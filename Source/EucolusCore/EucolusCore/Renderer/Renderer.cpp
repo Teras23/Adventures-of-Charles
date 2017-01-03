@@ -1,6 +1,6 @@
 #include "Renderer/Renderer.h"
-#include "Renderer/Shape.h"
 #include "Renderer/Texture.h"
+#include "Renderer/Shape.h"
 
 namespace Eucolus
 {
@@ -64,7 +64,7 @@ namespace Eucolus
 		return false;
 	}
 
-	void Renderer::Render()
+	void Renderer::StartRender()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -75,6 +75,13 @@ namespace Eucolus
 		Texture texture2 = Texture("Resources/Textures/player.png", Vector2f(0, 0), Vector2f(128, 128), Vector2f(64, 64));
 		texture2.Render(Vector2f(100, 0));
 
+		DrawableRect rect = DrawableRect(Vector2f(0, 100), Vector2f(100, 100), Color(30, 255, 255));
+		rect.RenderBorder();
+	}
+
+
+	void Renderer::EndRender()
+	{
 		SDL_GL_SwapWindow(m_window->GetSDLWindow());
 	}
 

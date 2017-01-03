@@ -21,9 +21,10 @@
   <ItemGroup>
     <ClCompile Include="EucolusCore\Audio\Audio.cpp" />
     <ClCompile Include="EucolusCore\Game.cpp" />
-    <ClCompile Include="EucolusCore\GameState.cpp" />
-    <ClCompile Include="EucolusCore\GameStateMenu.cpp" />
-    <ClCompile Include="EucolusCore\GameStatePlaying.cpp" />
+    <ClCompile Include="EucolusCore\Game\GameState.cpp" />
+    <ClCompile Include="EucolusCore\Game\GameStateMenu.cpp" />
+    <ClCompile Include="EucolusCore\Game\GameStatePlaying.cpp" />
+    <ClCompile Include="EucolusCore\Game\Window.cpp" />
     <ClCompile Include="EucolusCore\GUI\GUI.cpp" />
     <ClCompile Include="EucolusCore\GUI\GUIButton.cpp" />
     <ClCompile Include="EucolusCore\GUI\GUIElement.cpp" />
@@ -43,8 +44,9 @@
     <ClCompile Include="EucolusCore\Utility\Vector3.cpp" />
     <ClCompile Include="EucolusCore\Utility\Vector4.cpp" />
     <ClCompile Include="EucolusCore\Utility\Vertex.cpp" />
-    <ClCompile Include="EucolusCore\Window.cpp" />
     <ClCompile Include="EucolusCore\World\Component.cpp" />
+    <ClCompile Include="EucolusCore\World\Components\MovementComponent.cpp" />
+    <ClCompile Include="EucolusCore\World\Components\RenderComponent.cpp" />
     <ClCompile Include="EucolusCore\World\Entity.cpp" />
     <ClCompile Include="EucolusCore\World\GameObject.cpp" />
     <ClCompile Include="EucolusCore\World\Tilemap.cpp" />
@@ -53,9 +55,10 @@
   <ItemGroup>
     <ClInclude Include="EucolusCore\Audio\Audio.h" />
     <ClInclude Include="EucolusCore\Game.h" />
-    <ClInclude Include="EucolusCore\GameState.h" />
-    <ClInclude Include="EucolusCore\GameStateMenu.h" />
-    <ClInclude Include="EucolusCore\GameStatePlaying.h" />
+    <ClInclude Include="EucolusCore\Game\GameState.h" />
+    <ClInclude Include="EucolusCore\Game\GameStateMenu.h" />
+    <ClInclude Include="EucolusCore\Game\GameStatePlaying.h" />
+    <ClInclude Include="EucolusCore\Game\Window.h" />
     <ClInclude Include="EucolusCore\GUI\GUI.h" />
     <ClInclude Include="EucolusCore\GUI\GUIButton.h" />
     <ClInclude Include="EucolusCore\GUI\GUIElement.h" />
@@ -76,8 +79,9 @@
     <ClInclude Include="EucolusCore\Utility\Vector3.h" />
     <ClInclude Include="EucolusCore\Utility\Vector4.h" />
     <ClInclude Include="EucolusCore\Utility\Vertex.h" />
-    <ClInclude Include="EucolusCore\Window.h" />
     <ClInclude Include="EucolusCore\World\Component.h" />
+    <ClInclude Include="EucolusCore\World\Components\MovementComponent.h" />
+    <ClInclude Include="EucolusCore\World\Components\RenderComponent.h" />
     <ClInclude Include="EucolusCore\World\Entity.h" />
     <ClInclude Include="EucolusCore\World\GameObject.h" />
     <ClInclude Include="EucolusCore\World\Tilemap.h" />

@@ -1,19 +1,26 @@
 #include "Component.h"
 
-namespace Eucolus {
-    Component::Component() {
+namespace Eucolus
+{
+	Component::Component()
+	{
+	}
 
-    }
+	Component::~Component()
+	{
+	}
 
-    Component::~Component() {
-
-    }
-
-    bool Component::Init() {
+	bool Component::Init()
+	{
 		return false;
-    }
+	}
 
-    void Component::Update() {
+	void Component::Update()
+	{
+	}
 
-    }
+	void Component::Render()
+	{
+	}
+
 }

@@ -1,4 +1,5 @@
-﻿  Texture.cpp
-  Renderer.cpp
+﻿  RenderComponent.cpp
+  MovementComponent.cpp
+  Component.cpp
   Generating Code...
   EucolusCore.vcxproj -> C:\Users\KarlMartin\Documents\Adventures of Charles\Debug\EucolusCore.lib

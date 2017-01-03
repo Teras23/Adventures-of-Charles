@@ -1,13 +1,13 @@
 #pragma once
 
 #include "Utility/Utility.h"
-#include "Renderer/Shape.h"
+#include "Renderer/Renderable.h"
 
 #include <GL/glew.h>
 
 namespace Eucolus
 {
-	class Texture : public Rect
+	class Texture : public Renderable
 	{
 	public:
 		Texture(std::string path, Vector2f, Vector2f, Vector2f);
