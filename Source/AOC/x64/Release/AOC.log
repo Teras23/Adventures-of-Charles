@@ -1,9 +1,0 @@
-﻿  AOC.cpp
-AOC.obj : error LNK2001: unresolved external symbol "public: __cdecl Eucolus::LuaManager::~LuaManager(void)" (??1LuaManager@Eucolus@@QEAA@XZ)
-AOC.obj : error LNK2001: unresolved external symbol "public: __cdecl Eucolus::LuaManager::LuaManager(void)" (??0LuaManager@Eucolus@@QEAA@XZ)
-AOC.obj : error LNK2001: unresolved external symbol "public: __cdecl Eucolus::Vector2::~Vector2(void)" (??1Vector2@Eucolus@@QEAA@XZ)
-AOC.obj : error LNK2001: unresolved external symbol "public: __cdecl Eucolus::Vector2::Vector2(float,float)" (??0Vector2@Eucolus@@QEAA@MM@Z)
-AOC.obj : error LNK2001: unresolved external symbol "public: bool __cdecl Eucolus::Game::Init(void)" (?Init@Game@Eucolus@@QEAA_NXZ)
-AOC.obj : error LNK2001: unresolved external symbol "public: __cdecl Eucolus::Game::~Game(void)" (??1Game@Eucolus@@QEAA@XZ)
-AOC.obj : error LNK2001: unresolved external symbol "public: __cdecl Eucolus::Game::Game(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Eucolus::Vector2,class Eucolus::Vector2)" (??0Game@Eucolus@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VVector2@1@1@Z)
-C:\Users\KarlMartin\Documents\Adventures of Charles\x64\Release\AOC.exe : fatal error LNK1120: 7 unresolved externals
