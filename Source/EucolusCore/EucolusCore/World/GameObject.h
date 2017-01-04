@@ -1,9 +1,8 @@
 #pragma once
-#include "Component.h"
+
 #include "Utility/Utility.h"
-#include <vector>
-#include <memory>
-#include "Components/RenderComponent.h"
+#include "World/Component.h"
+#include "World/Components/RenderComponent.h"
 
 namespace Eucolus
 {

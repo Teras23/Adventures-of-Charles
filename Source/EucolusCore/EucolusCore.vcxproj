@@ -20,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EucolusCore\Audio\Audio.cpp" />
+    <ClCompile Include="EucolusCore\Collision\BoxCollider.cpp" />
+    <ClCompile Include="EucolusCore\Collision\Collider.cpp" />
+    <ClCompile Include="EucolusCore\Collision\Collision.cpp" />
     <ClCompile Include="EucolusCore\Game.cpp" />
     <ClCompile Include="EucolusCore\Game\GameState.cpp" />
     <ClCompile Include="EucolusCore\Game\GameStateMenu.cpp" />
@@ -45,6 +48,7 @@
     <ClCompile Include="EucolusCore\Utility\Vector4.cpp" />
     <ClCompile Include="EucolusCore\Utility\Vertex.cpp" />
     <ClCompile Include="EucolusCore\World\Component.cpp" />
+    <ClCompile Include="EucolusCore\World\Components\CollisionComponent.cpp" />
     <ClCompile Include="EucolusCore\World\Components\MovementComponent.cpp" />
     <ClCompile Include="EucolusCore\World\Components\RenderComponent.cpp" />
     <ClCompile Include="EucolusCore\World\Entity.cpp" />
@@ -54,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EucolusCore\Audio\Audio.h" />
+    <ClInclude Include="EucolusCore\Collision\BoxCollider.h" />
+    <ClInclude Include="EucolusCore\Collision\Collider.h" />
+    <ClInclude Include="EucolusCore\Collision\Collision.h" />
     <ClInclude Include="EucolusCore\Game.h" />
     <ClInclude Include="EucolusCore\Game\GameState.h" />
     <ClInclude Include="EucolusCore\Game\GameStateMenu.h" />
@@ -80,6 +87,7 @@
     <ClInclude Include="EucolusCore\Utility\Vector4.h" />
     <ClInclude Include="EucolusCore\Utility\Vertex.h" />
     <ClInclude Include="EucolusCore\World\Component.h" />
+    <ClInclude Include="EucolusCore\World\Components\CollisionComponent.h" />
     <ClInclude Include="EucolusCore\World\Components\MovementComponent.h" />
     <ClInclude Include="EucolusCore\World\Components\RenderComponent.h" />
     <ClInclude Include="EucolusCore\World\Entity.h" />

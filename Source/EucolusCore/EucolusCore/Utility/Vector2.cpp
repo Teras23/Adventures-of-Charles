@@ -17,4 +17,11 @@ namespace Eucolus
 	Vector2f::~Vector2f()
 	{
 	}
+
+	Vector2f Vector2f::operator+=(Vector2f second)
+	{
+		m_x += second.m_x;
+		m_y += second.m_y;
+		return *this;
+	}
 }

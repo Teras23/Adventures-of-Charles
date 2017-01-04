@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include "Game.h"
 #include "Utility/Utility.h"
+#include "Collision/Collision.h"
 
 namespace Eucolus
 {
@@ -62,13 +63,13 @@ namespace Eucolus
 				}
 			}
 
+			//Get Input
+
 			Update();
+			Collision::CollisionUpdate();
 
-			m_renderer->StartRender();
+			Render();
 
-			m_world->Render();
-
-			m_renderer->EndRender();
 			SDL_Delay(1);
 		}
 		Quit();
@@ -76,7 +77,20 @@ namespace Eucolus
 
 	void Game::Update()
 	{
+		m_world->Update();
 	}
+
+	void Game::Render()
+	{
+		m_renderer->StartRender();
+
+		m_world->Render();
+
+		//Render GUI
+
+		m_renderer->EndRender();
+	}
+
 
 	bool Game::Quit()
 	{

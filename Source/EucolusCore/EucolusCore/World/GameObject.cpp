@@ -25,6 +25,7 @@ namespace Eucolus
 
 	void GameObject::AddComponent(std::shared_ptr<Component> c)
 	{
+		c->m_parent = this;
 		m_components.push_back(c);
 	}
 

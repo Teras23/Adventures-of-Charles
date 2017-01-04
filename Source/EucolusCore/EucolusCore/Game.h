@@ -19,6 +19,7 @@ namespace Eucolus
 		bool Init(std::string windowName, Vector2f windowPosition, Vector2f windowSize);
 		void Run();
 		void Update();
+		void Render();
 		bool Quit();
 
 		std::shared_ptr<GameState> m_gameState;
